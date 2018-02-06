@@ -1,0 +1,23 @@
+{
+	"files": {
+		"memu-res.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "memu-res.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true
+					}
+				}
+			],
+			"sources": [
+				"memu-res.less"
+			]
+		}
+	}
+}

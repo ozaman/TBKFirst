@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <title>Cart-tour</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/detail.css">
+  <link rel="stylesheet" type="text/css" href="css/default.css">
+  <link rel="stylesheet" type="text/css" href="css/default.date.css">
+  <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+  <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="js/jquery-cookie.js" type="text/javascript"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jquery.modal.min.js" type="text/javascript"></script>
+  <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+  <script src="js/main-jquery.js" type="text/javascript"></script>
+  <script src="js/picker.js" type="text/javascript"></script>
+  <script src="js/picker.date.js" type="text/javascript"></script>
+   <script src="js/owl.carousel.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main-script.js" type="text/javascript"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+ 
+ <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+  <script src="https://code.angularjs.org/1.4.8/angular-cookies.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getItem()">    
+    <div id="fountainTextG3-form" ng-style="anmateprocess">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div class="contain-fluid" ng-style="body">
+        <header id="menu-web">        
+            <nav class="navbar navbar-default">              
+                <div class="navbar-header">
+                    <div>
+                        <button type="button" class="navbar-toggle " id="focus" ng-click="clickresMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="navbar-brand" ng-click="gohome()">Go Holiday</a>
+                    </div>
+                    <div class="cart-menu" ng-click="cartBook()" id="none-menu">
+                        <img src="icon/cart27.png" id="cartitem" >
+                        <span class="cast-num">{{cart.length}}</span>
+                    </div>
+                    
+                </div>
+                <div class=" nav navbar-nav dropdown" id="navb-left">                      
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 1" >Browse <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 2" >เรียกดู <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 3" >瀏覽 <span class="caret"></span></p>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">                          
+                        <li  ng-click="transfer()">
+                            <span ng-if="flagcheck == 1" >Transports</span>
+                            <span ng-if="flagcheck == 2" >การขนส่ง</span>
+                            <span ng-if="flagcheck == 3" >傳輸</span>
+                        </li>
+                        <li  ng-click="gotour()">
+                            <span ng-if="flagcheck == 1">Activities </span>
+                            <span ng-if="flagcheck == 2">กิจกรรม/ทัวร์ </span>
+                            <span ng-if="flagcheck == 3">活動 </span>
+                        </li>
+                        <li  ng-click="gohotel()">
+                            <span ng-if="flagcheck == 1">Hotels</span>
+                            <span ng-if="flagcheck == 2">โรงแรม</span>
+                            <span ng-if="flagcheck == 3">酒店</span>
+                        </li>
+                        <li  ng-click="shopping()" >
+                            <span ng-if="flagcheck == 1">Shopping</span>
+                            <span ng-if="flagcheck == 2">ช้อปปิ้ง</span>
+                            <span ng-if="flagcheck == 3">購物</span>
+                        </li> 
+                        <li  ng-click="restaurant()" >
+                            <span ng-if="flagcheck == 1">Restaurant</span>
+                            <span ng-if="flagcheck == 2">ร้านอาหาร</span>
+                            <span ng-if="flagcheck == 3">餐廳</span>
+                        </li>    
+                    </ul>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="" >
+                            <div class="cart-menu" ng-click="cartBook()" >
+                                <img src="icon/cart27.png" id="cartitem" >
+                                <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                            </div>
+                        </li>
+                        <li id="login-sucess">
+                            <a  ng-if="loginstatus" data-toggle="modal" data-target="#loginmodal" >
+                                <span ng-if="flagcheck == 1">Login</span>
+                                <span ng-if="flagcheck == 2">เข้าสู่ระบบ</span>
+                                <span ng-if="flagcheck == 3">登錄</span>
+                            </a>
+                            <div ng-if="!loginstatus"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="li-seting-profile">
+                                <img data-toggle="modal" data-target="" ng-src="{{'/uploads/profile/' + Profile}}" width="35" height="35" style="border-radius:50%" title="{{loginname}}">
+                             
+                            </div>                            
+                            <ul ng-if="!loginstatus" class="dropdown-menu" id="profile-data-hover"  aria-labelledby="dropdownMenu1" style="">
+                                <i></i>
+                                <div class="masthead-picker-body">
+                                    <div class="masthead-picker-photo-wrapper">                                     
+                                        <img data-toggle="modal" data-target="#uploadprofile"  ng-src="{{'/uploads/profile/' + Profile}}" height="64" width="64" aria-hidden="true" alt="" data-ytimg="1"> 
+                                    </div>
+                                    <div class="masthead-picker-info">
+                                        <div class="masthead-picker-name" dir="ltr">{{userEmail}}</div>
+                                    </div>
+                                </div>
+                                <div class="masthead-picker-footer">
+                                    <button class="btn btn-default btn-xs pull-left" ng-click="profile()">
+                                        <span ng-if="flagcheck == 1">Profile</span>
+                                        <span ng-if="flagcheck == 2">ประวัติส่วนตัว</span>
+                                        <span ng-if="flagcheck == 3">輪廓</span>
+                                    </button>
+                                    <button ng-click="logout()" class="btn btn-default btn-xs pull-right">
+                                        <span ng-if="flagcheck == 1">Logout</span>
+                                        <span ng-if="flagcheck == 2">ออกจากระบบ</span>
+                                        <span ng-if="flagcheck == 3">登出</span>
+                                    </button>
+                                </div>
+                            </ul>
+                        </li>
+                        <li ng-if="loginstatus">
+                            <a  href="/register" ng-if="flagcheck == 1">Sign Up</a>
+                            <a  href="/register" ng-if="flagcheck == 2">สมัครสมาชิก</a>
+                            <a  href="/register" ng-if="flagcheck == 3">註冊</a>
+                        </li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>  
+  
+      <nav class="menu" tabindex="0" ng-mouseleave="remove_submenu()" id="menu">          
+          <div class="smartphone-menu-trigger"> </div>            
+
+          <div class="avatar">
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
+              <h2>John D.</h2>
+          </div>
+          <ul>
+              <li tabindex="0" ng-click="transfer()">Transports </li>
+              <li tabindex="0" ng-click="gotour()">Activities </li>
+              <li tabindex="0" ng-click="gohotel()">Hotels</li>
+              <li tabindex="0" ng-click="shopping()" >Shopping</li> 
+              <li tabindex="0" ng-click="restaurant()" >Restaurant</li>
+              <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+          </ul>
+    </nav>
+    <section>
+            <div class="channel-head" style="">
+                <div class="container" >
+                    <channel-breadcrumb parent-channel="currentChannel.parentChannel" channel-title="currentChannel.title" ng-style="">
+                        <div class="bread mt20"> 
+                            
+                              <a href="#" id="color-icon"><i ng-click="gohome()" class="fa fa-home" title="Home"></i></a>
+                            </a>
+                             
+                              <span ng-if="flagcheck == 1">/ Shopping Cart</span>
+                              <span ng-if="flagcheck == 2">/ รถเข็น</span>
+                              <span ng-if="flagcheck == 3">/购物车</span>
+                         </div>
+                    </channel-breadcrumb> 
+                        <h1 class="fs30 ellipsis">
+                            <span ng-if="flagcheck == 1">Shopping Cart</span>
+                            <span ng-if="flagcheck == 2">รถเข็น</span>
+                            <span ng-if="flagcheck == 3">购物车</span>
+                        </h1> 
+                            <ul></ul> 
+                      </div>
+                 </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sec-02">
+                        <div class="box5"></div>
+                        <div class="box6"></div>
+                        <div class="cen0"></div>
+                        <div class="box1"><p class="pfont">1</p></div>
+                        <div class="cen1"></div>
+                        <div class="box2"><p class="pfont">2</p></div>
+                        <div class="cen2"></div>
+                        <div class="box3"><p class="pfont">3</p></div>
+                        <div class="cen3"></div>
+                        <div class="box4"><p class="pfont">4</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+      <div class="container" >
+        <!--<div class="row" >
+          <div class="col-md-12" style="padding:0">-->
+            <div class="boxRadiu ">
+              <table class="table .table-striped .table-hover table-text-small booking_head_text table-striped billing-tb" ng-if="cart.length != 0"> 
+                  <tr class="head_tab book-head-table" align="center">
+                      <td>#</td>
+                      <td class="col-md-4">
+                        <span ng-if="flagcheck == 1">Product Name</span>
+                        <span ng-if="flagcheck == 2">ชื่อผลิตภัณฑ์</span>
+                        <span ng-if="flagcheck == 3">产品名称</span>
+                      </td>                      
+                      <td>
+                        <span ng-if="flagcheck == 1">On Date</span>
+                        <span ng-if="flagcheck == 2">วันที่เดินทาง</span>
+                        <span ng-if="flagcheck == 3">在日期</span>
+                      </td>
+                      <td>
+                        <span ng-if="flagcheck == 1">On Time</span>
+                        <span ng-if="flagcheck == 2">เวลาเดินทาง</span>
+                        <span ng-if="flagcheck == 3">准时</span>
+                      </td>
+                      
+                      <td>
+                        <span ng-if="flagcheck == 1">Amount</span>
+                        <span ng-if="flagcheck == 2">จำนวนคน (คน)</span>
+                        <span ng-if="flagcheck == 3">量（人）</span>
+                      </td>
+                      <td>
+                        <span ng-if="flagcheck == 1">Adult</span>
+                        <span ng-if="flagcheck == 2">ผู้ใหญ่</span>
+                        <span ng-if="flagcheck == 3">成人（人）</span>
+                      </td>
+                      <td>
+                        <span ng-if="flagcheck == 1">Child</span>
+                        <span ng-if="flagcheck == 2">เด็ก</span>
+                        <span ng-if="flagcheck == 3">儿童</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Adult Prices</span>
+                        <span ng-if="flagcheck == 2">ราคาผู้ใหญ่</span>
+                        <span ng-if="flagcheck == 3">成人价格</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Child Prices</span>
+                        <span ng-if="flagcheck == 2">ราคาเด็ก</span>
+                        <span ng-if="flagcheck == 3">儿童价格</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Total prices</span>
+                        <span ng-if="flagcheck == 2">ราคารวม</span>
+                        <span ng-if="flagcheck == 3">总价格</span>
+                      </td>
+                      <td class="col-md-1"></td>
+                  </tr>
+                  
+               
+               
+                  <tr ng-repeat="list in cart track by $index"    style="border-bottom: 1px solid #ddd;"   >
+                      <!--<td style=" line-height: 123px;"><!--<input type="checkbox" id="all" ng-model="list.state" ng-checked="master.value" ng-click="inv_func(list,$event,price,list.state)"> </td>-->
+                      <td style=" line-height: 123px;">{{$index+1}}</td>
+                      <!--<td style="padding: 50px 0;"><img class="imcc" style="border: solid 1px #ccc;" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/' + list[0].image_crop+'.jpg'}}" err-src="images/cadillac.png"></td>-->
+                      <td style="padding: 60px 0px;">{{list[0].topic_en}}</td>
+                      
+
+                      <td style="padding: 60px 0px;" align="center">{{list[0].departure | date :  "dd/MM/y"}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].time}}</td>
+                     
+                      <td style="padding: 60px 0px;" align="center">{{list[0].amount}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].adultshow}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].childshow}}</td>
+                      <td style="padding: 60px 0px;color: #ff9800;" align="center" align="right">{{list[0].cost_a_agent_all | currency:"":0}}</td>
+                      <td style="padding: 60px 0px;color: #ff9800;" align="center" align="right">{{list[0].cost_b_agent_all | currency:"":0}}</td>
+                      <td style="padding: 60px 0px;color: #00f104;" align="right">{{list[0].price | currency:"":0}}</td>
+                      <td style="line-height: 131px" ng-click="removeCart(list)"" align="center" ><span class="btn-remove"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i><span></td>
+
+
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].topic_en}}</td>
+                      
+
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].departure}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].time}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].amount}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].adultshow}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].childshow}}</td>
+                      <td style="padding: 60px 0px;color: #00f104;" ng-show="list[1]!=null">{{list[1].price | currency:"":0}}</td>
+                  </tr>
+                
+             
+                 
+                 </table >
+              </div>
+              <div class="boxRadiu2 ">
+                 <table class="table .table-striped .table-hover table-text-small booking_head_text table-striped billing-tb" ng-if="carttransfer.length !=0">
+                  <tr class="head_tab book-head-table" align="center" ng-if="carttransfer" >
+                  
+                      <!--<td><!--<input type="checkbox" ng-model="master.value"  ></td>-->
+                      
+                      <td>#</td>
+                      <td class="col-md-4">Product Name</td>
+                      
+                      <td>
+                        <span ng-if="flagcheck == 1">On Date</span>
+                        <span ng-if="flagcheck == 2">วันที่เดินทาง</span>
+                        <span ng-if="flagcheck == 3">在日期</span>
+                      </td>
+                      <td>
+                        <span ng-if="flagcheck == 1">On Time</span>
+                        <span ng-if="flagcheck == 2">เวลาเดินทาง</span>
+                        <span ng-if="flagcheck == 3">准时</span>
+                      </td>
+                      <td >
+                        <span ng-if="flagcheck == 1">Cars</span>
+                        <span ng-if="flagcheck == 2">รถยนต์ (คัน)</span>
+                        <span ng-if="flagcheck == 3">汽车</span>
+                      </td>
+                       <td>
+                        <span ng-if="flagcheck == 1">Amount</span>
+                        <span ng-if="flagcheck == 2">จํานวนคน</span>
+                        <span ng-if="flagcheck == 3">量（人）</span>
+                      </td>
+                     
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Adult Prices</span>
+                        <span ng-if="flagcheck == 2">ราคาผู้ใหญ่</span>
+                        <span ng-if="flagcheck == 3">成人价格</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Child Prices</span>
+                        <span ng-if="flagcheck == 2">ราคาเด็ก</span>
+                        <span ng-if="flagcheck == 3">儿童价格</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Prices</span>
+                        <span ng-if="flagcheck == 2">ราคา</span>
+                        <span ng-if="flagcheck == 3">价格</span>
+                      </td>
+                      <td align="right">
+                        <span ng-if="flagcheck == 1">Total prices</span>
+                        <span ng-if="flagcheck == 2">ราคารวม</span>
+                        <span ng-if="flagcheck == 3">总价格</span>
+                      </td>
+                      <td class="col-md-1"></td>
+                  </tr>
+                
+                
+                  <tr ng-repeat="list in carttransfer track by $index"   style="border-bottom: 1px solid #ddd;">
+                      <td style=" line-height: 123px;">{{$index+1}}<!--<input type="checkbox" id="all" ng-model="list.state" ng-checked="master.value" ng-click="inv_func2(list,$event,price,list.state)">--> </td>
+                      <!--<td style="padding: 50px 5px;"><img class="imcc" style="border: solid 1px #ccc;" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/' + list[0].image_crop+'.jpg'}}" err-src="images/cadillac.png"></td>-->
+                     
+                      <td style="padding: 60px 0px;">{{list[0].topic_en}}</td>
+                    
+                      <td style="padding: 60px 0px;" align="center">{{list[0].departure | date :  "dd/MM/y"}}</td>
+                       <td style="padding: 60px 0px;" align="center">{{list[0].time}}</td>
+                       <td style="padding: 60px 0px;" align="center">{{list[0].listcar}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].amount}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].adultshow}}</td>
+                      <td style="padding: 60px 0px;" align="center">{{list[0].childshow}}</td>
+                       <td style="padding: 60px 0px;color: #ff9800;" align="right">{{list[0].cost_a_agent_all | currency:"":0}}</td>
+                      <td style="padding: 60px 0px;color: #00f104;" align="right">{{list[0].price | currency:"":0}}</td>
+                      <td style="line-height: 123px" ng-click="removeCart2(list)"" align="center" ><span class="btn-remove"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i><span></td>
+
+
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].pro_topic_e}}</td>
+                     
+
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].departure}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].time}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].listcar}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].amount}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].adultshow}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null">{{list[1].childshow}}</td>
+                      <td style="padding: 60px 0px;" ng-show="list[1]!=null" align="center">{{list[1].cost_a_agent_all |currency:"":0}}</td>
+                      <td style="padding: 60px 0px;color: #00f104;" ng-show="list[1]!=null">{{list[1].price | currency:"":0}}</td>
+                  </tr>
+                
+              </table>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="float: right;">
+                  
+                    <div class="col-md-12" style="text-align: center;float: right;">
+                      <div class="total-box">
+                        <div class="total-pay"><span style="font-size:18px;">({{cart.length+carttransfer.length}})</span>&nbsp;
+                            <span ng-if="flagcheck == 1">Total: </span>
+                            <span ng-if="flagcheck == 2">ราคารวม: </span>
+                            <span ng-if="flagcheck == 3">总价: </span>
+                            <span style="color:red;">฿{{totalpricesum | currency:"":0}} </span></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8" style="float: right;">
+                       <div class="row" >
+                            <div class="col-md-12" style="margin-bottom: 10px;">
+                              <div class="seles-tour-new" ng-click="gohome()">
+                                  <span ng-if="flagcheck == 1">Select more item</span>
+                                  <span ng-if="flagcheck == 2">เลือกรายการ</span>
+                                  <span ng-if="flagcheck == 3">选择更多项目</span>
+                              </div>
+                            </div>
+                            <div class="col-md-12" style="">
+                              <div class="pay" ng-click="pay()">
+                                  <span ng-if="flagcheck == 1">Book</span>
+                                  <span ng-if="flagcheck == 2">จอง</span>
+                                  <span ng-if="flagcheck == 3">书</span>
+                              </div>
+                            </div>
+                        </div>
+                    </div> 
+                      
+                </div>
+              </div>  
+          <!--</div>-->
+        <!--</div>-->
+        <section>
+            <div class="row">
+                    
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="box-item-promotec">
+                                     <h4>RECOMMENTD</h4>
+                                     <ul class="discover-courses-list channel-courses-list" > 
+                                        <li ng-repeat="item in tourrecomm" class="course-box small " ng-click="select_item($index ,item ,tour)"> 
+                                           
+                                                <span class="course-thumb pos-r "> 
+                                                    
+                                                     <img class="img-tiem" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/crop/' + item.image_crop +'.jpg'}}">
+                                                    <span class="avatars-list"> 
+                                                        
+                                                    </span> 
+                                                </span>
+                                                <span class="box-second-row"> 
+                                                    <span class="title ellipsis-2lines ">
+                                                        <span ng-if="flagcheck == 1">{{item.topic_en}}</span>
+                                                        <span ng-if="flagcheck == 2">{{item.topic_th}}</span>
+                                                        <span ng-if="flagcheck == 3">{{item.topic_cn}}</span>
+                                                    </span> 
+                                                    <span class="dib title ins-title ellipsis-2lines "  translate="">
+                                                        <span> {{item.type}}</span>
+                                                    </span> 
+                                                    <!--<span class="reviews-row"> 
+                                                        <span class="s-rating smaller static"> <span style="width: 92%;"></span> 
+                                                        </span> 
+                                                        <span translate="" >
+                                                            <span class="reviews__stats"> 4.6 <span class="reviews__count"> (2010) </span></span>
+                                                        </span>
+                                                    </span>-->
+                                                    <span class="price-wrap ">
+                                                        <span class="price pr"> 
+                                                            <span >฿{{item.cost_a_agent_all | currency:"":0}}</span>
+                                                        </span> 
+                                                    </span>
+                                                </span>
+                                            
+                                        </li>
+                                   
+                                     </ul>
+                                </div>
+                            </div>    
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-2" style="padding:0px">
+                        
+                </div>
+            </div>
+        </section>
+
+          
+    </div>
+  </section>
+  <footer>    
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <ul class="fxw mt10 hidden-xs">
+                            <li>
+                                <div class="btn-group dropup lang-dropdown">
+                                    <div class="dropdown-toggle fxac " data-toggle="dropdown">
+                                          <i class="icon-globe fa fa-globe mr5"></i>
+                                           {{flag}}
+                                          <i class="icon-caret-up fa fa-caret-up user-caret ml5"></i>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li ng-click="language(1)"><img src="/images/en.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="en_US" value="en" >English</a></li>
+                                            <li ng-click="language(2)"><img src="/images/th.png" width="25" height="25"/><a href="" class="locale-link" update-locale="" locale="th_TH" value="th" >Thai</a></li>
+                                            <li ng-click="language(3)"><img src="/images/cn.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="zh_CN" value="cn" >中文(简体)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="gray-text copyright" ng-if="flagcheck == 1">  Copyright © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 2">  ลิขสิทธิ์ © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 3">  版權 © 2016 Go holiday, Inc.</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1" >Terms</span>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ข้อตกลงและเงื่อนไข</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">條款</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">Customer Service</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">บริการลูกค้า</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">客户服务</a>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">System Support</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ติดต่อ Admin</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">系统支持</a>
+                            </li>
+                        </ul>
+                        <div class="footer-right">
+                             <span id="time" my-current-time="format"></span>
+                            <ul>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+<div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" id="login-modal"> 
+            <button class="close" ng-click="close($event)" data-dismiss="modal" onclick="reset()">×</button>
+                <h2 class="box-heading">
+                    Login to your account!
+                </h2>
+                <div class="modal-body">
+                  <div class="box-left box-col fx"> 
+                    <h4>Login with social accounts</h4>
+                    <div facebook-signup="" action-type="signin" signin-box-class-name="js-signin-box" redirecturl="authfacebook" >
+                        <a ng-click="authenticate('facebook')" class="social-btn facebook-btn js-facebook-btn shadowed-btn fxac">
+                            <i class="icon-facebook social-icon fa fa-facebook"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Facebook
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                    </div>
+
+                    <div google-plus-signup="" action-type="signin" signin-box-class-name="js-signin-box" client-id="700206021005-fntgseouuq3ah1jtko8ejh2vckk8sbn6.apps.googleusercontent.com">
+                        <a href="" class="social-btn google-btn shadowed-btn fxac">
+                            <i class="icon-google-plus social-icon fa fa-google-plus"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Google+
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                        <form id="google-plus-login-form" method="post" action="/join/social-complete/google-plus/?display_type=popup&amp;locale=en_US&amp;response_type=json&amp;next=https%3A%2F%2Fwww.udemy.com%2F&amp;xref=" class="ng-pristine ng-valid">
+                            <input type="hidden" name="access_token" value="">
+                            <input type="hidden" name="code" value="">
+                        </form>
+                    </div>
+                    <p id="message" style="color: red;"></p>
+                    <div class="box-load">
+                        <div id="inTurnFadingTextG">
+                            <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">P</div>
+                            <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">r</div>
+                            <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">o</div>
+                            <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">c</div>
+                            <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">e</div>
+                            <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                            <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                        </div>
+                    </div>
+
+            </div> 
+            <div class="box-separator"></div>
+            <div class="box-right box-col fx">
+                <div class="usertracker-command" data-usertracker-type="seen-login-popup">
+                </div>
+                <h4>Login with your email</h4>
+                
+                  <form method="post"> 
+                        <div class="manage-fields-wrapper">
+                            <div id="tooltip-reference-email" class="tooltip-reference ">
+                                <input class="emailinput form-control" data-purpose="email" id="id_email" mailcheck="" maxlength="64" minlength="6" name="email" placeholder="E-mail" required="True" type="email" ng-model="username"  required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                            </div>
+                            <div id="tooltip-reference-password" class="tooltip-reference ">
+                                <input class=" form-control" data-purpose="password" id="id_password" maxlength="64" minlength="3" name="password" placeholder="Password" required="True" type="password" ng-model="password" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"> 
+                            </div>
+                        </div>
+                            <div class="form-actions">
+                                <div class="submit-row">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-primary btn btn-success" id="submit-id-submit" data-purpose="do-login" ng-click="login()"> 
+                                        <span>or </span>
+                                        <a href="" class="cancel-link">Forgot Password</a>
+                                    </div>
+                            </div>
+                    </form>
+            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a  href="/register">create an account</a>
+                            ?</span>
+                        </div>
+                        
+                </div>    
+           
+        </div>
+    </div>
+  <div class="modal fade" id="uploadprofile" role="dialog">
+      <div class="modal-dialog">
+                        <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Upload Profile</h4>
+              </div>
+              <form method="post" action="/addProfile" enctype="multipart/form-data">
+                  <div class="modal-body">
+                      <input type="hidden" name="cat" value="Gallery" />
+                      <input type="hidden" value="{{token}}" name="token"/>
+                      <input type="hidden" name="id" value="{{id}}" />
+                      <div class="form-group form-inline">
+                          <input class="img-tourpackage" type="file" name="pic" id="img-tourpackage" required/>
+                      </div>
+                  </div>
+                  <div class="modal-footer">                                    
+                      <button type="submit"  class="btn btn-success btn-xs" >Save</button>
+                      <div type="button" class="btn btn-default btn-xs" data-dismiss="modal" onclick="reset()">Close</div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+<style>
+   
+.btn-remove {
+    font-size: 16px;
+    color: #e61f13;
+    cursor: pointer;
+}
+.boxRadiu {
+    margin-top: 50px;
+    border-right: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+    
+    
+ 
+}
+.boxRadiu2 {
+    margin-top: 50px;
+    border-right: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+    
+    
+ 
+}
+ #product-promote{
+ /* margin-top: 60px;*/
+}
+
+.channel-courses-list {
+    /*margin-right: -15px; */
+    margin-bottom: 20px;
+    padding-left: 0;
+    display: inline-block;
+}
+
+.channel-courses-list .course-box {
+    width: 216px;
+}
+.course-box.small {
+    width: 212px;
+}
+
+
+.course-box.small:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  /*-webkit-transform: scale(1.2);
+    -moz-transform:  scale(1.2);
+    -o-transform:  scale(1.2);
+    -ms-transform:  scale(1.2);
+    z-index: 100000;
+    background-color: #fff;
+    top:20px;*/
+    background-color: #fff;
+
+
+}
+.box-second-row :hover{
+  text-decoration: none !important;
+}
+.course-box .title :hover{
+   text-decoration: none !important;
+}
+/* The fast way */
+.course-box.small {
+    cursor: pointer;
+      height: 270px;
+    text-decoration: none !important;
+    background: #FFF;
+    box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.15);
+}
+/*.course-box.small:first-child{
+    margin-right: 10px;
+}*/
+/* Pre-render the bigger shadow, but hide it */
+.course-box.small::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out:
+}
+
+/* Transition to showing the bigger shadow on hover */
+.course-box.small:hover::after {
+  opacity: 1;
+}
+.course-box {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    white-space: normal;
+    width: 270px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+    text-align: left;
+}
+.course-box {
+    margin: 0 15px 15px 0;
+}
+.course-box .add-to-wishlist {
+    position: absolute;
+    display: inline-block;
+    right: 8px;
+    top: 10px;
+    border: none;
+    margin: 0;
+    z-index: 2;
+}
+.course-box .course-thumb>img {
+    width: 100%;
+    opacity: 1;
+}
+.course-box .title  {
+    display: block;
+    line-height: 1.3;
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 33px;
+    padding: 0;
+    margin: 10px 10px 5px;
+        color: #333;
+}
+.course-box .dib  {
+    display: block;
+    line-height: 1.3;
+    font-weight: 300 !important;
+    font-size: 13px;
+    min-height: 33px;
+    padding: 0;
+    margin: 10px 10px 5px;
+        color: #333;
+}
+.course-box .price {
+    font-size: 15px;
+    font-weight: bold;
+}
+.pr{
+  padding-left: 10px;
+}
+
+.s-rating.static {
+    margin-left: -2px;
+    margin-right: 2px;
+}
+.s-rating {
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+}
+/*.course-box .price {
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+}*/
+.course-box .lec-info {
+    z-index: 1;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0;
+    background: none;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    margin-left: 10px;
+    z-index: 2;
+    -webkit-text-stroke: .4px #fff;
+    text-stroke: .4px #fff;
+    top: 70px;
+}
+.discover-courses-list li{
+  display: inline-block;
+}
+.ban-info{
+      background: #ddd;
+    position: relative;
+    height: 622px;
+    width: 100%;
+    border: solid 1px #ddd;
+    margin-top: 39px;
+}
+.navbar-nav li{
+      /*border-right: 1px solid;
+      border-left: 1px solid;*/
+      border-left: 1px solid rgba(191,191,191,0.45);
+      
+
+}
+.book-head-table{
+  background: #424242 !important;
+    color: #fff;
+}
+.total-box{
+    font-size: 22px;
+    height: 40px;
+    float: right;
+    /* margin-right: 23px; */
+    margin-bottom: 10px;
+}
+.total-box p{
+    font-size: 25px;
+    margin-top: 50px;
+    margin-right: 73px
+}
+.total-pay{
+    font-family: monospace;
+    /* margin-left: 257px; */
+    position: relative;
+    margin-bottom: 20px;
+    /* margin-left: -4%; */
+    float: right;
+    font-weight: 600;
+}
+
+
+.pfont{
+        color: #FFF;
+        margin-top: 8px;
+        
+
+    }
+    .sec-02{
+        /*float: right; */
+            text-align: center;
+        /* float: right; */
+        /* width: 55%; */
+        margin-top: 45px;
+        /* margin-left: 46.5%; */
+
+    }
+    .box1 {
+    /* float: left; */
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 6%;
+    border-radius: 100px;
+    background: #55caf5;
+    /* border: 1px solid #30b8a7; */
+}
+    .box2{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 6%;
+    border-radius: 100px;
+    background: #9E9E9E;
+    
+}
+.box3{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 6%;
+    border-radius: 100px;
+    background: #9E9E9E;
+    
+}
+.box4{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background: #9E9E9E;
+}
+
+.cen1{
+    width: 64px;
+    border-bottom: dashed 2px #9E9E9E;
+    position: absolute;
+    margin-top: -17px;
+    margin-left: 37%;
+}
+.cen2{
+    width: 64px;
+    height: 1px;
+    border-bottom: dashed 2px #9E9E9E;
+    position: absolute;
+    margin-top: -17px;
+    margin-left: 46%;
+}
+.cen3{
+    width: 64px;
+    border-bottom: dashed 2px #9E9E9E;
+    position: absolute;
+    margin-top: -17px;
+    margin-left: 55%;
+}
+.seles-tour-new{
+    box-shadow: 0px 2px 0px #00BCD4;
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #3a8aa7 100%);
+    background-image: linear-gradient(-1deg, #00BCD4 0%, #55caf5 100%);
+    border: 1px solid #00BCD4;
+    /* background: #17aa1c; */
+    border-radius: 3px;
+    color: #fcf8e3;
+    font-size: 15px;
+    /* font-weight: 600; */
+    margin-bottom: 8px;
+    text-decoration: none;
+    /* display: inline-block; */
+    text-align: center;
+    /* border: 1px #31708f solid; */
+    padding: 7px 0;
+    width: 100%;
+    /* float: right; */
+    cursor: pointer;
+
+
+}
+.seles-tour-new:hover{
+    background-image: linear-gradient(-1deg, #4DD0E1 0%, #55caf5 100%);
+    border: 1px solid #4FC3F7;
+    box-shadow: 0px 2px 0px #4FC3F7;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+   html, body{
+     overflow-x: scroll !important;
+    width: 100%;
+    }
+    .btn-remove{
+      font-size: 16px;
+    }
+   }
+</style>
+</div>
+</body>
+<script>
+    var app = angular.module('myApp', ['ngCookies','ngRoute','ngSanitize']);
+  app.controller('myCtrl', function($scope, $location, $http, $cookies,$sce ,$window,$interval) {
+     angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+      //$scope.product = new Array();
+      $scope.anmateprocess = { 'display':'none'};
+      var host = 2;
+     var ip = "";
+     if (host == 1) {
+          ip = "http://gh-travel.com";
+     }
+     else{
+          ip = "http://localhost:8080"
+     }
+     
+      $scope.totalpricesum =0;
+      $scope.tourrecomm = [];
+       $scope.data = [];
+     $scope.cart = [];
+         if (typeof localStorage["item"] !== "undefined" && localStorage["item"] !== "undefined") {
+      $scope.cart = JSON.parse(localStorage["item"]);
+      console.log($scope.cart);
+
+    }
+    
+    loadpage();
+    function loadpage(){
+      if($cookies.get('login'))
+      {
+        $scope.loginstatus = false;
+        $scope.token = $cookies.get('login');
+        $http({
+                method:'post',
+                url: "/getuserbyid",
+                data: $.param({id: $cookies.get('login')}),
+                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+              console.log(res)
+             if (res[0].resource == "") {
+               
+                $scope.Profile= "profile.png";
+              }
+              else{
+                $scope.Profile = res[0].resource;
+              }
+              $scope.userEmail = res[0].email;
+              $scope.tokenid = $cookies.get('login');
+              $scope.loginname = res[0].fname+" "+res[0].lname;
+              console.log($scope.loginname)
+              $scope.EditAddress = res[0].address;
+              $scope.EditEmail = res[0].email;
+              $scope.EditLname = res[0].lname;
+              $scope.EditName = res[0].fname;
+              $scope.EditPhone = res[0].phone;
+              var res = res[0].password.split('"');
+              $scope.EditPassword = res[1];
+            });
+      }
+      else
+      {
+        $scope.loginstatus = true;
+      }
+    }
+     $scope.profile = function(){
+        location.href="profile";
+
+    }
+    $scope.login = function(){
+       angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'block');
+      if($scope.username!=undefined&&$scope.password!=undefined)
+      {
+            $http({
+                method:'post',
+                url: "/login",
+                data: $.param({username: $scope.username,password: $scope.password}),
+                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+               angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+              if(res.status==0)
+              {
+                $cookies.put('login', res.username);
+                $window.location.reload();
+              }
+              else if(res.status==1)
+              {
+                angular.element(document.querySelector('#message')).html('Username is Invalid').css('color', 'red');
+              }
+              else if(res.status==2)
+              {
+                angular.element(document.querySelector('#message')).html('Password is Invalid').css('color', 'red');
+              }
+            })
+        }
+        }
+        $scope.logout = function(){
+          $cookies.remove("login");
+          $window.location.reload();
+        }
+
+
+
+       /*for (var i = 0; i < $scope.cart.length; i++) {
+               console.log($scope.cart[0][i].price);
+       }*/
+
+
+
+        angular.forEach($scope.cart, function (data) {
+          $scope.data.push(data);
+          angular.forEach(data, function (data2) {
+          
+          $scope.totalpricesum += parseInt(data2.price);
+
+        });
+          });
+        angular.forEach($scope.carttransfer, function (data) {
+          $scope.data.push(data);
+           angular.forEach(data, function (data2) {
+            $scope.totalpricesum += parseInt(data2.cost_a_agent_all*data2.listcar);
+          console.log($scope.totalpricesum)
+          
+          
+
+            });
+        });
+        $scope.all = function() {
+        document.getElementById('all').checked = true;
+
+        }
+      $scope.clearcaer = function(){
+
+        localStorage.clear();
+
+      }
+      $scope.gohotel = function() {
+        location.href="hotels";
+      }
+       $scope.gotour = function() {
+        location.href="tour";
+      }
+      $scope.pay = function(){
+  localStorage.setItem('itemSelect',JSON.stringify($scope.data));
+        location.href="book";
+      }
+      $scope.removeCart = function(list){
+          console.log(list);
+          angular.forEach(list, function (data) {          
+          $scope.totalpricesum -= data.price;
+          
+          });
+          $scope.cart.splice($scope.cart.indexOf(list),1);
+          $scope.data.splice($scope.data.indexOf(list),1);
+          localStorage.setItem('item',JSON.stringify($scope.cart));
+      }
+       $scope.removeCart2 = function(list){
+          angular.forEach(list, function (data) {          
+          $scope.totalpricesum -= data.cost_a_agent_all;
+          
+          });
+          
+          $scope.carttransfer.splice($scope.carttransfer.indexOf(list),1);
+           $scope.data.splice($scope.data.indexOf(list),1);
+          localStorage.setItem('itemtransfer',JSON.stringify($scope.carttransfer));
+
+      }
+
+
+      $scope.gohome = function(input){
+            location.href= ip;
+      }
+      
+      $scope.transfer = function(){
+      location.href="Transports";
+
+    }
+     $scope.restaurant = function(){
+        location.href="restaurant";
+
+      }
+      $scope.shopping = function(){
+        location.href="shopping";
+
+      }
+
+
+      $scope.returnhtml = function(x) {
+          //console.log(x);
+      //var x = '<h1 style="color:#F0F">TEST</h1><img src="https://i.stack.imgur.com/BfuKj.jpg?s=32&g=1" />';
+      return $sce.trustAsHtml(x);
+    }
+    var inv_count = 0;
+      $scope.showcount==0;
+    //$scope.totalpricesum =0;
+   
+    $scope.totalprice = 0;
+    $scope.totalprice2 = 0
+    $scope.inv_func = function(list,$event,price,state){
+                    console.log($scope.totalprice2);
+                    console.log(state);
+                    console.log(price);
+                    console.log($event);
+                    console.log(list)
+                    $scope.price = list[0].price;
+                    console.log($scope.price);
+                    if(state == true)
+                    {
+
+
+                        inv_count++;
+                        $scope.showcount = inv_count;
+                        $scope.totalpricesum =$scope.totalprice+=$scope.price;
+                        console.log($scope.totalprice);
+                        $scope.data.push(list);
+
+
+                    }
+                    else
+                    {
+                      inv_count--;
+                      $scope.showcount = inv_count;
+
+                            $scope.totalpricesum-=$scope.price;
+
+                            $scope.data.splice(list.indexOf(list),1);
+                    }
+                    console.log($scope.data);
+      }
+       $scope.inv_func2 = function(list,$event,price,state){
+                    console.log($scope.totalpricesum);
+                    console.log(state);
+                    console.log(price);
+                    console.log($event);
+                    console.log(list)
+                    $scope.price = list[0].price;
+                    console.log($scope.price);
+                    if(state == true)
+                    {
+
+
+                        inv_count++;
+                        $scope.showcount = inv_count;
+                        $scope.totalpricesum+= parseInt($scope.price);
+                        console.log($scope.totalpricesum);
+                        $scope.data.push(list);
+
+
+                    }
+                    else
+                    {
+                      inv_count--;
+                      $scope.showcount = inv_count;
+
+                            $scope.totalpricesum-=parseInt($scope.price);
+
+                            $scope.data.splice(list.indexOf(list),1);
+                    }
+                    console.log($scope.data);
+      }
+
+      $http({
+          method : 'post',
+          url : "/api/getdataproduct3",
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function(res){
+            if(res.status == "ok"){
+                for(var i = 0 ; i < 5; i++)
+                {
+                  $scope.tourrecomm.push(res.data[i]);
+                 // document.getElementById("cssload-container").style.display = "none";
+                }
+            }
+    });
+    $scope.select_item = function(x,item){        
+        localStorage.setItem('view',JSON.stringify($scope.view));           
+        //angular.element(document.querySelector('#get-select-value')).triggerHandler('click',$scope.tour);
+        $window.open('view-item#?data=' + JSON.stringify(item.id));
+    }
+
+    var language = $cookies.get('language');
+      if(language==undefined){
+          $cookies.put("language", 1);
+          $scope.flag = 'English';
+          $scope.flagcheck = 1;
+      }
+      else if(language==1){
+          $scope.flag = 'English';
+          $scope.flagcheck = 1;
+      }
+      else if(language==2){
+          $scope.flag = 'Thai';
+          $scope.flagcheck = 2;
+      }
+      else if(language==3){
+          $scope.flag = '中文(简体)';
+          $scope.flagcheck = 3;
+      }
+      $scope.language = function(x){
+
+            $scope.body = { 'display':'none'};
+            $scope.anmateprocess = { 'display':'block'};
+            var interval;
+            interval =  $interval(function() {
+
+            if(x==1){          
+                $cookies.remove("language");
+                $cookies.put("language", 1);
+                $scope.flag = 'English';
+                $scope.flagcheck = 1;
+                
+            }
+            else if(x==2){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 2);
+                $scope.flag = 'Thai';
+                $scope.flagcheck = 2;
+                
+              //event_change_month("th");
+            }
+            else if(x==3){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 3);
+                $scope.flag = '中文(简体)';
+                $scope.flagcheck = 3;
+                
+            }
+            $scope.body = { 'display':'block'};
+            $scope.anmateprocess = { 'display':'none'};
+            $interval.cancel(interval);
+           
+        },1000 );
+        }
+});
+app.directive('errSrc', function() {
+    return {
+        link: function(scope, element, attrs) {
+            element.bind('error', function() {
+                if (attrs.src != attrs.errSrc) {
+                    attrs.$set('src', attrs.errSrc);
+                }
+            });
+        }
+    }
+});
+
+</script>
+</html>

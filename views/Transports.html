@@ -1,0 +1,2818 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Transports</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/main-jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/angular-1.4.8.min.js"></script> 
+    <script src="js/ngDialog.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-cookies.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main-script.js" type="text/javascript"></script>  
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/transport.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>   
+    <link rel="stylesheet" href="./css/ngDialog.css">
+    <link rel="stylesheet" href="./css/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="./css/ngDialog-theme-flat.css">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/ring.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-res.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="initemhotelselect()" >
+<div id="fountainTextG3-form2" ng-style="anmateprocess2">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">L</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">a</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">d</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">i</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">n</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">g</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div id="fountainTextG3-form" ng-style="anmateprocess">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div class="contain-fluid" ng-style="body">
+        <header id="menu-web">        
+            <nav class="navbar navbar-default">              
+                <div class="navbar-header">
+                  
+                        <button type="button" class="navbar-toggle " id="focus" ng-click="clickresMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="navbar-brand" ng-click="gohome()">Go Holiday</a>
+                    
+                    <div class="cart-menu" ng-click="cartBook()" id="none-menu">
+                        <img src="icon/cart27.png" id="cartitem" >
+                        <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                    </div>
+                    
+                </div>
+                <div class=" nav navbar-nav dropdown" id="navb-left">                      
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 1" >Browse <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 2" >เรียกดู <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 3" >瀏覽 <span class="caret"></span></p>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">                          
+                        <li  ng-click="transfer()">
+                            <span ng-if="flagcheck == 1" >Transports</span>
+                            <span ng-if="flagcheck == 2" >การขนส่ง</span>
+                            <span ng-if="flagcheck == 3" >傳輸</span>
+                        </li>
+                        <li  ng-click="gotour()">
+                            <span ng-if="flagcheck == 1">Activities </span>
+                            <span ng-if="flagcheck == 2">กิจกรรม/ทัวร์ </span>
+                            <span ng-if="flagcheck == 3">活動 </span>
+                        </li>
+                        <li  ng-click="gohotel()">
+                            <span ng-if="flagcheck == 1">Hotels</span>
+                            <span ng-if="flagcheck == 2">โรงแรม</span>
+                            <span ng-if="flagcheck == 3">酒店</span>
+                        </li>
+                        <li  ng-click="shopping()" >
+                            <span ng-if="flagcheck == 1">Shopping</span>
+                            <span ng-if="flagcheck == 2">ช้อปปิ้ง</span>
+                            <span ng-if="flagcheck == 3">購物</span>
+                        </li> 
+                        <li  ng-click="restaurant()" >
+                            <span ng-if="flagcheck == 1">Restaurant</span>
+                            <span ng-if="flagcheck == 2">ร้านอาหาร</span>
+                            <span ng-if="flagcheck == 3">餐廳</span>
+                        </li>    
+                    </ul>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="" >
+                            <div class="cart-menu" ng-click="cartBook()" >
+                                <img src="icon/cart27.png" id="cartitem" >
+                                <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                            </div>
+                        </li>
+                        <li id="login-sucess">
+                            <a  ng-if="loginstatus" data-toggle="modal" data-target="#loginmodal" >
+                                <span ng-if="flagcheck == 1">Login</span>
+                                <span ng-if="flagcheck == 2">เข้าสู่ระบบ</span>
+                                <span ng-if="flagcheck == 3">登錄</span>
+                            </a>
+                            <div ng-if="!loginstatus"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="li-seting-profile">
+                                <img data-toggle="modal" data-target="" ng-src="{{'/uploads/profile/' + Profile}}" width="35" height="35" id="imgprofile" title="{{loginname}}">
+                             
+                            </div>                            
+                            <ul ng-if="!loginstatus" class="dropdown-menu" id="profile-data-hover"  aria-labelledby="dropdownMenu1" style="">
+                                <i></i>
+                                <div class="masthead-picker-body">
+                                    <div class="masthead-picker-photo-wrapper">                                     
+                                        <img data-toggle="modal" data-target="#uploadprofile"  ng-src="{{'/uploads/profile/' + Profile}}" height="64" width="64" aria-hidden="true" alt="" data-ytimg="1"> 
+                                    </div>
+                                    <div class="masthead-picker-info">
+                                        <div class="masthead-picker-name" dir="ltr">{{userEmail}}</div>
+                                    </div>
+                                </div>
+                                <div class="masthead-picker-footer">
+                                    <button class="btn btn-default btn-xs pull-left" ng-click="profile()">
+                                        <span ng-if="flagcheck == 1">Profile</span>
+                                        <span ng-if="flagcheck == 2">ประวัติส่วนตัว</span>
+                                        <span ng-if="flagcheck == 3">輪廓</span>
+                                    </button>
+                                    <button ng-click="logout()" class="btn btn-default btn-xs pull-right">
+                                        <span ng-if="flagcheck == 1">Logout</span>
+                                        <span ng-if="flagcheck == 2">ออกจากระบบ</span>
+                                        <span ng-if="flagcheck == 3">登出</span>
+                                    </button>
+                                </div>
+                            </ul>
+                        </li>
+                        <li ng-if="loginstatus">
+                            <a  href="/register" ng-if="flagcheck == 1">Sign Up</a>
+                            <a  href="/register" ng-if="flagcheck == 2">สมัครสมาชิก</a>
+                            <a  href="/register" ng-if="flagcheck == 3">註冊</a>
+                        </li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>  
+  
+      <nav class="menu" tabindex="0" ng-mouseleave="remove_submenu()" id="menu">          
+          <div class="smartphone-menu-trigger"> </div>            
+
+          <div class="avatar">
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
+              <h2>John D.</h2>
+          </div>
+          <ul>
+              <li tabindex="0" ng-click="transfer()">Transports </li>
+              <li tabindex="0" ng-click="gotour()">Activities </li>
+              <li tabindex="0" ng-click="gohotel()">Hotels</li>
+              <li tabindex="0" ng-click="shopping()" >Shopping</li> 
+              <li tabindex="0" ng-click="restaurant()" >Restaurant</li>
+              <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+          </ul>
+    </nav>
+    <section>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="filter_box">
+                    <div id="owl-demo" ng-if="galleryshow == 1" class="owl-carousel owl-theme"> 
+                        <div class="item"  ng-repeat="x in finalgalleryprovince"><img ng-if="galleryshow == 1" ng-src="{{'http://t-booking.com/pic/province/' + x.topic+'.jpg'}}"></div>                    
+                                          
+                    </div>
+                    <div id="owl-demo" ng-if="galleryshow == 0" class="owl-carousel owl-theme"> 
+                        <div class="item" ><img src="images/img1.png" alt="Mirror Edge"></div>     
+                        <div class="item" ><img src="images/img3.png" alt="Mirror Edge"></div>                  
+                    </div>
+                </div>
+           </div> 
+        </div>
+
+        <div class="container" style="padding:0"> 
+            <div class="col-lg-12" style="padding:0;">
+                <div class="col-lg-6">
+                    <div class="booking-compact-main ">
+                        <h3 ng-if="flagcheck == 1">Transports</h3>
+                        <h3 ng-if="flagcheck == 2">บริการรถรับ-ส่ง</h3>
+                        <h3 ng-if="flagcheck == 3">傳輸</h3>
+                        <div class="box-plance-rigth">
+                        <label class="form-control" ng-click="styleboxprovince()" id="province">{{provinceselect}}<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i></label>
+                        
+                        <ul class="box-province-select" ng-style="boxprovince">
+                                <li  ng-repeat="i in provinceall" ng-click="selectprovince(i)">
+                                <span ng-if="flagcheck == 1">{{i.name_en}}</span>
+                                <span ng-if="flagcheck == 2">{{i.name_th}}</span>
+                                <span ng-if="flagcheck == 3">{{i.name_cn}}</span>
+                                </li>
+                                
+                        </ul>
+                            
+                        
+                            
+                            <div class="form-group">
+                              <input   ng-change="transportsearchFrom()"  class="form-control " id="searchtransportFrom" name="searchtransportFrom"  placeholder="{{placeholder}}"  type="text" title="" ng-model="searchtransportFrom" value="Bandra, Mumbai, India" >
+                              
+
+                            </div>
+                            <div class="box-planceform" ng-style="planceformStyle">
+                                <ul >
+                                    <li ng-repeat="plance in transferplace_now | filter:searchtransportFrom" ng-click="selecthotelFrom(plance)">{{plance.topic}} <span id="amphur">({{plance.amphur}})</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                              <input ng-change="transportsearchTo()" class="form-control " id="searchtransportTo"  placeholder="{{placeholderto}}"  type="text" ng-model="searchtransportTo" name="searchtransportTo" value="Andheri, Mumbai, India">
+                              
+                            </div>
+                            <div class="box-planceto" ng-style="plancetoStyle">
+                                <ul >
+                                    <li ng-repeat="plance in transferplace_nowto | filter:searchtransportTo" ng-click="selecthotelTo(plance)">{{plance.topic}}<span id="amphur">({{plance.amphur}})</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-person">
+                                <div id="person-transfer" style="">
+                                    <select ng-if="flagcheck == 1" class="form-control" ng-change="changenumperson(i)" id="numperson" ng-model="i" data-ng-options="i.topic_en+i.pax_en   for i in car">
+                                        <option value="" >All</option>
+                                        
+                                    </select>
+                                    <select ng-if="flagcheck == 2" class="form-control" ng-change="changenumperson(i)" id="numperson" ng-model="i" data-ng-options="i.topic_th+i.pax_th   for i in car">
+                                        <option value="" >ทั้งหมด</option>
+                                        
+                                    </select>
+                                    <select ng-if="flagcheck == 3" class="form-control" ng-change="changenumperson(i)" id="numperson" ng-model="i" data-ng-options="i.topic_cn+i.pax_cn   for i in car">
+                                        <option value="" >所有</option>
+                                        
+                                    </select>
+                                    <div id="pax-person" >
+                                        <span ng-if="flagcheck == 1">Car Type</span>
+                                        <span ng-if="flagcheck == 2">ประเภทรถ</span>
+                                        <span ng-if="flagcheck == 3">車型</span>
+                                    </div>                                    
+                                    <div class="search-transfer-product" ng-click="loadplancesearch()" >
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                        <span ng-if="flagcheck == 1">SEARCH</span>
+                                        <span ng-if="flagcheck == 2">ค้นหา</span>
+                                        <span ng-if="flagcheck == 3">搜索</span>
+                                    </div>
+                                </div>
+
+                                             
+                                              
+                                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="box-info-pro" id="dvMap"></div>
+                </div>
+                <div class="row">
+                <div class="col-lg-9">
+                <div class="confirm-place">
+                    <div ng-if="searchtransportFrom != undefined && searchtransportTo != undefined && checkconfirm == 1">
+                            <img src="icon/pin2.png" id="img-icon-pin">
+                            <span ng-model="searchtransportFrom">{{searchtransportFrom}}</span>
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            <span ng-model="searchtransportTo">{{searchtransportTo}}</span>
+                    </div>
+                    <div id="dvDistance" ng-if="!laglog">
+                        <p>Distances : </p>
+                        <span>~{{km}}</span>
+                        <span>Km</span>
+                    </div>
+                    
+                     <!--<div id="dvPanel" style="width: 500px; height: 500px"></div>-->
+                </div>
+                </div>
+                  <div class="col-lg-9" >
+
+                    <p id="length-product" ng-if="flagcheck == 1">Product(<span style="color: #fb833f;font-size: 14px;">{{itemtransferfinal.length}}</span>)</p>
+                    <p id="length-product" ng-if="flagcheck == 2">มีทั้งหมด(<span style="color: #fb833f;font-size: 14px;">{{itemtransferfinal.length}}</span>)</p>
+                    <p id="length-product" ng-if="flagcheck == 3">產品(<span style="color: #fb833f;font-size: 14px;">{{itemtransferfinal.length}}</span>)</p>
+                    
+                  </div>
+                </div>
+
+                <div class="box-item-transfer" >            
+                    <div class="col-lg-9" id="box-item-transfer">
+                        <div class="box-load-T">
+                            <div id="inTurnFadingTextGPro">
+                                <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">L</div>
+                                <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">o</div>
+                                <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">a</div>
+                                <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">d</div>
+                                <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">i</div>
+                                <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">n</div>
+                                <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">g</div>
+                                <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                                <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                            </div>
+                        </div>
+                        <p >{{NoProduct}} 
+                            <!--<span ng-show='itemtransferfinal == undefined || itemtransferfinal.length == 0'" ng-style="" class="btn-addvance" ng-click="searchaddvanch()" >Addvance Search</span>-->
+                        <p>
+                        <div id="box-left" ng-if='itemtransferfinal != undefined'">
+                            <div ng-repeat="item in itemtransferfinal | startFrom:(currentPage -1) * pageSize | limitTo:pageSize | orderBy : 'item.cost_a_agent_all'">
+                                <div class="a-link-item col-lg-12" >
+                                    <div class="item-thumbnail2" ng-click="gotransfer(item)">
+                                        <img  class="" ng-src="{{'http://t-booking.com/pic/carmodelicon/' + item.post_date +'.jpg'}}" err-src="images/cadillac.png" >
+                                    </div>
+                                    <h2 class="searchresult_name" title="product name">
+                                        <span ng-if="flagcheck == 1">{{item.topic_en}}</span>
+                                        <span ng-if="flagcheck == 2">{{item.topic_th}}</span>
+                                        <span ng-if="flagcheck == 3">{{item.topic_cn}}</span>
+                                        <span class="hotel_num">{{$index+1}}</span>
+                                    </h2>
+                                    <div class="box-province">
+                                        <p class="type-t">
+                                            <span class="car-type" ng-if="flagcheck == 1">{{item.car_topic_en}}</span>
+                                            <span class="car-type" ng-if="flagcheck == 2">{{item.car_topic_th}}</span>
+                                            <span class="car-type" ng-if="flagcheck == 3">{{item.car_topic_cn}}</span>
+                                            <span class="pax" ng-if="flagcheck == 1">{{item.pax}}</span>
+                                            <span class="pax" ng-if="flagcheck == 2">{{item.pax_th}}</span>
+                                            <span class="pax" ng-if="flagcheck == 3">{{item.pax_cn}}</span>
+                                        </p>
+                                        <!--<p>
+                                            <span ng-if="flagcheck == 1">From:</span>
+                                            <span ng-if="flagcheck == 2">จาก:</span>
+                                            <span ng-if="flagcheck == 3">從:</span>&nbsp;&nbsp;
+                                            <span ng-if="flagcheck == 1" style="font-weight: 600;  color: #333;">{{item.province_name}}</span>
+                                            <span ng-if="flagcheck == 2" style="font-weight: 600;  color: #333;">{{item.province_name_th}}</span>
+                                            <span ng-if="flagcheck == 3" style="font-weight: 600;  color: #333;">{{item.province_name_cn}}</span>
+                                        </p> 
+                                        <p>
+                                            <span ng-if="flagcheck == 1">To:</span>
+                                            <span ng-if="flagcheck == 2">ถึง:</span>
+                                            <span ng-if="flagcheck == 3">至:</span>&nbsp;&nbsp;
+                                            <span ng-if="flagcheck == 1" style="font-weight: 600;  color: #333;">{{item.province_name_to}}</span>
+                                            <span ng-if="flagcheck == 2" style="font-weight: 600;  color: #333;">{{item.province_name_to_th}}</span>
+                                            <span ng-if="flagcheck == 3" style="font-weight: 600;  color: #333;">{{item.province_name_to_cn}}</span>
+                                        </p>-->
+                                        <p id="facilities">
+                                        <span ng-if="flagcheck == 1">  Facilities : </span>
+                                        <span ng-if="flagcheck == 2">  สิ่งอำนวยความสะดวก : </span>
+                                        <span ng-if="flagcheck == 3">  設備 : </span>
+                                        <img src="icon/air.png" alt="Air Conditioner" >&nbsp;&nbsp;
+                                            <i class="fa fa-music" aria-hidden="true" alt="Audio Player" ng-show ="item.car_model==1 || item.car_model == 5"></i>
+                                        </p>
+                                    </div>
+                                    <div id="box-cost-view">
+                                        <div class="product_r">
+                                            <span class="base_price"></span>
+                                            <span class="sala">฿ {{item.cost_a_agent_all | currency:"":0}}</span>
+                                            
+                                        </div>                                
+                                        <div class="views-item" ng-click="gotransfer(item)">
+                                            <span ng-if="flagcheck == 1">Book</span>
+                                            <span ng-if="flagcheck == 2">จอง</span>
+                                            <span ng-if="flagcheck == 3">书</span>
+                                        </div>
+                                    </div>
+                                    <div id="i-list" ng-click="getcondition(item.car_model)"> 
+                                        <p id="capacity">Capacity info.</p>
+                                        <i class="glyphicon glyphicon-list-alt"   aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <uib-pagination   ng-show="itemtransferfinal != 'undefined' && itemtransferfinal.length != 0" id="page" total-items="itemtransferfinal.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
+                            </uib-pagination>
+                        </div>
+                    </div>
+                    <div class="col-lg-3"  > 
+                        <div class="box-info">
+                            <div class="menu-city"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDVaO9SKFJ5g6AEaNHbUT9Uu1KgNPqAICo"></script>
+    <!--<script type="text/javascript">
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('searchtransportFrom'));
+            new google.maps.places.SearchBox(document.getElementById('searchtransportTo'));
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute() {
+            console.log("in")
+            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+            var mapOptions = {
+                zoom: 7,
+                center: mumbai
+            };
+            //map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            //directionsDisplay.setMap(map);
+            //directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+            //*********DIRECTIONS AND ROUTE**********************//
+            source = document.getElementById("searchtransportFrom").value;
+            destination = document.getElementById("searchtransportTo").value;
+
+            var request = {
+                origin: source,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                console.log(response)
+                console.log(status)
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Duration:" + duration;
+
+                } else {
+                    //alert("Unable to find the distance via road.");
+                }
+            });
+        }
+    </script>-->
+
+    <footer>    
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <ul class="fxw mt10 hidden-xs">
+                            <li>
+                                <div class="btn-group dropup lang-dropdown">
+                                    <div class="dropdown-toggle fxac " data-toggle="dropdown">
+                                          <i class="icon-globe fa fa-globe mr5"></i>
+                                           {{flag}}
+                                          <i class="icon-caret-up fa fa-caret-up user-caret ml5"></i>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li ng-click="language(1)"><img src="/images/en.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="en_US" value="en" >English</a></li>
+                                            <li ng-click="language(2)"><img src="/images/th.png" width="25" height="25"/><a href="" class="locale-link" update-locale="" locale="th_TH" value="th" >Thai</a></li>
+                                            <li ng-click="language(3)"><img src="/images/cn.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="zh_CN" value="cn" >中文(简体)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="gray-text copyright" ng-if="flagcheck == 1">  Copyright © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 2">  ลิขสิทธิ์ © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 3">  版權 © 2016 Go holiday, Inc.</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1" >Terms</span>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ข้อตกลงและเงื่อนไข</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">條款</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">Customer Service</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">บริการลูกค้า</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">客户服务</a>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">System Support</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ติดต่อ Admin</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">系统支持</a>
+                            </li>
+                        </ul>
+                        <div class="footer-right">
+                             <span id="time" my-current-time="format"></span>
+                            <ul>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+  <div class="modal fade" id="uploadprofile" role="dialog">
+        <div class="modal-dialog">
+                        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload Profile</h4>
+                </div>
+                <form method="post" action="/addProfile" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="cat" value="Gallery" />
+                        <input type="hidden" value="{{token}}" name="token"/>
+                        <input type="hidden" name="id" value="{{id}}" />
+                        <div class="form-group form-inline">
+                            <input class="img-tourpackage" type="file" name="pic" id="img-tourpackage" required/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">                                    
+                       <button type="submit"  class="btn btn-successs btn-xs" >Save</button>
+                       <div type="button" class="btn btn-default btn-xs" data-dismiss="modal" onclick="reset()">Close</div>
+                    </div>
+                </form>
+           </div>
+        </div>
+    </div>
+    <div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" id="login-modal"> 
+            <button class="close" ng-click="close($event)" data-dismiss="modal" onclick="reset()">×</button>
+                <h2 class="box-heading">
+                    Login to your account!
+                </h2>
+                <div class="modal-body">
+                  <div class="box-left box-col fx"> 
+                    <h4>Login with social accounts</h4>
+                    <div facebook-signup="" action-type="signin" signin-box-class-name="js-signin-box" redirecturl="authfacebook" >
+                        <a ng-click="authenticate('facebook')" class="social-btn facebook-btn js-facebook-btn shadowed-btn fxac">
+                            <i class="icon-facebook social-icon fa fa-facebook"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Facebook
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                    </div>
+
+                    <div google-plus-signup="" action-type="signin" signin-box-class-name="js-signin-box" client-id="700206021005-fntgseouuq3ah1jtko8ejh2vckk8sbn6.apps.googleusercontent.com">
+                        <a href="" class="social-btn google-btn shadowed-btn fxac">
+                            <i class="icon-google-plus social-icon fa fa-google-plus"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Google+
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                        <form id="google-plus-login-form" method="post" action="/join/social-complete/google-plus/?display_type=popup&amp;locale=en_US&amp;response_type=json&amp;next=https%3A%2F%2Fwww.udemy.com%2F&amp;xref=" class="ng-pristine ng-valid">
+                            <input type="hidden" name="access_token" value="">
+                            <input type="hidden" name="code" value="">
+                        </form>
+                    </div>
+                    <p id="message" style="color: red;"></p>
+                    <div class="box-load">
+                        <div id="inTurnFadingTextG">
+                            <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">P</div>
+                            <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">r</div>
+                            <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">o</div>
+                            <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">c</div>
+                            <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">e</div>
+                            <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                            <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                        </div>
+                    </div>
+
+            </div> 
+            <div class="box-separator"></div>
+            <div class="box-right box-col fx">
+                <div class="usertracker-command" data-usertracker-type="seen-login-popup">
+                </div>
+                <h4>Login with your email</h4>
+                
+                  <form method="post"> 
+                        <div class="manage-fields-wrapper">
+                            <div id="tooltip-reference-email" class="tooltip-reference ">
+                                <input class="emailinput form-control" data-purpose="email" id="id_email" mailcheck="" maxlength="64" minlength="6" name="email" placeholder="E-mail" required="True" type="email" ng-model="username"  required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                            </div>
+                            <div id="tooltip-reference-password" class="tooltip-reference ">
+                                <input class=" form-control" data-purpose="password" id="id_password" maxlength="64" minlength="3" name="password" placeholder="Password" required="True" type="password" ng-model="password" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"> 
+                            </div>
+                        </div>
+                            <div class="form-actions">
+                                <div class="submit-row">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-primary btn btn-success" id="submit-id-submit" data-purpose="do-login" ng-click="login()"> 
+                                        <span>or </span>
+                                        <a href="" class="cancel-link">Forgot Password</a>
+                                    </div>
+                            </div>
+                    </form>
+            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a  href="/register">create an account</a>
+                            ?</span>
+                        </div>
+                        
+                </div>    
+           
+        </div>
+    </div>
+   
+  <script type="text/ng-template" id="firstDialog">
+      <div class="ngdialog-message"> 
+        <p class="title-product">Condition</p>
+      <table class="table table-striped table-hover   " >
+              
+                  <tr class="head-table-dialog" align="center">
+                      <td></td>
+                      <td >Bag big</td>
+                      <td >Bag small </td>
+                      <td>Adult</td>
+                      <td>Child</td> 
+                      <td>Plan</td>
+                  </tr>
+               
+               
+                  <tr ng-repeat="p in detailitem" >
+                      <td ></td>
+                      <td >
+                        <span align="center" ng-if="p.bag_big == 0">-</span>
+
+                        <span style="display:inline-block" ng-show="p.bag_big != 0">
+                        <i class="fa fa-suitcase fa-2x" aria-hidden="true" ng-if="p.bag_big == 1"></i>
+                        </span>
+                        <span ng-if="p.bag_big == 2 && p.bag_big != 0">
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+
+                        </span>
+                        <span ng-if="p.bag_big == 3 && p.bag_big != 0">
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                        </span>
+                        <span ng-if="p.bag_big == 4 && p.bag_big != 0">
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                        </span>
+                        <span ng-if="p.bag_big == 5 && p.bag_big != 0">
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                          <i class="fa fa-suitcase fa-2x" aria-hidden="true" ></i>
+                        </span>
+                      </td>
+
+                      <td >
+                          <span align="center" ng-if="p.bag_small == 0">-</span>
+
+                          <span style="display:inline-block" ng-show="p.bag_small != 0">
+                          <i class="fa fa-suitcase " aria-hidden="true" ng-if="p.bag_small == 1"></i>
+                          </span>
+                          <span ng-if="p.bag_small == 2 && p.bag_small != 0">
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+
+                          </span>
+                          <span ng-if="p.bag_small == 3 && p.bag_small != 0">
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                          </span>
+                          <span ng-if="p.bag_small == 4 && p.bag_small != 0">
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                          </span>
+                          <span ng-if="p.bag_small == 5 && p.bag_small != 0">
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                            <i class="fa fa-suitcase " aria-hidden="true" ></i>
+                          </span>
+                      </td>
+                      <td >
+                          <span align="center" ng-if="p.adult == 0">-</span>
+                          <span style="display:inline-block" ng-show="p.adult != 0">
+                          <i class="fa fa-male fa-lg" aria-hidden="true"></i>
+                          </span>
+                          <span ng-if="p.adult == 2 && p.adult != 0">
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+
+                          </span>
+                          <span ng-if="p.adult == 3 && p.adult != 0">
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                          </span>
+                          <span ng-if="p.adult == 4 && p.adult != 0">
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                          </span>
+                          <span ng-if="p.adult == 5 && p.adult != 0">
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                            <i class="fa fa-male fa-lg" aria-hidden="true" ></i>
+                          </span>                          
+                      </td>
+                      <td >
+                          <span align="center" ng-if="p.child == 0">-</span>
+                          <span style="display:inline-block" ng-show="p.child != 0">
+                              <i class="fa fa-child" aria-hidden="true"></i>
+                              </span>
+                              <span ng-if="p.child == 2 && p.child != 0">
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+
+                              </span>
+                              <span ng-if="p.child == 3 && p.child != 0">
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                              </span>
+                              <span ng-if="p.child == 4 && p.child != 0">
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                              </span>
+                              <span ng-if="p.child == 5 && p.child != 0">
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                                <i class="fa fa-child " aria-hidden="true" ></i>
+                              </span>
+                      </td>                      
+                      
+                      <td align="center">{{p.plan}}</td>
+                      
+                      
+                
+              </table>
+              
+        
+      </div>
+      
+</script> 
+  
+<style>
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff !important;
+}
+footer{
+    background: #333;
+    padding: 30px 0;
+    margin-top: 150px;
+    bottom: 0;
+    height: 152px;
+    border-bottom: 3px solid #ffcb00;
+    font-size: 13px;
+}
+#province{
+    width: 100%;
+    margin-bottom:15px;
+    font-weight: 300;
+}
+select>option:hover{
+  background:red !important;
+}
+.box-province-select{
+    padding: 2px;
+    position: absolute;
+    background: #fff;
+    width: 96.3%;
+    height: 215px;
+    overflow-y: scroll;
+    
+}
+.box-province-select li{
+    cursor: pointer;
+    padding: 5px 20px;
+}
+.box-province-select li:hover{
+    background:#ffcb00;
+    color: #fff;
+}
+
+#dvDistance p{
+    padding-right: 15px;
+    margin-left: 5%;
+    display: inline-block;
+}
+.navbar-default{
+
+}
+
+.dropdown-menu li:hover{
+    background-color: #ffcb00;
+}
+
+.navbar-brand{
+    color: #FF9800 !important;
+}
+.navbar-default{
+    border-top: 4px solid #ffcb00 !important;
+}
+#img-icon-pin{
+    width: 35px;
+}
+.confirm-place{
+    margin-left: 2%;
+    color: #302D2D;
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    /* font-weight: 100; */
+    /* line-height: 60px; */
+    /* margin: 10px 0 0 0; */
+}
+.form-control{
+    color: #424242 !important;
+    border: 1px solid #E0E0E0 !important ;
+}
+.form-control input{
+    color: #424242 !important;
+}
+#amphur{
+    color: #FF5722;
+}
+.box-load-T{
+  margin-left: 38% !important;
+  /*margin-top: 50px; */
+}
+.booking-compact-main {
+    background-image: -webkit-linear-gradient(269deg, #ffd000 0%, #ffb300 100%);
+    background-image: linear-gradient(-179deg, #ffd000 0%, #ffb300 100%);
+    height: 390px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.box-planceform ul{
+    padding-left: 0px;
+}
+.box-planceform ul li{
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.box-planceform ul li:hover{
+    background: #ffeb3b;
+}
+.box-planceto ul{
+    padding-left: 0px;
+}
+.box-planceto ul li{
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.box-planceto ul li:hover{
+    background: #ffeb3b;
+}
+.box-plance-rigth{
+    position: relative;
+    width: 100%;
+    float: left;
+    padding: 10px;
+}
+.booking-compact-main h3{
+    color: #212121;
+    font-weight: 500;
+    margin: 0;
+    padding: 10px 10px;
+}
+.box-planceto{
+    z-index: 10000;
+    display: none;
+    background: #FFF;
+    padding: 5px 5px;
+    /* padding-left: 0px; */
+    height: 140px;
+    overflow-y: scroll;
+    z-index: 100000;
+    position: absolute;
+    width: 96%;
+    
+}
+.box-planceform{
+    z-index: 100;
+    display: none;
+    background: #FFF;
+    padding: 5px 5px;
+    height: 140px;
+    overflow-y: scroll;
+    z-index: 100000;
+    position: absolute;
+    width: 96%;height: 140px;
+    overflow-y: scroll;
+    z-index: 100000;
+    position: absolute;
+    width: 96%;
+    
+}
+#numperson{
+    width: 70%;
+    display: inline-block;
+    cursor: pointer;
+}
+#pax-person{
+    display: inline-block;
+    color: #212121;
+    font-weight: 600;
+    padding: 8px 5px;
+    width: 80px;
+}
+.form-person{
+    margin-top: 50px;
+}
+.search-transfer-product{
+    margin-top: 55px;
+    margin-right: 3px;
+    background-image: -webkit-linear-gradient(91deg, #9c1000 0%, #ca0018 100%);
+    background-image: linear-gradient(-1deg, #9c1000 0%, #F44336 100%);
+    float: right;
+    color: #FFF;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.box-info-pro{
+    border: solid 1px #ddd;
+    height: 340px;
+    margin-top: 30px;
+    background: #FFF176;
+}
+.btn-addvance{
+  display: none;
+    color: #fff;
+    background: #17aa1c;
+    position: relative;
+    display: inline-block !important;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 43%;
+    cursor: pointer;
+}
+.ngdialog-content{
+  border: 6px solid #ffd51b !important;
+}
+.head-table-dialog{
+      background: #ffe057 !important;
+}
+#nav-bar{
+  border-bottom: 1px solid #8bc34a !important;
+}
+#box-cost-view{
+    position: absolute;
+    margin-left: 72%;
+    padding: 46px 8px;
+    margin-top: -87px;
+}
+#capacity{
+  margin-top: 9px;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: 0;
+}
+#facilities{
+  /* margin-left: 48.5%; */
+    position: absolute;
+}
+.ngdialog-close:before{
+  color: #FF5722 !important;
+}
+.ngdialog-content{
+  background-color: #fff !important;
+}
+#i-list{
+    position: absolute;
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
+    border: 1px solid #E68E00;    
+    font-size: 20px;
+    text-align: center;
+    margin-left: 38%;
+    width: 82px;
+    color: #000;
+    height: 62px;
+    line-height: 1.5;
+    border-radius: 4px;
+    /* background: #ebefc2; */
+    margin-top: -37px;
+    cursor: pointer;
+}
+#i-list:hover{
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #FFCA28 0%, #FFEB3B 100%);
+    border: 1px solid #FFCA28;
+}
+.views-item{
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
+    border: 1px solid #E68E00;
+    
+    color: #000;
+    /* width: 117px; */
+    text-align: center;
+    /* height: 35px; */
+    padding: 10px 60px;
+    position: relative;
+    /* margin-left: 83.5%; */
+    border-radius: 4px;
+   
+    font-weight: 600;
+    cursor: pointer;
+
+}
+.views-item:hover{
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #FFCA28 0%, #FFEB3B 100%);
+    border: 1px solid #FFCA28;
+}
+#box-item-transfer{
+    /* border: 1px solid #ddd; padding-top: 20px;*/
+}
+#item-transfer{
+  padding: 0 !important;
+}
+#page{
+  float: right;
+  margin: 0;
+}
+#active input[type="radio"]:checked{
+  cursor: pointer;
+  /*-webkit-appearance:radio;*/
+  box-shadow: none;
+  background:rgb(252,252,252);
+}
+input[type='radio'] {
+  -webkit-appearance:none;
+  width:15px;
+  height:15px;
+  border:1px solid darkgray;
+  border-radius:5%;
+  outline:none;
+  cursor: pointer;
+  box-shadow:0 0 3px 0px gray inset;
+}
+
+input[type='radio']:hover {
+  box-shadow:0 0 5px 0px orange inset;
+}
+
+input[type='radio']:before {
+  content:'';
+  display:block;
+  width:60%;
+  height:60%;
+  margin: 20% auto;    
+  border-radius:5%;    
+}
+input[type='radio']:checked:before {
+  background:#8bc34a;
+}
+.to0{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: #8bc34a;
+
+}
+
+.type-t"{
+  width: 460px;
+}
+.actives{
+  background: #333;
+}
+#length-product{
+  display: inline-block;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-left: 2%;
+}
+#active-transfer{
+ color: #0dabf9;
+}
+
+
+
+.check4{
+    border: solid 2px rgba(29, 177, 159, 0.86);
+    border-radius: 5px;
+    width: 22px;
+    height: 20px;
+    position: absolute;
+    /* display: inline-block; */
+    /* margin-left: 60px; */
+    overflow: hidden;
+      }
+#radio{
+  display: inline-block;
+    position: absolute;
+    margin-left: 73px;
+        cursor: pointer;
+}
+.check2{
+      background-image: url("icon/ik.png");
+    height: 50px;
+    background-size: 41px;
+    background-repeat: no-repeat;
+}
+.item-thumbnail2 {
+    position: absolute;
+    display: inline-block;
+    float: left;
+    border-radius: 13px;
+    margin-top: 0px;
+    /* width: 80px; */
+    /* height: 60px; */
+    margin-bottom: 3px;
+    overflow: hidden;
+    background-color: #ddd;
+    cursor: pointer;
+    margin-left: 1%;
+}
+.item-thumbnail2 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+img .check2{
+  border: none;
+}
+
+
+.menu-type {
+    position: relative;
+    border: 1px solid #ddd;
+    /* margin-left: 26.5%; */
+    /* margin-top: 64px; */
+    /* margin-bottom: -27px; */
+}
+.box-info{
+ border: 1px solid #ebefc2;
+    height: 500px;
+    padding: 17px 3px;
+    
+    background: #FFF176;
+    border-radius: 5px;
+}
+.box-province{
+    display: inline-block;
+    margin-left: 52%;
+    width: 30%;
+    color: #100f0f;
+    /* margin-top: -35px; */
+}
+.car-type{
+  /*margin-top: -9px; */
+    position: relative;
+    z-index: 1;
+    color: #000;
+    /* margin-left: 50%; */
+    padding: 1px 3px;
+    border-radius: 3px;
+    display: inline-block;
+}
+.pax{
+  /*margin-top: -9px; */
+    position: relative;
+    z-index: 1;
+    color: #000;
+    
+    
+    padding: 1px 3px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+#box-left{
+ position: relative;
+    display: inline-block;
+    width: 100%;
+    /* padding: 5px 15px; */
+    /*margin-top: -10px;*/
+    /* border: 1px solid #ddd; */
+}
+/*.box-right{
+      position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-left: 8px;
+    
+    display: inline-block;
+}*/
+.detail-tranfer{
+  position: relative;
+
+}
+.detail-item{
+  border-bottom: solid 1px #ddd;
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px #e5e5e5;
+}
+
+.sala{
+    /* display: block; */
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 100;
+    color: #757575;
+    font-size: 24px;
+    /* font-weight: 600; */
+    /* margin-top: 30px; */
+    /* padding: 0 19px; */
+    margin-bottom: 20px;
+}
+.view_detail_link{
+  display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+
+    text-align: center;
+    background-color: #ffb000;
+    border: solid 1px #e77c00;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(95,50,0,0.7);
+    text-shadow: 1px 1px 0 #cf7000;
+    outline: none;
+    cursor: pointer;
+}
+.product_r {
+    text-align: center;
+    margin-bottom: 15px;
+    /*position: absolute; 
+     margin-left: 80%; 
+    width: 123px;
+     margin-top: -102px;
+    overflow: hidden;
+    border: solid 2px #8BC34A;
+    border-radius: 21px;
+    color: #fff;
+    height: 27px;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 20px;*/
+  }
+.searchresult_name {
+    font: bold 14px Tahoma;
+    /* padding-right: 8px; */
+    /* margin-bottom: 18px; */
+    padding-left: 27px;
+    position: relative;
+    /* z-index: 2; */
+    margin-left: 13%;
+}
+.hotel_num {
+    background-image: url(../icon/icon_searchresult13.png);
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -38px;
+    background-size: 26px;
+    width: 26px;
+    height: 38px;
+    /* background-position: -156px 0; */
+    font-family: tahoma;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: 1px;
+}
+.product_r .base_price {
+    color: #f60;
+    display: block;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+.base_price {
+    /*font-style: normal;
+    font-family: arial;
+    text-decoration: none;*/
+}
+.product_mod h2 {
+    font-size: 20px !important;
+    color: #00A6C4;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 460px;
+    height: 26px;
+}
+.a-link-item h2{
+    position: relative;
+    /* font-size: 17px !important; */
+    margin-left: 36%;
+    width: 64%;
+    margin-top: 2px;
+}
+  .bt-select{
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 37px;
+    background-color: #0FB0CE;
+    padding: 10px 63px;
+    margin-top: 75px;
+    border: solid 1px #0FB0CE;
+
+  }
+  .bt-select2{
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 37px;
+    background-color: #fff;
+    padding: 10px 63px;
+    margin-top: 75px;
+    border: solid 1px #0FB0CE;
+    margin-left: -4px;
+
+  }
+  .bt-select3{
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 37px;
+    background-color: #fff;
+    padding: 10px 63px;
+    margin-top: 75px;
+    border: solid 1px #0FB0CE;
+    margin-left: -4px;
+  }
+  .box-detail{
+    margin-top: 0 !important;
+  }
+  .search-case{
+    border-bottom: 1px dotted #c2c2c2;
+    height: 37px;
+    width: 97%;
+    margin-left: 20px;
+  }
+  .search-case p{
+    position: relative;
+    display: inline-block;
+    margin: 9px 0px;
+    margin-right: 20px;
+    /* margin-top: 6px; */
+  }
+  .l-check{
+    margin-left: 10px !important;
+    padding: 0 !important;
+  }
+  .a-link-item{
+    width: 100%;
+    padding-top: 20px;
+    height: 190px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
+    
+    background: #f5f5f5;
+    
+  }
+  .a-link-item::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out:
+}
+
+/* Transition to showing the bigger shadow on hover */
+.a-link-item:hover::after {
+  opacity: 1;
+}
+  
+  .img-icon{
+    float: left;
+    /*width: 152px;
+    height: 143px;*/
+    margin-top: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    position: absolute;
+  }
+  .filter_box {
+    position: relative;
+    width: 100%;
+    /* border: dashed 1px #ebefc2; */
+    height: 250px;
+    margin-bottom: 15px;
+    /* background: #ebefc2; */
+    /* margin-left: 2.5%; */
+}
+  .section2{
+    position: relative;
+    margin-left: 166px;
+
+  }
+  .city{
+    margin-right: 50px;
+    color: #8a6d3b;
+    margin-left: -5px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .link_map{
+    margin-left: 100px;
+  }
+  .link_map:hover{
+    text-decoration: none;
+  }
+  .sone{
+    position: absolute;
+    display: inline-block;
+    float: right;
+    margin-top: 27px;
+    margin-left: 529px;
+    z-index: 1;
+    color: #999;
+  }
+  .searchresult_htladdress{
+    margin-top: 20px;
+  }
+  .product-item-car{
+    position: relative;
+    width: 270px;
+        height: 345px;
+    float: left;
+    overflow: hidden;
+    transition: all .2s linear;
+    margin-bottom: 20px;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+    /* top: 25px; */
+    margin-bottom: 22px;
+    cursor: pointer;
+
+}
+.product-item-car:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  /*-webkit-transform: scale(1.2);
+    -moz-transform:  scale(1.2);
+    -o-transform:  scale(1.2);
+    -ms-transform:  scale(1.2);
+    z-index: 100000;
+    background-color: #fff;
+    top:20px;*/
+    background-color: #fff;
+
+
+}
+  .product-item-car {
+      margin-left: 10px;
+   margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+/*.product-item-sec-2:first-child{
+    margin-right: 10px;
+}*/
+/* Pre-render the bigger shadow, but hide it */
+.product-item-car::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out:
+}
+
+/* Transition to showing the bigger shadow on hover */
+.product-item-car:hover::after {
+  opacity: 1;
+}
+.item-thumbnail-car{
+      margin-left: 9px;
+    margin-top: 10px;
+    border-radius: 6px;
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-bottom: 3px;
+    overflow: hidden;
+    background-color: #ddd;
+    cursor: pointer;
+}
+.item-name-car{
+  height: 16px;
+    position: relative;
+    line-height: 16px;
+    margin-top: 175px;
+    margin-left: 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+
+}
+.item-info-car{
+  position: relative;
+    height: 35px;
+    text-align: right;
+    padding: 0 5px;
+}
+.price-car{
+  position: relative;
+  float: right;
+  color: #fb833f;
+}
+.price_info-car{
+  position: relative;
+    height: 35px;
+    text-align: right;
+    padding: 0 5px;
+}
+.item-type-car{
+  position: relative;
+    height: 35px;
+    /* top: 20px; */
+    float: left;
+    text-align: right;
+    /* padding: 2px 5px; */
+}
+.pay_later{
+    position: relative; */
+    width: 45px;
+    height: 44px;
+    color: #fff;
+    float: right;
+    padding: 0 5px;
+    /* z-index: 100000000; */
+    background-image: -webkit-linear-gradient(269deg, #ffd000 0%, #ffb300 100%);
+    background-image: linear-gradient(-179deg, #ffd000 0%, #ffb300 100%);
+}
+.item-res:last-child{
+  margin-right: 0px;
+
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #000;
+    cursor: default;
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: 250px;
+}
+.owl-pagination{
+  width: 200px !important;
+    position: absolute !important;
+    margin-left: 80%;
+    margin-top: -50px !important;
+
+}
+.owl-theme .owl-controls .owl-page span{
+      background: #ffffff !important;
+    border: 1px solid #ccc !important;
+}
+/* ----------iphone5 5--------------*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+  .item-thumbnail2 {
+    width: 130px;
+    margin-top: 40px;
+}
+  .filter_box{
+    height: 150px;
+  }
+  #length-product {
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
+  .a-link-item h2 {
+    position: relative;
+    font-size: 13px !important;
+    /* margin-left: 6px; */
+    font-weight: 500;
+    /* width: 578px; */
+    margin-top: 2px;
+  }
+
+
+  .product-item-car img{
+   width: 100%;
+   
+  }
+  .hotel_num {
+    
+    margin-top: -14px;
+    
+  }
+  .box-province {
+    display: inline-block;
+    margin-left: 2%;
+    width: 64%;
+    margin-top: 88px;
+}
+  
+  .product_r{
+    padding-bottom: 0px;
+  }
+  .product_r{
+    /*margin-left: 50% ;   
+    margin-top: -99px ;*/
+  }
+  .box-info{
+    display: none;
+  }
+  .type-t{
+    /*width: 55%;
+    position: absolute;
+    margin-left: 45%;*/
+  }
+  .car-type {
+    margin-top: 0px;
+    margin-left: 2%;
+    margin-bottom: 5px;
+  }
+  .pax{
+    margin-left: 3px;
+  }
+  #box-item-transfer{
+    padding: 0 10px;
+  }
+  .a-link-item {
+    padding-left: 0px;
+    height: 316px;
+  }
+  #i-list {
+    margin-left: 56.5% ;
+    margin-top: -186px ;
+}
+#box-cost-view {
+    margin-left: 56% ;
+    margin-top: -113px ;
+}
+#owl-demo .item img{
+  height: 148px ;
+}
+  
+  
+
+
+}
+/* ----------iphone 6--------------*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+  #detail-price{
+        padding: 0 21px;
+  }
+
+  #i-list {
+  
+    margin-left: 56.5% !important;
+    margin-top: -186px !important;
+}
+  .pfont{
+    margin-left: 6px !important;
+  }
+  .type-t{
+     /*   width: 53% !important;
+    margin-left: 47% !important;*/
+  }
+  #box-cost-view {
+   
+    margin-left: 56% !important;    
+    margin-top: -113px !important;  
+  }
+  .car-type {
+    margin-top: 0px !important;
+    margin-left: 2% !important;
+    margin-bottom: 5px !important;
+  }
+  .pax{
+    margin-left: 3px !important;
+
+  }
+  #box-item-transfer{
+    padding: 0 10px !important;
+  }
+  .a-link-item {
+    padding-left: 0px !important;
+
+}
+#owl-demo .item img{
+  height: 148px !important;
+}
+}
+/* ----------galaxy 5--------------*/
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) 
+and (orientation : portrait) { 
+  .type-t{
+    /*width: 55% ;
+    margin-left: 52% ;*/
+  }
+  .car-type {
+    margin-top: 0px;
+    margin-left: 2% ;
+    margin-bottom: 5px ;
+  }
+  
+  .pax{
+    margin-left: 3px;
+
+  }
+  .a-link-item {
+    padding-left: 0px;
+    height: 320px;
+}
+}
+
+</style>
+<script>
+  $(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem:true,
+        autoPlay : true
+ 
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+ 
+  });
+ 
+});
+</script>
+ 
+</body>
+<script>
+    /**
+ * Created by ozaclever on 11/07/2559.
+ */
+
+
+
+var app = angular.module('myApp', ['ngCookies','ngRoute','ui.bootstrap','ngDialog']);
+    app.controller('myCtrl', function($scope, $location, $http, $cookies, $window,ngDialog, $rootScope, $compile,$filter,$interval) {
+        angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+        $scope.anmateprocess = { 'display':'none'};
+        $scope.anmateprocess2 = { 'display':'block'};
+        var host = 2;
+        var ip = "";
+        angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'block');
+        angular.element(document.querySelector('.btn-addvance')).css('display', 'none');
+        $scope.no_product = { 'display':'none'};
+        $scope.boxprovince = { 'display':'none'};
+        $scope.body = { 'display':'none'};
+        $scope.checkconfirm = 0;
+        $scope.provinceselect = "-- Select province --";
+        if (host == 1) {
+            ip = "http://gh-travel.com";
+        }
+        else{
+            ip = "http://localhost:8080"
+        }
+        $scope.carttransfer = [];
+        if (typeof localStorage["itemtransfer"] !== "undefined" && localStorage["itemtransfer"] !== "undefined") {
+            $scope.carttransfer = JSON.parse(localStorage["itemtransfer"]);
+            //console.log($scope.carttransfer);      
+        }
+        $scope.view = [];
+        if (typeof localStorage["view"] !== "undefined" && localStorage["view"] !== "undefined") {
+            $scope.view = JSON.parse(localStorage["view"]);            
+              if ($scope.view.length > 3) {
+                $scope.view.splice($scope.view.indexOf($scope.view[0]),1);
+                localStorage.setItem('view',JSON.stringify($scope.view));
+              }          
+        }
+        $scope.cart = new Array();    
+        if (typeof localStorage["item"] !== "undefined" && localStorage["item"] !== "undefined") {
+            $scope.cart = JSON.parse(localStorage["item"]);
+            //console.log($scope.cart);
+        }
+        $scope.pageSize = 25;
+        $scope.currentPage = 1;
+        $scope.maxSize = 5;
+        $scope.itemtransfer = new Array();
+        $scope.searchtransport = null;
+        $scope.numperson = [];
+        $scope.plancefrom;
+        $scope.planceto;
+        $scope.paxNumperson;
+        $scope.itemtransferfinal = [];
+        $scope.searchtransportForm;
+        $scope.searchtransportTo;
+        $scope.ID_From;
+        $scope.ID_To;
+        $scope.planceproto;
+        $scope.plancepro;
+        $scope.planceaum;
+        $scope.planceaumto;
+        $scope.itemtransferincaseFrom = new Array();
+        $scope.itemtransferincaseTo = new Array();
+        $scope.caseto;
+        $scope.datato;
+        $scope.case;
+        $scope.datafrom;
+        $scope.car = new Array();
+        $scope.paxall;
+        $scope.paxNumperson = new Array();
+        $scope.itemtransfervalue = new Array();
+        $scope.finalgalleryprovince = new Array();
+        $scope.galleryshow = 0;
+        $scope.lag_from;
+        $scope.long_from;
+        $scope.lag_to;
+        $scope.long_to;
+        $scope.idprovince = new Array();
+         $scope.provinceall = new Array();
+        $scope.transferplace = new Array();
+        
+        $scope.laglog = true;
+        var x = 25;
+        for (var i = 2; i <= x; i++) {
+          $scope.numperson.push(i);
+          
+        }
+        if ($scope.itemtransferfinal.length != 0) {
+          //angular.element(document.querySelector('.btn-addvance')).css('display', 'block');
+        }
+        loadpage();
+        function loadpage(){
+            if($cookies.get('login'))
+            {
+                $scope.loginstatus = false;
+                $scope.token = $cookies.get('login');
+                $http({
+                      method:'post',
+                      url: "/getuserbyid",
+                      data: $.param({id: $cookies.get('login')}),
+                      headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                  }).success(function(res){
+                        if (res[0].resource == "") {               
+                            $scope.Profile= "profile.png";
+                        }
+                        else{
+                            $scope.Profile = res[0].resource;
+                        }
+                        $scope.userEmail = res[0].email;
+                        $scope.loginname = res[0].fname+" "+res[0].lname;
+                });
+            }
+            else
+            {
+              $scope.loginstatus = true;
+            }
+        }
+        $scope.profile = function(){
+            location.href="profile";
+
+        }
+        $scope.login = function(){
+           angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'block');
+            if($scope.username!=undefined&&$scope.password!=undefined)
+            {
+                $http({
+                    method:'post',
+                    url: "/login",
+                    data: $.param({username: $scope.username,password: $scope.password}),
+                    headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                   angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+                  if(res.status==0)
+                  {
+                    $cookies.put('login', res.username);
+                    $window.location.reload();
+                  }
+                  else if(res.status==1)
+                  {
+                    angular.element(document.querySelector('#message')).html('Username is Invalid').css('color', 'red');
+                  }
+                  else if(res.status==2)
+                  {
+                    angular.element(document.querySelector('#message')).html('Password is Invalid').css('color', 'red');
+                  }
+                })
+            }
+        }
+        $scope.logout = function(){
+          $cookies.remove("login");
+          $window.location.reload();
+        }
+        $http({
+              method : 'post',
+              url : "/api/Getprovince",
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function(res){
+              if(res.status == "ok"){
+                  {                
+                    $scope.province = res.data;                     
+                  }
+                 
+          }
+                    
+        });  
+        $http({
+              method : 'post',
+              url : "/api/Gettransferplace",
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function(res){
+                if(res.status == "ok")
+                { 
+                     
+                  console.log(res.data)
+                  $scope.transferplacepro = res.data;
+                  //console.log($scope.transferplace)
+                  $scope.transferplace_now = new Array();
+                  $scope.transferplace_nowto = new Array();
+                  
+                }                
+                  
+                        
+        });
+              console.log("AaAaAa")
+        $http({
+            method : 'post',
+            url : "/api/Getwebgalleryprovince",
+            //data : $.param({placeid : $scope.ID_From}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+              if(res.status == "ok"){
+                console.log(res.data)
+                //alert("a");
+                $scope.galleryprovince = res.data;
+               
+              
+            }
+        });  
+
+        $http({
+                method : 'post',
+                url : "/api/Getcar_product",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                if(res.status == "ok")
+                    $scope.paxall = res.data
+                {
+                    for (var i = 0; i < res.data.length; i++) {
+                    //$scope.car.push(res.data[i])
+                    }
+                    
+
+                }                
+                      
+        });
+        $http({
+            method : 'post',
+            url : "/api/Gettransfer_product_all",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+              if(res.status == "ok"){
+                console.log(res.data)
+                //angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'none');
+                $scope.itemtransfer = res.data;
+                angular.forEach($scope.itemtransfer, function(data){
+                        $scope.idprovince.push(data.province_id);
+                        //console.log($scope.idprovince)
+                     });
+                //$scope.itemtransferfinal = res.data;
+                //$scope.no_product = { 'display':'block'};
+                //console.log($scope.plancefrom)
+                //console.log($scope.planceto)
+                
+                //console.log($scope.idprovince)
+                checkidprovince();
+              
+            }
+        });
+        function checkidprovince(){
+            var x = $scope.idprovince;
+            console.log(x);
+            var y = new Array();
+            var first = 0;
+            var count = 0;
+            for(var i = 0 ; i < x.length; i++)
+                {
+                    count = 0;              
+                    if(first==0)
+                    {
+                        y.push(x[i]);
+                        first++;
+                    }
+                    for(var j = 0 ; j < y.length ; j++)
+                        {                    
+                            if(y[j]!=x[i])
+                            {
+                                count++;
+                                if(count==y.length)
+                                    {
+                                      y.push(x[i]);
+                                    }
+                                  }
+                                }              
+                }
+            console.log(y.length+"length")
+            $scope.Ypro = y;
+            checkHaveIdprovince(y);
+            //
+        }
+        
+        function checkHaveIdprovince(y){
+            console.log(y)
+            console.log($scope.province)
+            for (var i = 0; i < y.length; i++) {
+                angular.forEach($scope.province, function(data){
+
+                    if (data.id == y[i]) {
+                        console.log(data)
+                        $scope.provinceall.push(data)
+                        $scope.anmateprocess2 = { 'display':'none'};
+                        $scope.body = { 'display':'block'};
+
+                    }
+                           
+                });
+            }   
+        } 
+
+        $http({
+            method : 'post',
+            url : "/api/Gettransfer_product",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+              if(res.status == "ok"){
+                
+                angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'none');
+                for (var i = 0; i < res.data.length; i++) {
+                    $scope.itemtransferfinal.push(res.data[i])
+                }
+                
+                //$scope.itemtransferfinal = res.data;
+                $scope.no_product = { 'display':'block'};
+                //console.log($scope.plancefrom)
+                //console.log($scope.planceto)
+                
+                //console.log(res.data)
+              
+            }
+        });
+        
+        function create_word(input){
+        var word;
+        var ascii;
+        for(var i = 0 ; i < input.length ; i++)
+        {
+          ascii = input.charCodeAt(i);
+          if(i==0)
+            word = String.fromCharCode(ascii);
+          else
+            word += String.fromCharCode(ascii);
+        }
+        return word;
+      }
+        $scope.transportsearchFrom = function(){
+
+          String($scope.searchtransport);
+          var x = document.getElementsByName("searchtransportFrom");
+          //console.log(x)
+          var word = create_word(x[0].value);
+          $scope.searchtransport = word;
+          //console.log(word)
+
+      if($scope.searchtransport === undefined)
+      {
+        //$scope.transferplace_now.push($scope.transferplace[i]);
+         $scope.transferplace_now = new Array();
+        $scope.planceformStyle = { 'display':'none'};
+        
+      }
+      else
+      {
+        $scope.transferplace_now = new Array();
+        for(var i = 0 ; i < $scope.transferplace.length ; i++)
+        {
+            var n = $scope.transferplace[i].topic.toLowerCase().indexOf($scope.searchtransport.toLowerCase());
+            if(n != -1) $scope.transferplace_now.push($scope.transferplace[i]);
+            $scope.planceformStyle = { 'display':'block'};
+        }      
+      }
+
+    }
+    
+    $scope.selecthotelFrom = function(from){
+        $scope.car = new Array();
+        $scope.lag_from = from.latitude;
+        $scope.long_from = from.longitude;
+        console.log($scope.lag_from)
+        console.log($scope.lang_from)    
+        $scope.itemtransferincaseFrom = new Array();
+        console.log(from)
+        console.log($scope.searchtransportFrom)
+        $scope.searchtransportFrom = from.topic + "(" + from.amphur + ")"; 
+        //$scope.searchtransportFrom = from.topic;
+        $scope.ID_From = from.id;
+        $scope.plancepro = from.pro;
+        $scope.planceaum = from.aum;
+        console.log($scope.ID_From)
+        console.log($scope.plancepro)
+        console.log($scope.planceaum)
+        $scope.planceformStyle = { 'display':'none'};
+        
+
+        //---------------------------------------//
+        $scope.checktransfer_de = 0;
+        angular.forEach($scope.itemtransfer, function(data){
+            if(parseInt(data.place_default) == $scope.ID_From)
+            {
+                 $scope.checktransfer_de = 1;
+            }
+        });
+        $scope.checktransferaumphurfrom = 0;
+        angular.forEach($scope.itemtransfer, function(data){
+            if(parseInt(data.place_default) != $scope.ID_From && data.place_default < 1)
+            {   
+                if ($scope.plancepro == data.stay) {
+                    $scope.checktransferaumphurfrom = 1;
+                }
+                 
+            }
+        });
+        //-------------------------------------//
+        angular.forEach($scope.itemtransfer, function(data){
+            if($scope.checktransfer_de == 1){
+                //console.log("in case == 1")
+                if(parseInt(data.place_default) == $scope.ID_From)
+                { 
+                    //console.log(data.place_default)                   
+                    $scope.itemtransferincaseFrom.push(data)
+                }
+            }
+            else{
+                //console.log("in case != 1")
+                if(parseInt(data.place_default) != $scope.ID_From && data.place_default < 1)  
+                {  
+                    //console.log($scope.planceaum)
+                    //console.log(data.aum_from)
+                    if($scope.checktransferaumphurfrom == 1){
+                        //console.log("in case aumphurfrom == 1")
+                        
+                        if ($scope.plancepro == data.stay) {
+                            //console.log(data.place_default_to +"====")
+                            $scope.itemtransferincaseFrom.push(data)
+                        }
+                    }
+                    else{
+                        //console.log("in case aumphurfrom != 1")
+                        //console.log(data.aum_from)
+                        if ($scope.planceaum != 0 ){
+                                if ($scope.planceaum == data.aum_from) {                            
+                                    $scope.itemtransferincaseFrom.push(data)                                
+                                }
+                                else if($scope.plancepro == data.stay ){                               
+                                    $scope.itemtransferincaseFrom.push(data)
+                                }
+                        }
+                        else{                            
+                            $scope.itemtransferincaseFrom.push(data)
+                        } 
+                    }
+
+                }
+            }                 
+        });
+      console.log($scope.itemtransferincaseFrom)
+
+     
+    }
+    function create_word2(input){
+        var word2;
+        var ascii2;
+        for(var i = 0 ; i < input.length ; i++)
+        {
+            ascii2 = input.charCodeAt(i);
+            if(i==0)
+                word2 = String.fromCharCode(ascii2);
+            else
+                word2 += String.fromCharCode(ascii2);
+        }
+        return word2;
+      }
+    $scope.transportsearchTo= function(){
+        String($scope.searchtransportTo);
+        var x = document.getElementsByName("searchtransportTo");
+       // console.log(x)
+        var word2 = create_word2(x[0].value);
+        $scope.searchtransportTo = word2;
+        //console.log(word2)
+
+      if($scope.searchtransportTo === undefined)
+      {
+
+        $scope.transferplace_nowto = new Array();
+        $scope.plancetoStyle = { 'display':'none'};
+        
+      }
+      else
+      {
+        $scope.transferplace_nowto = new Array();
+        for(var i = 0 ; i < $scope.transferplace.length ; i++)
+        {
+          var n = $scope.transferplace[i].topic.toLowerCase().indexOf($scope.searchtransportTo.toLowerCase());
+            if(n != -1) $scope.transferplace_nowto.push($scope.transferplace[i]);
+            $scope.plancetoStyle = { 'display':'block'};
+        }       
+      }
+
+    }
+    $scope.dataPax = new Array();
+    $scope.selecthotelTo = function(to){
+        console.log(to)
+        $scope.lag_to = to.latitude;
+        $scope.long_to = to.longitude; 
+        console.log($scope.lag_to)
+        console.log($scope.lang_to)
+        $scope.car = new Array();           
+        $scope.itemtransferincaseTo = new Array();
+        $scope.dataPax = new Array();
+        //console.log(to)
+        $scope.searchtransportTo = to.topic + "(" + to.amphur + ")";
+        //$scope.searchtransportTo = to.topic;
+        $scope.ID_To = to.id;
+        console.log($scope.ID_To)
+        $scope.planceproto = to.pro;
+        $scope.planceaumto = to.aum;        
+        $scope.plancetoStyle = { 'display':'none'};
+        //console.log($scope.itemtransferincaseFrom)
+
+        $scope.checktransfer_to_de = 0;
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if(parseInt(data.place_default_to) == $scope.ID_To)
+            {
+                 $scope.checktransfer_to_de = 1;
+            }
+        });
+        $scope.checktransferaumphurto = 0;
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if(parseInt(data.place_default_to) != $scope.ID_To && data.place_default_to < 1)
+            {   
+                if ($scope.planceaumto == data.aum_to) {
+                    $scope.checktransferaumphurto = 1;
+                }
+                 
+            }
+        });
+
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if($scope.checktransfer_to_de == 1){
+                //console.log("in case == 1")
+                if(parseInt(data.place_default_to) == $scope.ID_To)
+                { 
+                    //if ($scope.planceaum != data.aum_from) {
+                        //if (data.service == 1) {
+                            //console.log(data.service)                   
+                            $scope.itemtransferincaseTo.push(data)
+                        //}
+                    //}
+                    
+                }
+            }
+            else{
+                //console.log("in case != 1")
+                if(parseInt(data.place_default_to) != $scope.ID_To && data.place_default_to < 1)  
+                {  
+                    if($scope.checktransferaumphurto == 1){
+                        //console.log("in case aumphurto == 1")
+                        //console.log(data.aum_to)
+                        if (($scope.checktransfer_to_de != 1 && ($scope.planceproto == data.stay_to)) || (parseInt(data.place_default) == $scope.ID_To)) {
+                            $scope.itemtransferincaseTo.push(data)
+                        }
+                        else if($scope.checktransfer_to_de == 1){
+                            if ($scope.planceaum == data.aum_from &&$scope.planceaumto == data.aum_to) {                            
+                                    $scope.itemtransferincaseTo.push(data)                                
+                                }
+                        }
+                    }
+                    else{
+                        //console.log("in case aumphurto != 1")
+                        if ($scope.planceaumto != 0 ) {
+                                if ($scope.planceaumto == data.aum_to) {                            
+                                    $scope.itemtransferincaseTo.push(data)                                
+                                }
+                                else if($scope.planceproto == data.stay_to ){                               
+                                    $scope.itemtransferincaseTo.push(data)
+                                }
+                        }
+                        else{                            
+                            $scope.itemtransferincaseTo.push(data)
+                        }
+                    }      
+                }
+            }                 
+        });
+        console.log($scope.itemtransferincaseTo)
+         angular.forEach($scope.itemtransferincaseTo, function(data){
+            $scope.dataPax.push(data.car_id);
+
+         });
+         //console.log($scope.dataPax)
+        var x = $scope.dataPax;
+        console.log(x);
+        var y = new Array();
+        var first = 0;
+        var count = 0;
+        for(var i = 0 ; i < x.length; i++)
+            {
+                count = 0;              
+                if(first==0)
+                {
+                    y.push(x[i]);
+                    first++;
+                }
+                for(var j = 0 ; j < y.length ; j++)
+                    {                    
+                        if(y[j]!=x[i])
+                        {
+                            count++;
+                            if(count==y.length)
+                                {
+                                  y.push(x[i]);
+                                }
+                              }
+                            }              
+            }
+            //console.log(y)         
+            for (var i = 0; i < y.length; i++) {
+                angular.forEach($scope.paxall, function(data){
+                                   
+                          if (data.id == y[i]) 
+                          {
+                             $scope.car.push(data);
+                          }
+                      });
+                console.log($scope.car)
+            }
+         
+        
+    }
+    $scope.getcondition = function(x){
+        $scope.model = x;
+        $http({
+            method : 'post',
+            url : "/api/Get_web_car_capacity/"+$scope.model,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(res){
+            if(res.status == "ok")
+                {
+                //console.log(res.data);
+                $scope.detailitem = res.data;
+                ngDialog.open({
+                    template: 'firstDialog',
+                    controller: 'myCtrl',
+                    className: 'ngdialog-theme-default ngdialog-theme-custom',
+                    scope: $scope
+                    });                      
+                         
+                }
+                            
+        });
+  
+    }
+    $scope.changenumperson = function(pax){ 
+        console.log(pax)
+         $scope.paxNumperson = new Array();
+            //console.log(pax)
+            if (pax == null) {
+                $scope.paxNumperson == undefined;
+            }
+            else{
+                $scope.paxNumperson.push(pax.person) ;
+                
+            } 
+        //console.log($scope.paxNumperson) 
+    }    
+    $scope.loadplancesearch = function(){
+        console.log($scope.lag_from)
+        console.log($scope.long_from)
+        console.log($scope.lag_to)
+        console.log($scope.long_to)
+        $scope.finalgalleryprovince = new Array();
+        $scope.checkconfirm = 1;
+        $scope.itemtransfervalue = new Array();
+        $scope.itemtransferfinal = new Array();
+        angular.element(document.querySelector('#length-product')).css('display', 'none');
+        angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'block');
+        var interval;
+        interval =  $interval(function() {
+        
+        //angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'block');
+        //alert("in")
+        $scope.itemtransferincaseTo = new Array();
+       
+        
+        
+        //console.log($scope.ID_To)
+        //console.log($scope.planceproto)
+        //console.log($scope.planceaumto)
+        $scope.plancetoStyle = { 'display':'none'};
+        angular.forEach($scope.galleryprovince, function(dataprovince){
+            //console.log($scope.ID_To)
+            console.log(parseInt(dataprovince.id))
+            if (parseInt(dataprovince.id) == $scope.ID_To) {
+                //console.log(dataprovince)
+                
+                $scope.finalgalleryprovince.push(dataprovince);
+                console.log( $scope.finalgalleryprovince)
+            }
+
+            if ($scope.finalgalleryprovince.length > 0) {
+                $scope.galleryshow = 1;
+            }
+            else{
+                $scope.galleryshow = 0;
+            }
+            
+        });
+
+        $scope.checktransfer_to_de = 0;
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if(parseInt(data.place_default_to) == $scope.ID_To)
+            {
+                 $scope.checktransfer_to_de = 1;
+            }
+        });
+        $scope.checktransferaumphurto = 0;
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if(parseInt(data.place_default_to) != $scope.ID_To && data.place_default_to < 1)
+            {   
+                if ($scope.planceaumto == data.aum_to) {
+                    $scope.checktransferaumphurto = 1;
+                }
+                 
+            }
+        });
+
+        angular.forEach($scope.itemtransferincaseFrom, function(data){
+            if($scope.checktransfer_to_de == 1){
+                //console.log("in case == 1")
+                if(parseInt(data.place_default_to) == $scope.ID_To)
+                { 
+                    //if ($scope.planceaum != data.aum_from) {
+                        //if (data.service == 1) {
+                            //console.log(data.service)                   
+                            $scope.itemtransferincaseTo.push(data)
+                        //}
+                    //}
+                    
+                }
+            }
+            else{
+                //console.log("in case != 1")
+                if(parseInt(data.place_default_to) != $scope.ID_To && data.place_default_to < 1)  
+                {  
+                    if($scope.checktransferaumphurto == 1){
+                       // console.log("in case aumphurto == 1")
+                        //console.log(data.aum_to)
+                        if (($scope.checktransfer_to_de != 1 && ($scope.planceproto == data.stay_to)) || (parseInt(data.place_default) == $scope.ID_To)) {
+                            $scope.itemtransferincaseTo.push(data)
+                        }
+                        else if($scope.checktransfer_to_de == 1){
+                            if ($scope.planceaum == data.aum_from &&$scope.planceaumto == data.aum_to) {                            
+                                    $scope.itemtransferincaseTo.push(data)                                
+                                }
+                        }
+                    }
+                    else{
+                        //console.log("in case aumphurto != 1")
+                        if ($scope.planceaumto != 0 ) {
+                                if ($scope.planceaumto == data.aum_to) {                            
+                                    $scope.itemtransferincaseTo.push(data)                                
+                                }
+                                else if($scope.planceproto == data.stay_to ){                               
+                                    $scope.itemtransferincaseTo.push(data)
+                                }
+                        }
+                        else{                            
+                            $scope.itemtransferincaseTo.push(data)
+                        }
+                    }      
+                }
+            }
+
+        });
+      //console.log($scope.itemtransferincaseTo)
+      angular.forEach($scope.itemtransferincaseTo, function(data){
+        if ($scope.planceaum == data.aum_from || data.aum_from == undefined || data.aum_from == 0  ) {
+            if ($scope.planceaumto == data.aum_to || data.aum_to == undefined || data.aum_to == 0 ) {
+                //console.log(data.aum_from + "-" + data.aum_to)
+                $scope.itemtransfervalue.push(data);
+            }
+            
+        }
+
+        
+      });
+      //console.log($scope.itemtransfervalue)
+        //console.log($scope.paxNumperson);
+        if ($scope.paxNumperson.length == 0) {
+            $scope.itemtransferfinal = $scope.itemtransfervalue;
+            angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'none');
+        }
+        else{
+            angular.forEach($scope.itemtransfervalue, function(data){
+                console.log(data)
+                if (data.person == $scope.paxNumperson ) {
+                    angular.element(document.querySelector('#inTurnFadingTextGPro')).css('display', 'none');
+                    $scope.itemtransferfinal.push(data)
+                }
+            });
+            
+            console.log($scope.itemtransferfinal)
+        }
+        $interval.cancel(interval);
+        if ($scope.itemtransferfinal == undefined) {
+            $scope.NoProduct = "No Product";
+        }
+        else{
+            angular.element(document.querySelector('#length-product')).css('display', 'block');
+        }
+        },1000);
+        
+        toRad = function (value) {
+        return value * Math.PI / 180;
+        }
+
+        Equirectangular = function(point1, point2) {
+            var R = 6371; // earth radius in km
+            var x = (toRad(point2.lon)-toRad(point1.lon)) *
+                    Math.cos((toRad(point1.lat)+toRad(point2.lat))/2);
+            var y = (toRad(point2.lat)-toRad(point1.lat));
+            return Math.sqrt(x*x + y*y) * R;
+        };
+
+        
+
+
+        // START HERE
+       
+        if ($scope.lag_from != 0 && $scope.long_from != 0 && $scope.lag_to != 0 && $scope.long_to != 0){
+            $scope.laglog = false;
+            console.log("asasasasasasasasasasas===================")
+
+        }
+        else{
+            $scope.laglog = true;
+            console.log("asasa")
+        }
+        pointOne = {
+            lat: parseFloat($scope.lag_from),
+            lon: parseFloat($scope.long_from)
+        };
+            
+        pointTwo = {
+            lat: parseFloat($scope.lag_to),
+            lon: parseFloat($scope.long_to)
+        };
+        console.log(pointOne.length+"============")
+        console.log(pointTwo.length+"===========")
+
+       $scope.Dx = Equirectangular(pointOne, pointTwo);
+       $scope.km = parseInt($scope.Dx);
+       
+        
+
+        //$('#dvDistance').append('<p><b class="distances">Distances</b>' +'~'+parseInt($scope.km) +'Km');
+        
+    }
+    $scope.selectprovince = function(i){
+       //alert(language)
+        var x = $cookies.get('language');
+        //alert(x)
+        if(x==undefined){
+            $scope.provinceselect = i.name_en;    
+        }
+        else if(x==1){
+            $scope.provinceselect = i.name_en
+        }
+        else if(x==2){
+            $scope.provinceselect = i.name_th
+        }
+        else if(x==3){
+            $scope.provinceselect = i.name_cn
+        }
+       
+       $scope.transferplace = new Array();
+       angular.forEach($scope.transferplacepro, function(data){
+            if (data.pro == i.id) {
+               $scope.transferplace.push(data);
+            }
+
+       });
+       $scope.boxprovince = { 'display':'none'};
+    }
+    $scope.styleboxprovince = function(){
+        $scope.boxprovince = { 'display':'block'};
+    }
+
+
+        $scope.gotransfer = function(item){
+          //console.log($scope.searchtransportFrom)
+          //console.log($scope.searchtransportTo)
+            $scope.view.push(item);
+
+            var dataSelect = {"from": $scope.searchtransportFrom,
+                              "to" : $scope.searchtransportTo,
+                              "idfrom" :$scope.ID_From,
+                              "idto" :$scope.ID_To
+          };
+          //console.log(dataSelect)     
+            localStorage.setItem('view',JSON.stringify($scope.view));
+            localStorage.setItem('dataSelect',JSON.stringify(dataSelect));
+            $window.open('transfer-view#?data=' + JSON.stringify(item.transfer_id));
+
+        }
+        $scope.searchaddvanch = function(){
+                location.href="Transport";
+        }
+        $scope.cartBook = function(){
+            location.href="cart";
+
+        }
+        $scope.gohome = function(input){
+            location.href= ip;
+        }        
+        $scope.transfer = function(){
+            location.href="Transports";
+
+        }
+        $scope.restaurant = function(){
+            location.href="restaurant";
+
+        }
+        $scope.shopping = function(){
+            location.href="shopping";
+
+        }
+        $scope.gotour = function(){
+            location.href="tour";
+
+        } 
+        $scope.gohotel = function(){
+            location.href="hotels";
+
+        }
+        var language = $cookies.get('language');
+            if(language==undefined){
+                 $scope.placeholderto = 'Type airport,hotel name, or location.';
+                $scope.placeholder = 'Type airport,hotel name, or location.';
+                $cookies.put("language", 1);
+                $scope.flag = 'English';
+                $scope.flagcheck = 1;
+            }
+            else if(language==1){
+                $scope.placeholderto = 'Type airport,hotel name, or location.';
+                $scope.placeholder = 'Type airport,hotel name, or location.';
+                $scope.flag = 'English';
+                $scope.flagcheck = 1;
+            }
+            else if(language==2){
+                //$scope.placeholderto = 'ไปยัง';
+                //$scope.placeholder = 'จาก';
+                $scope.flag = 'Thai';
+                $scope.flagcheck = 2;
+            }
+            else if(language==3){
+                //$scope.placeholderto = '至';
+                //$scope.placeholder = '從';
+                $scope.flag = '中文(简体)';
+                $scope.flagcheck = 3;
+            }
+        $scope.language = function(x){
+            //alert(x)
+            $scope.body = { 'display':'none'};
+            $scope.anmateprocess = { 'display':'block'};
+            var interval;
+            interval =  $interval(function() {
+
+            if(x==1){          
+                $cookies.remove("language");
+                $cookies.put("language", 1);
+                $scope.flag = 'English';
+                $scope.flagcheck = 1;
+                $scope.placeholderto = 'To';
+                $scope.placeholder = 'From';
+            }
+            else if(x==2){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 2);
+                $scope.flag = 'Thai';
+                $scope.flagcheck = 2;
+                $scope.placeholderto = 'ไปยัง';
+                $scope.placeholder = 'จาก';
+              //event_change_month("th");
+            }
+            else if(x==3){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 3);
+                $scope.flag = '中文(简体)';
+                $scope.flagcheck = 3;
+                 $scope.placeholderto = '至';
+                $scope.placeholder = '從';
+            }
+            $scope.body = { 'display':'block'};
+            $scope.anmateprocess = { 'display':'none'};
+            $interval.cancel(interval);
+           
+        },1000 );
+    }
+
+    
+    //$('body').append('<p><b>Haversine</b> ' + y);
+
+    //$('body').append('<p><i>distances in km');
+
+  });
+  
+  app.directive('errSrc', function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.bind('error', function() {
+        if (attrs.src != attrs.errSrc) {
+          attrs.$set('src', attrs.errSrc);
+        }
+      });
+    }
+  }
+});
+app.filter('startFrom',function(){
+  return function(data,start){
+    return data.slice(start); 
+  }
+}); 
+
+</script>
+</html>

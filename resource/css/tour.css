@@ -1,0 +1,696 @@
+
+html, body{
+    font-family: microsoft yahei;
+   
+     /*-webkit-touch-callout: none; /* iOS Safari */
+     /*-webkit-user-select: none;   /* Chrome/Safari/Opera */
+     /*-khtml-user-select: none;    /* Konqueror */
+     /*-moz-user-select: none;      /* Firefox */
+     /*-ms-user-select: none;       /* IE/Edge */
+     /*user-select: none;*/
+     overflow-x: hidden;
+    width: 100%;
+    
+   
+    
+
+
+}
+#type-tour{
+    margin-left: 4%;
+    color: #9e9e9e;
+    font-size: 12px;
+}
+#packageshow{
+    margin-top: 50px;
+}
+.box-load-T{
+    margin-top: 100px;
+    margin-left: 40%;
+}
+#imgadult{
+   margin-right: 5px; 
+}
+  .filter_box {
+    position: relative;
+    width: 100%;
+    /*border: dashed 1px #338cb7;*/
+    height: 250px;
+    margin-left: 0%;
+    margin-top: 2px;
+        background: #eee;
+  }
+ .product-item-sec-tour {
+    /*margin-left: 10px;
+    margin-bottom: 0;*/
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.15);
+}
+#active-tour{
+ color: #0dabf9;
+}
+
+.product-item-sec-tour{
+    position: relative;
+    width: 100%;
+    height: 320px;
+    float: left;
+    overflow: hidden;
+    transition: all .2s linear;
+    margin-bottom: 20px;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+    /* top: 25px; */
+    /* margin-bottom: 22px; */
+    cursor: pointer;
+
+}
+.product-item-sec-tour:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  /*-webkit-transform: scale(1.2);
+    -moz-transform:  scale(1.2);
+    -o-transform:  scale(1.2);
+    -ms-transform:  scale(1.2);
+    z-index: 100000;
+    background-color: #fff;
+    top:20px;*/
+    background-color: #fff;
+
+
+}
+/* The fast way */
+
+/*.product-item-sec-tour:first-child{
+    margin-right: 10px;
+}*/
+/* Pre-render the bigger shadow, but hide it */
+.product-item-sec-tour::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out:
+}
+
+/* Transition to showing the bigger shadow on hover */
+.product-item-sec-tour:hover::after {
+  opacity: 1;
+}
+.item-thumbnail-sec-tour{
+  position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 130px;
+    margin-bottom: 3px;
+    overflow: hidden;
+    background-color: #ddd;
+    cursor: pointer;
+}
+.item-name-sec-tour{
+    height: 55px;
+    line-height: 16px;
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    padding: 10px 10px;
+    font-weight: 600;
+}
+.item-info-sec-tour{
+  position: relative;
+    height: 35px;
+    text-align: right;
+    padding: 0 15px;
+}
+.price-sec-tour{
+  position: relative;
+  float: right;
+  color: #ff5722;
+  font-weight: 600;
+  font-size: 16px;
+}
+.price_info-sec-tour{
+  position: relative;
+    height: 35px;
+    text-align: right;
+    padding: 0 2px;
+    color: #000;
+}
+.item-type-sec-tour{
+  position: relative;
+    height: 35px;
+    /* top: 20px; */
+    float: left;
+    text-align: right;
+    /* padding: 2px 5px; */
+}
+
+.product-item-sec-tour img{
+  width: 100%;
+   
+}
+.section-toue-all{
+    
+    cursor: pointer;
+    /* margin-left: 58px; */
+    /* position: absolute; */
+    /* margin-top: 402px; */
+    padding: 1px 5px;
+    float: right;
+    display: inline-block;
+}
+.section-toue-all span:hover{
+  background: #90600e;
+  color: #FFF;
+  padding: 1px 5px;
+    border-radius: 3px;
+    display: inline-block;
+    float: right;
+}
+.box-all-item-tour-section-alltour {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: #0dabf9;
+}
+.box-all-item-tour-section-alltour span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allspa {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(244, 67, 54);
+}
+.box-all-item-tour-section-allspa span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allwedding {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(226, 51, 110);
+}
+.box-all-item-tour-section-allwedding span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-alldiving {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(76, 175, 80);
+}
+.box-all-item-tour-section-alldiving span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allboat {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(214, 107, 232);;
+}
+.box-all-item-tour-section-alltboat span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allgolf {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(205, 220, 57);
+}
+.box-all-item-tour-section-allgolf span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allpackage {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(255, 87, 34);
+}
+.box-all-item-tour-section-allpackage span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-all-item-tour-section-allshow {
+    text-align: center;
+    float: right;
+    margin-right: 6px;
+    width: 100%;
+    /* line-height: 4; */
+    border-radius: 9px;
+    height: 575px;
+    color: #fff;
+    background: rgb(85, 202, 245);
+}
+.box-all-item-tour-section-allshow span{
+    color: #080808;
+    margin-top: 55px;
+    position: absolute;
+    margin-left: -22px;
+
+  }
+  .box-section-tour {
+    /*border: solid 1px #ddd; */
+    /* padding: 11px 8px; */
+    padding-bottom: 27px !important;
+    height: 664px;
+    /* margin-left: 16px; */
+    width: 100%;
+    overflow: hidden;
+}
+.box-btn-select-menu-tour{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-spa{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-boat{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-wedding{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-diving{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-golf{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-package{
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-show{
+    width: 77%;
+    padding: 0;
+    margin-left: 200px !important;
+    margin: auto;
+    display: inline-block;
+}
+.box-btn-select-menu-tour li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-spa li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-boat li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-wedding li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-diving li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-golf li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+   
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-package li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-show li{
+    margin-right: 2px;
+   /* width: 65px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 20px;
+    /* margin-right: 15px; */
+    padding: 2px 14px;
+    border-radius: 3px;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    /* border-bottom: solid 1px #eee; */
+    
+    /* margin-bottom: 18px; */
+    /* background: #ddd; */
+}
+.box-btn-select-menu-tour li:hover{
+    color: #FFF !important;
+    background: #2196f3;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-spa li:hover{
+    color: #FFF !important;
+    background: rgb(244, 67, 54);
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-boat li:hover{
+    color: #FFF !important;
+    background: rgb(156, 39, 176) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-wedding li:hover{
+    color: #FFF !important;
+    background: rgb(226, 51, 110) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-diving li:hover{
+    color: #FFF !important;
+    background: rgb(76, 175, 80) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-golf li:hover{
+    color: #FFF !important;
+    background: rgb(205, 220, 57) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-package li:hover{
+    color: #FFF !important;
+    background: rgb(255, 87, 34) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-show li:hover{
+    color: #FFF !important;
+    background: rgb(85, 202, 245) !important;
+    /*background-color: #46aaff;*/
+}
+.box-btn-select-menu-tour li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-spa li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-boat li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-wedding li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-diving li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-golf li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .box-btn-select-menu-gackage li.active{
+        /* background-color: #46aaff; */
+    /* border: solid 2px #0a56bb; */
+    color: #46aaff !important;
+    text-decoration: none;
+  }
+  .zone-taxt-item{
+    display: inline-block;
+    margin-left: 70px;
+  }
+  .box-btn-select-submenu-tour{
+    /*display: none; */
+    /* float: left; */
+    /* width: 50px; */
+    padding-left: 0;
+    /* background-color: #1877c7; */
+    /* zoom: 1; */
+    margin-top: 275px;
+    position: absolute;
+    margin-bottom: 0;
+    margin-left: 25px;
+    z-index: 10000;
+
+}
+.box-btn-select-submenu-tour li{
+        /* width: 50px; */
+    text-align: center;
+    line-height: 20px;
+    padding: 15px 8px;
+    /* list-style: none; */
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: solid 1px #eee;
+}
+
+#tourall{
+    margin-top: 50px;
+}
+#spaall{
+    margin-top: 50px;
+}
+#boatall{
+    margin-top: 50px;
+}
+#weddingall{
+    margin-top: 50px;
+}
+#divingall{
+    margin-top: 50px;
+}
+#golfall{
+    margin-top: 50px;
+}
+#packageall{
+    margin-top: 50px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+    .box-btn-select-submenu-tour{
+        display: none;
+    }
+    .box-section-tour{
+        height: auto;
+    }
+    .box-btn-select-menu-tour{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-spa{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-boat{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-wedding{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-diving{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-golf{
+        margin-left: 0px !important;
+    }
+    .box-btn-select-menu-package{
+        margin-left: 0px !important;
+    }
+    .product-item-sec-tour{
+        margin-bottom: 10px;
+        height: 340px;
+    }
+    .box-section-tour{
+        border: none;
+        padding: 0 8px;
+    }
+    .item-thumbnail-sec-tour{
+        height: 160px;
+    }
+    .filter_box{
+        height: 190px !important;
+    }
+    #owl-demo .item img {
+        height: 190px !important;
+    }
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+    .product-item-sec-tour{
+        margin-bottom: 10px;
+        height: 340px;
+    }
+    .item-name-sec-tour{
+        height: auto;
+    }
+
+}

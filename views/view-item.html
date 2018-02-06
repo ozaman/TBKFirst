@@ -1,0 +1,730 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title >View Product</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-res.css">
+    <link rel="stylesheet" type="text/css" href="css/detail.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/default.date.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/view-item.js" type="text/javascript" ></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-cookies.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <!--  <script src="/assets/editor/v2x0/application-4856922c0fa82feadc452fb3dcc72ba5.js"></script>-->
+    <script src="js/jquery-cookie.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+   
+  <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.modal.min.js" type="text/javascript"></script>
+    <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+    <script src="js/picker.js" type="text/javascript"></script>
+    <script src="js/picker.date.js" type="text/javascript"></script>
+     <script src="js/owl.carousel.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src='js/moment.min.js'></script>
+    <script src='js/fullcalendar.js'></script>
+    <script src='js/fullcalendar.min.js'></script>
+    <script src="js/calendar.js" type="text/javascript" ></script>
+     <script src="js/moment.js" type="text/javascript" ></script>
+    <script src="js/main-script.js" type="text/javascript"></script>
+    <script src="js/page3_jquery.js" type="text/javascript" ></script>
+    <link href="css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="js/angular-datepicker.js"></script>
+     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+     
+     <!--<script src="js/gcal.js" type="text/javascript" ></script>-->
+     
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href='css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getItem()">
+    <div id="fountainTextG3-form2" ng-style="anmateprocess2" >
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">L</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">a</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">d</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">i</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">n</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">g</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div id="fountainTextG3-form" ng-style="anmateprocess">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div class="contain-fluid" ng-style="body" id="body">
+        <header id="menu-web">        
+            <nav class="navbar navbar-default">              
+                <div class="navbar-header">
+                    <div>
+                        <button type="button" class="navbar-toggle " id="focus" ng-click="clickresMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="navbar-brand" ng-click="gohome()">Go Holiday</a>
+                    </div>
+                    <div class="cart-menu" ng-click="cartBook()" id="none-menu">
+                        <img src="icon/cart27.png" id="cartitem" >
+                        <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                    </div>
+                    
+                </div>
+                <div class=" nav navbar-nav dropdown" id="navb-left">                      
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 1" >Browse <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 2" >เรียกดู <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 3" >瀏覽 <span class="caret"></span></p>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">                          
+                        <li  ng-click="transfer()">
+                            <span ng-if="flagcheck == 1" >Transports</span>
+                            <span ng-if="flagcheck == 2" >การขนส่ง</span>
+                            <span ng-if="flagcheck == 3" >傳輸</span>
+                        </li>
+                        <li  ng-click="gotour()">
+                            <span ng-if="flagcheck == 1">Activities </span>
+                            <span ng-if="flagcheck == 2">กิจกรรม/ทัวร์ </span>
+                            <span ng-if="flagcheck == 3">活動 </span>
+                        </li>
+                        <li  ng-click="gohotel()">
+                            <span ng-if="flagcheck == 1">Hotels</span>
+                            <span ng-if="flagcheck == 2">โรงแรม</span>
+                            <span ng-if="flagcheck == 3">酒店</span>
+                        </li>
+                        <li  ng-click="shopping()" >
+                            <span ng-if="flagcheck == 1">Shopping</span>
+                            <span ng-if="flagcheck == 2">ช้อปปิ้ง</span>
+                            <span ng-if="flagcheck == 3">購物</span>
+                        </li> 
+                        <li  ng-click="restaurant()" >
+                            <span ng-if="flagcheck == 1">Restaurant</span>
+                            <span ng-if="flagcheck == 2">ร้านอาหาร</span>
+                            <span ng-if="flagcheck == 3">餐廳</span>
+                        </li>    
+                    </ul>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="" >
+                            <div class="cart-menu" ng-click="cartBook()" >
+                                <img src="icon/cart27.png" id="cartitem" >
+                                <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                            </div>
+                        </li>
+                        <li id="login-sucess">
+                            <a  ng-if="loginstatus" data-toggle="modal" data-target="#loginmodal" >
+                                <span ng-if="flagcheck == 1">Login</span>
+                                <span ng-if="flagcheck == 2">เข้าสู่ระบบ</span>
+                                <span ng-if="flagcheck == 3">登錄</span>
+                            </a>
+                            <div ng-if="!loginstatus"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="li-seting-profile">
+                                <img data-toggle="modal" data-target="" ng-src="{{'/uploads/profile/' + Profile}}" width="35" height="35" id="imgprofile" title="{{loginname}}">
+                             
+                            </div>                            
+                            <ul ng-if="!loginstatus" class="dropdown-menu" id="profile-data-hover"  aria-labelledby="dropdownMenu1" style="">
+                                <i></i>
+                                <div class="masthead-picker-body">
+                                    <div class="masthead-picker-photo-wrapper">                                     
+                                        <img data-toggle="modal" data-target="#uploadprofile"  ng-src="{{'/uploads/profile/' + Profile}}" height="64" width="64" aria-hidden="true" alt="" data-ytimg="1"> 
+                                    </div>
+                                    <div class="masthead-picker-info">
+                                        <div class="masthead-picker-name" dir="ltr">{{userEmail}}</div>
+                                    </div>
+                                </div>
+                                <div class="masthead-picker-footer">
+                                    <button class="btn btn-default btn-xs pull-left" ng-click="profile()">
+                                        <span ng-if="flagcheck == 1">Profile</span>
+                                        <span ng-if="flagcheck == 2">ประวัติส่วนตัว</span>
+                                        <span ng-if="flagcheck == 3">輪廓</span>
+                                    </button>
+                                    <button ng-click="logout()" class="btn btn-default btn-xs pull-right">
+                                        <span ng-if="flagcheck == 1">Logout</span>
+                                        <span ng-if="flagcheck == 2">ออกจากระบบ</span>
+                                        <span ng-if="flagcheck == 3">登出</span>
+                                    </button>
+                                </div>
+                            </ul>
+                        </li>
+                        <li ng-if="loginstatus">
+                            <a  href="/register" ng-if="flagcheck == 1">Sign Up</a>
+                            <a  href="/register" ng-if="flagcheck == 2">สมัครสมาชิก</a>
+                            <a  href="/register" ng-if="flagcheck == 3">註冊</a>
+                        </li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>  
+  
+    <nav class="menu" tabindex="0" ng-mouseleave="remove_submenu()" id="menu">          
+        <div class="smartphone-menu-trigger"> </div>            
+
+        <div class="avatar">
+            <img  ng-src="{{'/uploads/profile/' + Profile}}" />
+                <h4>{{loginname}}</h4>
+        </div>
+        <ul>
+            <li tabindex="0" ng-click="transfer()">Transports </li>
+            <li tabindex="0" ng-click="gotour()">Activities </li>
+            <li tabindex="0" ng-click="gohotel()">Hotels</li>
+            <li tabindex="0" ng-click="shopping()" >Shopping</li> 
+            <li tabindex="0" ng-click="restaurant()" >Restaurant</li>
+            <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="channel-head" style="">
+            <div class="container" >
+                <channel-breadcrumb parent-channel="currentChannel.parentChannel" channel-title="currentChannel.title" ng-style="">
+                    <div class="bread mt20">
+                        <a href="#" id="color-icon"><i ng-click="gohome()" class="fa fa-home" title="Home"></i></a>
+                        <span ng-if="flagcheck == 1">/ View Product</span>
+                        <span ng-if="flagcheck == 2">/ ดูสินค้า</span>
+                        <span ng-if="flagcheck == 3">/ 查看產品</span>
+                    </div>
+                </channel-breadcrumb> 
+                    <h1 class="fs30 ellipsis">
+                        <span ng-if="flagcheck == 1">View Product</span>
+                        <span ng-if="flagcheck == 2">ดูสินค้า</span>
+                        <span ng-if="flagcheck == 3">查看產品</span>
+                    </h1> 
+                    <ul></ul> 
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" style="padding:0">
+            <div class="row">
+                <div class="col-md-8 "  >
+                    <div class="htl_info">       
+                        <h1 class="name" >
+                            <span ng-if="flagcheck == 1">{{topic_en}}</span>
+                            <span ng-if="flagcheck == 2">{{topic_th}}</span>
+                            <span ng-if="flagcheck == 3">{{topic_cn}}</span>
+                        </h1>                    
+                          <div class="icon_list"></div>                           
+                    </div>
+                  	<div class=" box-details">
+                    		<div id="detail-sec01" >
+          			            <div class="box" id="gallery-select-value">
+          			                <div id="slider" class="flexslider">
+          			                 	  <ul class="slides1">
+            				                    <li >
+            				                      	<div class="big-photo" ng-repeat="x in gallery">
+            				                         	<img style="border: solid 1px #ccc;" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/' + x.post_date+'.jpg'}}">
+
+            				                      	</div>
+
+            				                    </li>
+          			                  	</ul>
+          			                </div>
+
+          			                <div class="thumbnail-photo">
+          			                  <!-- <a class="btn-left"></a> -->
+              			                <div id="carousel" class="flexslider">
+              			                   	<ul class="slides2">
+              			                      	<li >
+              				                          <div class="list-thumbnail" ng-repeat="x in gallery" ng-mouseover="img_click($index)">
+              				                              <img style="border: solid 1px #ccc;" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/' + x.post_date+'.jpg'}}">
+              				                        </div>
+              			                      	</li>
+
+              			                    </ul>
+              			                </div>
+          			                <!-- <a class="btn-right"></a>-->
+          			                </div>
+          			            </div>
+          			        </div>
+        			            <!--<div class="follow"></div>-->
+        	          </div>
+                    <div class="col-lg-12 " id="select-view-item-mobile" >
+                        <div class="box-show-select-view" ng-show="view.length != 0">
+                            <div class="item-res col-lg-4"  ng-repeat="a in view track by $index">
+                                <div class="product-item-view " ng-click="select_item_view(a ,tour)">
+                                    <div class="item-thumbnail-view" >
+                                          <img class="img-tiem-view" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/crop/' + a.image_crop +'.jpg'}}" err-src="images/cadillac.png">
+                                    </div>
+                                    <p class="item-name-view">
+                                        <span ng-if="flagcheck == 1">{{a.topic_en}}</span>
+                                        <span ng-if="flagcheck == 2">{{a.topic_th}}</span>
+                                        <span ng-if="flagcheck == 3">{{a.topic_cn}}</span>
+                                    </p>
+                                    <p class="item-type-view">{{a.type}}</p>
+                                    <p class="item-info-view">
+                                        <span class="price-view">Price&nbsp;<span style="color: #FF9800;"><span class="price_info-view">฿</span>{{a.cost_a_agent_all | currency:"":0}}</span >
+                                        </span>    
+                                    </p>
+
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box-item-show2">
+                  		  <div class="box-detail-right">
+                          <!--<div id="calendar"></div>-->
+        	                  <!--<div class="topic_en"> {{topic_en}}</div>-->
+                              
+          		                  <div class="pricecostselect">
+            			             <p id="infoperson" >
+                                        <span ng-if="flagcheck == 1">Adult:</span>
+                                            <span ng-if="flagcheck == 2">ผู้ใหญ่:</span>
+                                            <span ng-if="flagcheck == 3">成人:</span>
+                                            <span class="price_infocost">฿{{sumprice_adult | currency:"":0}} </span>
+                                    </p>
+            			            <p id="infoperson">
+                                        <span ng-if="flagcheck == 1">Child :</span>
+                                        <span ng-if="flagcheck == 2">เด็ก :</span>
+                                        <span ng-if="flagcheck == 3">儿童 :</span>
+                                        <span class="price_infocost">฿{{sumprice_child | currency:"":0}}
+                                        </span>
+                                    </p>   
+          		                  </div>
+                                <hr>
+                                <div class="col-lg-12"> 
+                                    <div id="atime">
+                                        <p >
+                                            <span ng-if="flagcheck == 1">Around time : </span>
+                                            <span ng-if="flagcheck == 2">ช่วงเวลา : </span>
+                                            <span ng-if="flagcheck == 3">大約時間 : </span>
+                                        </p>
+                                        <div class="show-time"> 
+                                            
+                                                
+                                                  <span class="all-time" id="u0" ng-click="timeselect(havetime[0])" ng-show="havetime[0] != undefined">{{havetime[0].show_h}}:{{havetime[0].show_m}}</span>
+                                                  <span class="all-time" id="u1" ng-click="timeselect(havetime[1])" ng-show="havetime[1] != undefined">{{havetime[1].show_h}}:{{havetime[1].show_m}}</span>
+                                                  <span class="all-time" id="u2" ng-click="timeselect(havetime[2])" ng-show="havetime[2] != undefined">{{havetime[2].show_h}}:{{havetime[2].show_m}}</span>
+                                                  <span class="all-time" id="u3" ng-click="timeselect(havetime[3])" ng-show="havetime[3] != undefined">{{havetime[3].show_h}}:{{havetime[3].show_m}}</span>
+                                                  <span class="all-time" id="u4" ng-click="timeselect(havetime[4])" ng-show="havetime[4] != undefined">{{havetime[4].show_h}}:{{havetime[4].show_m}}</span>
+                                                  <span class="all-time" id="u5" ng-click="timeselect(havetime[5])" ng-show="havetime[5] != undefined">{{havetime[5].show_h}}:{{havetime[5].show_m}}</span>
+                                               
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12"> 
+                                    <div class="text-time">
+                                        <span ng-if="flagcheck == 1">Time:</span>
+                                        <span ng-if="flagcheck == 2">เวลา:</span>
+                                        <span ng-if="flagcheck == 3">時間:</span>
+                                    <span class="keyword-box-content" ng-model="textfinal">{{textfinal}}</span>
+                                        <div class="sumprice" ng-show="sumprice_adult_child != 0">
+                                            <span ng-if="flagcheck == 1">Total : </span>
+                                            <span ng-if="flagcheck == 2">ราคารวม : </span>
+                                            <span ng-if="flagcheck == 3">总 : </span>
+                                            &nbsp;&nbsp;฿{{sumprice_adult_child | currency:"":0}} </div>
+                                    </div>
+                                </div>
+        		                  <div class="col-lg-12">
+              						    <div class="form-date">
+              							   <div class="form-title" >
+                                                <span ng-if="flagcheck == 1">date :</span>
+                                                <span ng-if="flagcheck == 2">วันที่ :</span>
+                                                <span ng-if="flagcheck == 3">日期 :</span>
+                                            </div>
+
+                							     <input class="form-control booking-input" type="text" id="booking-date" required><i class="fa fa-calendar" id="calen" aria-hidden="true"></i>
+                							 
+                                            <div id="dateon" ></div>
+              						    </div>
+              						    <div class="form-person">
+              						        <div id="person-transfer">
+                                                <span ng-if="flagcheck == 1">Adult(s):</span>
+                                                <span ng-if="flagcheck == 2">ผู้ใหญ่(s):</span>
+                                                <span ng-if="flagcheck == 3">成人(s):</span>
+                                                <span style="padding:9%"></span>
+                                                <span ng-if="flagcheck == 1">Child(s):</span>
+                                                <span ng-if="flagcheck == 2">เด็ก(s):</span>
+                                                <span ng-if="flagcheck == 3">兒童(s):</span>
+                                            </div>
+                                            
+                                                 <select class="form-control " ng-change="adultSelect(personadult)" id="numperson" ng-model="personadult" data-ng-options="i  for i in adult">
+                                                        <option value="">0</option>
+                                                </select>            
+                                              <span style="padding-left: 3%;">/</span>
+                  							
+                  							   <select class="form-control" ng-change="childSelect(personchild)" id="numperson2" ng-model="personchild" data-ng-options="i  for i in child">
+                                                    <option value="">0</option>
+                                                </select>
+                  						</div>
+                                    </div>
+                               
+                                    <div class="col-lg-12">
+                          				<div class="btn_submit ">
+                                            <div class="btn-book" ng-click="addCart()">
+                                                <span ng-if="flagcheck == 1">Book Now</span>
+                                                <span ng-if="flagcheck == 2">จอง</span>
+                                                <span ng-if="flagcheck == 3">現在預訂</span>
+                                            </div>
+                                            <div class="btn-costs" ng-click="addCart()">
+                                                <span ng-if="flagcheck == 1">Add to Shopping Cart</span>
+                                                <span ng-if="flagcheck == 2">เพิ่มในรถเข็น</span>
+                                                <span ng-if="flagcheck == 3">加入購物車</span>
+                                            </div>
+
+                                        </div> 
+                                    </div>
+                                   
+        	              </div>
+                    </div>
+        	      </div>
+            </div>
+        </div>
+    </section>    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="product_nav">
+                <div class="container">
+                  	<ul>
+                        <li class="cur">
+                            <span ng-if="flagcheck == 1">Overview</span>
+                            <span ng-if="flagcheck == 2">รายละเอียด</span>
+                            <span ng-if="flagcheck == 3">概觀</span>
+                        </li>
+                      <li class="cur">
+                            <span ng-if="flagcheck == 1">Free</span>
+                            <span ng-if="flagcheck == 2">ฟรี</span>
+                            <span ng-if="flagcheck == 3">自由</span></li>
+                      <li class="cur">
+                            <span ng-if="flagcheck == 1">Introduction</span>
+                            <span ng-if="flagcheck == 2">แนะนำ</span>
+                            <span ng-if="flagcheck == 3">遊戲簡介</span>
+                      </li>
+                      
+                    </ul>
+                  	<div class="btn_orange" style="display:none">
+                        <span ng-if="flagcheck == 1">Book Now</span>
+                        <span ng-if="flagcheck == 2">จอง</span>
+                        <span ng-if="flagcheck == 3">現在預訂</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-8">
+            <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+        </div>
+        <div class="col-md-4">
+            <div ng-show="SelectedEvent" class="alert alert-success" style="margin-top:50px">
+                <h2 style="margin-top:0px"> Selected Event:</h2>
+                <h3 style="color:#A9A50E">{{SelectedEvent.title}}</h3>
+                <p>{{SelectedEvent.description}}</p>
+            </div>
+        </div>
+    </div>-->
+    <section>
+      <div class="container" style="padding:0">
+        <div class="col-md-7">
+            <div class=" box-detailss">
+                <span ng-if="flagcheck == 1" class="detail" ng-bind-html="returnhtml(detail_en)"></span>
+                <span ng-if="flagcheck == 2" class="detail" ng-bind-html="returnhtml(detail_th)"></span>
+                <span ng-if="flagcheck == 3" class="detail" ng-bind-html="returnhtml(detail_cn)"></span>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="box-item-show">
+                <div class="col-lg-12" ng-repeat="item in front" id="item-font-section-transfer">
+                    <div class="product-item-front " ng-click="select_item(item ,tour)">
+                        <div class="item-thumbnail-front" >
+                            <img class="img-tiem-front" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/crop/' + item.image_crop +'.jpg'}}">
+                            <div class="item-type-front">{{item.type}}</div>
+                        </div>
+                        <p class="item-name-front">
+                            <span ng-if="flagcheck == 1">{{item.topic_en}}</span>
+                            <span ng-if="flagcheck == 2">{{item.topic_th}}</span>
+                            <span ng-if="flagcheck == 3">{{item.topic_cn}}</span>
+                        </p>
+                        <div class="product_r">
+                            <span class="base_price"></span>
+                                <span class="sala"><span class="pay_later">THB</span>{{item.cost_a_agent_all | currency:"":0}}</span>                              
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>            
+    </div> 
+    </section>
+    <footer>    
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <ul class="fxw mt10 hidden-xs">
+                            <li>
+                                <div class="btn-group dropup lang-dropdown">
+                                    <div class="dropdown-toggle fxac " data-toggle="dropdown">
+                                          <i class="icon-globe fa fa-globe mr5"></i>
+                                           {{flag}}
+                                          <i class="icon-caret-up fa fa-caret-up user-caret ml5"></i>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li ng-click="language(1)"><img src="/images/en.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="en_US" value="en" >English</a></li>
+                                            <li ng-click="language(2)"><img src="/images/th.png" width="25" height="25"/><a href="" class="locale-link" update-locale="" locale="th_TH" value="th" >Thai</a></li>
+                                            <li ng-click="language(3)"><img src="/images/cn.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="zh_CN" value="cn" >中文(简体)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="gray-text copyright" ng-if="flagcheck == 1">  Copyright © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 2">  ลิขสิทธิ์ © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 3">  版權 © 2016 Go holiday, Inc.</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1" >Terms</span>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ข้อตกลงและเงื่อนไข</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">條款</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">Customer Service</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">บริการลูกค้า</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">客户服务</a>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">System Support</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ติดต่อ Admin</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">系统支持</a>
+                            </li>
+                        </ul>
+                        <div class="footer-right">
+                             <span id="time" my-current-time="format"></span>
+                            <ul>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" id="login-modal"> 
+            <button class="close" ng-click="close($event)" data-dismiss="modal" onclick="reset()">×</button>
+                <h2 class="box-heading">
+                    Login to your account!
+                </h2>
+                <div class="modal-body">
+                  <div class="box-left box-col fx"> 
+                    <h4>Login with social accounts</h4>
+                    <div facebook-signup="" action-type="signin" signin-box-class-name="js-signin-box" redirecturl="authfacebook" >
+                        <a ng-click="authenticate('facebook')" class="social-btn facebook-btn js-facebook-btn shadowed-btn fxac">
+                            <i class="icon-facebook social-icon fa fa-facebook"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Facebook
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                    </div>
+
+                    <div google-plus-signup="" action-type="signin" signin-box-class-name="js-signin-box" client-id="700206021005-fntgseouuq3ah1jtko8ejh2vckk8sbn6.apps.googleusercontent.com">
+                        <a href="" class="social-btn google-btn shadowed-btn fxac">
+                            <i class="icon-google-plus social-icon fa fa-google-plus"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Google+
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                        <form id="google-plus-login-form" method="post" action="/join/social-complete/google-plus/?display_type=popup&amp;locale=en_US&amp;response_type=json&amp;next=https%3A%2F%2Fwww.udemy.com%2F&amp;xref=" class="ng-pristine ng-valid">
+                            <input type="hidden" name="access_token" value="">
+                            <input type="hidden" name="code" value="">
+                        </form>
+                    </div>
+                    <p id="message" style="color: red;"></p>
+                    <div class="box-load">
+                        <div id="inTurnFadingTextG">
+                            <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">P</div>
+                            <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">r</div>
+                            <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">o</div>
+                            <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">c</div>
+                            <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">e</div>
+                            <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                            <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                        </div>
+                    </div>
+
+            </div> 
+            <div class="box-separator"></div>
+            <div class="box-right box-col fx">
+                <div class="usertracker-command" data-usertracker-type="seen-login-popup">
+                </div>
+                <h4>Login with your email</h4>
+                
+                  <form method="post"> 
+                        <div class="manage-fields-wrapper">
+                            <div id="tooltip-reference-email" class="tooltip-reference ">
+                                <input class="emailinput form-control" data-purpose="email" id="id_email" mailcheck="" maxlength="64" minlength="6" name="email" placeholder="E-mail" required="True" type="email" ng-model="username"  required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                            </div>
+                            <div id="tooltip-reference-password" class="tooltip-reference ">
+                                <input class=" form-control" data-purpose="password" id="id_password" maxlength="64" minlength="3" name="password" placeholder="Password" required="True" type="password" ng-model="password" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"> 
+                            </div>
+                        </div>
+                            <div class="form-actions">
+                                <div class="submit-row">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-primary btn btn-success" id="submit-id-submit" data-purpose="do-login" ng-click="login()"> 
+                                        <span>or </span>
+                                        <a href="" class="cancel-link">Forgot Password</a>
+                                    </div>
+                            </div>
+                    </form>
+            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a  href="/register">create an account</a>
+                            ?</span>
+                        </div>
+                        
+                </div>    
+           
+        </div>
+    </div>
+        <div class="modal fade" id="uploadprofile" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Upload Profile</h4>
+                      </div>
+                      <form method="post" action="/addProfile" enctype="multipart/form-data">
+                          <div class="modal-body">
+                              <input type="hidden" name="cat" value="Gallery" />
+                              <input type="hidden" value="{{token}}" name="token"/>
+                              <input type="hidden" name="id" value="{{id}}" />
+                              <div class="form-group form-inline">
+                                  <input class="img-tourpackage" type="file" name="pic" id="img-tourpackage" required/>
+                              </div>
+                          </div>
+                          <div class="modal-footer">                                    
+                             <button type="submit"  class="btn btn-success btn-xs" >Save</button>
+                             <div type="button" class="btn btn-default btn-xs" data-dismiss="modal" onclick="reset()">Close</div>
+                          </div>
+                      </form>
+                 </div>
+              </div>
+        </div>
+
+</div>
+</body>
+<style>
+  .htl_info {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    padding: 27px 0;
+    /* background: #eee; */
+}
+.name {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    margin: 0;
+    font: bold 17px/26px "microsoft yahei",simsun;
+    color: #00BCD4;
+}
+#dateon{
+    display: none;
+}
+#person-transfer {
+    /* margin-left: 16%; */
+    /* margin-right: -42px; */
+    display: block;
+    font-size: 13px;
+    margin-top: 5px;
+}
+#numperson {
+    border: 1px solid #9E9E9E !important;
+    padding: 0 5px !important;
+    width: 43%;
+    /* margin-left: 13%; */
+    margin-top: 11px;
+    display: inline-block;
+}
+#numperson2 {
+    border: 1px solid #9E9E9E !important;
+    padding: 0 5px !important;
+    width: 43%;
+    float: right;
+    /* margin-left: 13%; */
+    margin-top: 11px;
+    display: inline-block;
+}
+.booking-input {
+    width: 85%;
+    border: 1px solid #9E9E9E !important;
+    height: 34px;
+    padding-left: 5px;
+    float: left;
+    /* background: url(../img/icon-calendar.png) no-repeat #fff; */
+    background-position: 92% 5px;
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #616161;
+    cursor: pointer !important;
+}
+.form-date {
+    width: 60%;
+    /* height: 90px; */
+    float: left;
+    /* margin-left: 10px; */
+}
+</style>
+</html>

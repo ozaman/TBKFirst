@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:8080/book.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Detail-page</title>
+  <link rel="stylesheet" href="./Detail-page_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./Detail-page_files/main.css">
+  <link rel="stylesheet" type="text/css" href="./Detail-page_files/detail.css">
+  <link rel="stylesheet" type="text/css" href="./Detail-page_files/default.css">
+  <link rel="stylesheet" type="text/css" href="./Detail-page_files/default.date.css">
+
+  <link rel="stylesheet" type="text/css" href="./Detail-page_files/bootstrap.min.css">
+  <link href="./Detail-page_files/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./Detail-page_files/font-awesome.min(1).css">
+  <script src="./Detail-page_files/jquery.min.js"></script>
+  <script src="./Detail-page_files/jquery-cookie.js" type="text/javascript"></script>
+  <script src="./Detail-page_files/jquery-ui.js"></script>
+  <script src="./Detail-page_files/jquery.modal.min.js" type="text/javascript"></script>
+  <script src="./Detail-page_files/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+  <script src="./Detail-page_files/picker.js" type="text/javascript"></script>
+  <script src="./Detail-page_files/picker.date.js" type="text/javascript"></script>
+  <!-- <script src="js/page3_jquery.js" type="text/javascript" ></script> -->
+ <script src="./Detail-page_files/angular.min.js"></script>
+ <script src="./Detail-page_files/page3_angular.js" type="text/javascript"></script>
+ <script src="./Detail-page_files/angular-route.js"></script>
+  <script src="./Detail-page_files/angular-cookies.min.js" type="text/javascript"></script>
+  <script src="./Detail-page_files/angular-sanitize.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getItem()" class="ng-scope">
+
+
+<div class="contain-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+          	<div class="nav-head">
+              	<div class="site_top">
+              		<div class="top_info">
+                		<div class="fr">
+	                      	<span class="loginStatus" style="margin-left: 0px;">
+		                        <span style="color:#4ea9f2">Login<font> &nbsp;/ </font></span>
+		                        <span>Register</span><font>|</font>
+	                      	</span>
+                      		<span class="buy_car" ng-click="cartBook()">
+                      			<font>
+                      			<i class="fa fa-cart-plus fa-lg" style="color:#4ea9f2" aria-hidden="true"></i>&nbsp;&nbsp;shopping cart </font>
+                      			<span class="cast-num ng-binding">2</span>&nbsp;<font>|</font>
+                      		</span>
+                      		
+	                      		<table class="tbflach" width="60" height="24" border="0" align="right" cellpadding="0" cellspacing="1">
+			                        <tbody>
+			                          <tr>
+			                            <td width="26" height="26" class="style"><a id="log_en"><img src="./Detail-page_files/en.png" width="25" height="25" border="0"></a></td>
+			                            <td width="26" class="style"><a id="log_cn"><img src="./Detail-page_files/cn.png" width="30" height="30" border="0"></a></td>
+			                            <td width="26" class="style"><a id="log_th"><img src="./Detail-page_files/th.png" width="32" height="32" border="0" style="margin-left: -3px;"></a></td>
+			                          </tr>
+			                        </tbody>
+	                      		</table>
+                    		
+                		</div>
+            		</div>
+            	</div>
+	            <h1 id="logo" class="reset"><img src="./Detail-page_files/travel.png"></h1>
+	            <input id="isearch" type="text" name="" placeholder="search"><i class="fa fa-search bt-icon" aria-hidden="true"></i>
+	            <!-- <dir class="btn-serch ></dir> -->
+
+          	</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="header">
+          <div class="base-nav">
+            <ul class="nav-bar">
+              <li class="bar-1" ng-click="gohome()">Home</li>
+              <li class="bar-2"> Hotels </li>
+              <li class="bar-3"> Tourism </li>
+              <li class="bar-4"> Air tickets </li>
+              <li class="bar-5"> Train </li>
+              <li class="bar-6"> Bus tickets </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="sec-02">
+
+    			<div class="box5"></div>
+    			<div class="box6"></div>
+    				<div class="cen0"></div>
+	    		<div class="box1"><p class="pfont">step1</p></div>
+	    			<div class="cen1"></div>
+	    		<div class="box2"><p class="pfont">step2</p></div>
+	    			<div class="cen2"></div>
+	    		<div class="box3"><p class="pfont">step3</p></div>
+	    			<div class="cen3"></div>
+	    		<div class="box4"><p class="pfont">step4</p></div>
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+    <div class="col-md-8" style="">
+      <ul class="select-name" ng-style="proselect">
+              <!-- ngRepeat: item in name -->
+      </ul>
+
+    	<div class="orderBox Contactor count_title">
+			<i class="f16"><span></span><em>Contact Book</em></i>
+			<div class="new_contact ">
+        <form class="ng-pristine ng-valid ng-valid-email">
+				<div class="new_contact_left">
+					<div class="contact_info">
+						<div class="contact_name"><span>*</span>First Name</div>
+						<input name="fname" value="fname" validate="true" ng-model="fname" require="true" placeholder="John" class="ng-pristine ng-untouched ng-valid">
+
+					</div>
+					<div class="contact_info">
+						<div class="contact_name"><span>*</span>Last Name</div>
+						<input name="lname" value="lname" validate="true" ng-model="lname" require="true" placeholder="vice" class="ng-pristine ng-untouched ng-valid">
+
+					</div>
+					<div class="contact_info">
+						<div class="contact_name"><span>*</span>Adress</div>
+						<input name="address" value="address" validate="true" ng-model="address" require="true" placeholder="123/1" class="ng-pristine ng-untouched ng-valid">
+
+					</div>
+
+
+				</div>
+				<div class="border"></div>
+				<div class="fright">
+					<div class="contact_info">
+						<div class="contact_name"><span>*</span>Phone</div>
+							<input name="email" value="email" validate="true" ng-model="phone" require="true" placeholder="08xxxxxxx" class="ng-pristine ng-untouched ng-valid">
+						</div>
+            <div class="contact_info">
+  						<div class="contact_name"><span>*</span>Email</div>
+  							<input type="email" name="email" value="email" validate="true" ng-model="email" require="true" placeholder="08xxxxxxx" class="ng-pristine ng-untouched ng-valid ng-valid-email">
+  				  </div>
+
+				</div>
+
+
+
+				</form></div>
+      
+		</div>
+		<div class="orderBox Contactor count_title">
+
+		</div>
+	</div>
+
+
+
+
+
+	<div class="col-md-3" style="border: 1px solid #ccc;height: 800px;float: right; margin-right: 20px;top: 75px;"></div>
+  <div class="btn-pay" ng-click="addinfopay()">Pay</div>
+	</div>
+    </div>
+    <footer id="footer">
+    	<div class="footer-container">
+
+    		<div class="download-apps ">
+
+    		</div>
+    	</div>
+    </footer>
+
+ 
+ <script type="text/javascript">
+ 	var app = angular.module('myApp', ['ngCookies','ngRoute','ngSanitize']);
+  app.controller('myCtrl', function($scope, $location, $http, $cookies,$sce) {
+      //$scope.product = new Array();
+
+     $scope.cart = [];
+         if (typeof localStorage["item"] !== "undefined" && localStorage["item"] !== "undefined") {
+      $scope.cart = JSON.parse(localStorage["item"]);
+      console.log($scope.cart);
+
+    }
+
+
+      $scope.clearcaer = function(){
+
+        localStorage.clear();
+
+      }
+
+
+
+      $scope.gohome = function(input){
+            location.href="http://localhost:8080";
+      }
+      $scope.cartBook = function(){
+        location.href="cart.html";
+
+      }
+
+      $scope.register = 0;
+      $scope.data = [];
+      $scope.adultshow = [];
+      var file = [];
+      $scope.name = [];
+
+      $scope.addinfopay = function() {
+        console.log($scope.fname);
+        console.log($scope.lname);
+        console.log($scope.address);
+        console.log($scope.phone);
+        console.log($scope.email);
+
+          console.log($scope.cart);
+          for (var i = 0; i < $scope.cart.length; i++) {
+               var por = $scope.cart[i];
+            for (var x = 0; x < por.length; x++) {
+                  $scope.adultshow = por[x].adultshow;
+                  $scope.childshow = por[x].childshow;
+                  $scope.cost_a_agent_all = por[x].cost_a_agent_all;
+                  $scope.cost_b_agent_all = por[x].cost_b_agent_all;
+                  $scope.id = por[x].id;
+                  $scope.price = por[x].price;
+                  $scope.topic_en = por[x].topic_en;
+                  $scope.type = por[x].type;
+                  console.log($scope.adultshow);
+                  console.log($scope.childshow);
+                  console.log($scope.cost_a_agent_all);
+                  console.log($scope.cost_b_agent_all);
+                  console.log($scope.id);
+                  console.log($scope.price);
+                  console.log($scope.topic_en);
+                  console.log($scope.type);
+                  $scope.name = $scope.topic_en;
+                  var adultshow,childshow,cost_a_agent_all,cost_b_agent_all,id,price,topic_en,type;
+                  var name = {
+                    name: $scope.adultshow,
+
+                  }
+
+
+
+                  var file = {
+                        adultshow: $scope.adultshow,
+                        childshow:$scope.childshow,
+                        cost_a_agent_all:$scope.cost_a_agent_all,
+                        cost_b_agent_all:$scope.cost_b_agent_all,
+                        id:$scope.id,
+                        price:$scope.price,
+                        topic_en:$scope.topic_en,
+                        type:$scope.type
+                      }
+
+                  $scope.name.push(file);
+
+                  $http({
+                        method : 'post',
+                        data: file,
+                        url : "/api/AddBooking",
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                      }).success(function(res){
+
+                        if(res.status == "ok"){
+                          $scope.res = res.data;
+                        }
+                  });
+            }
+          }
+        //location.href="credit.html#?register=" + JSON.stringify($scope.register);
+
+      }
+
+
+
+  });
+ </script>
+
+
+</body></html>

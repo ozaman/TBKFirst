@@ -1,0 +1,1708 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking-page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/jquery-cookie.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/jquery.modal.min.js" type="text/javascript"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main-script.js" type="text/javascript"></script>
+    <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+    <script src="js/picker.js" type="text/javascript"></script>
+    <script src="js/picker.date.js" type="text/javascript"></script>
+    <script src="js/main-jquery.js" type="text/javascript" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> 
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-cookies.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/transport.css">
+    <link rel="stylesheet" type="text/css" href="css/detail.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-res.css">
+    <link rel="stylesheet" type="text/css" href="css/default.date.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+  
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getItem()">
+    <div id="fountainTextG3-form" ng-style="anmateprocessbody">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_10" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div class="contain-fluid" ng-style="body">
+    <header id="menu-web">        
+            <nav class="navbar {{navbardefault}}">              
+                <div class="navbar-header">
+                    <div>
+                        <button type="button" class="navbar-toggle " id="focus" ng-click="clickresMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="{{navbarbrand}}" ng-click="gohome()">Go Holiday</a>
+                    </div>
+                    <div class="cart-menu" ng-click="cartBook()" id="none-menu">
+                        <img src="icon/cart27.png" id="cartitem" >
+                        <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                    </div>
+                    
+                </div>
+                <div class=" nav navbar-nav dropdown" id="navb-left">                      
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 1" >Browse <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 2" >เรียกดู <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 3" >瀏覽 <span class="caret"></span></p>
+                    <ul class="{{dropdownmenu}}" aria-labelledby="dropdownMenu1">                          
+                        <li  ng-click="transfer()">
+                            <span ng-if="flagcheck == 1" >Transports</span>
+                            <span ng-if="flagcheck == 2" >การขนส่ง</span>
+                            <span ng-if="flagcheck == 3" >傳輸</span>
+                        </li>
+                        <li  ng-click="gotour()">
+                            <span ng-if="flagcheck == 1">Activities </span>
+                            <span ng-if="flagcheck == 2">กิจกรรม/ทัวร์ </span>
+                            <span ng-if="flagcheck == 3">活動 </span>
+                        </li>
+                        <li  ng-click="gohotel()">
+                            <span ng-if="flagcheck == 1">Hotels</span>
+                            <span ng-if="flagcheck == 2">โรงแรม</span>
+                            <span ng-if="flagcheck == 3">酒店</span>
+                        </li>
+                        <li  ng-click="shopping()" >
+                            <span ng-if="flagcheck == 1">Shopping</span>
+                            <span ng-if="flagcheck == 2">ช้อปปิ้ง</span>
+                            <span ng-if="flagcheck == 3">購物</span>
+                        </li> 
+                        <li  ng-click="restaurant()" >
+                            <span ng-if="flagcheck == 1">Restaurant</span>
+                            <span ng-if="flagcheck == 2">ร้านอาหาร</span>
+                            <span ng-if="flagcheck == 3">餐廳</span>
+                        </li>    
+                    </ul>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="" >
+                            <div class="cart-menu" ng-click="cartBook()" >
+                                <img src="icon/cart27.png" id="cartitem" >
+                                <span class="{{castnum}}">{{cart.length + carttransfer.length}}</span>
+                            </div>
+                        </li>
+                        <li id="login-sucess">
+                            <a  ng-if="loginstatus" data-toggle="modal" data-target="#loginmodal" >
+                                <span ng-if="flagcheck == 1">Login</span>
+                                <span ng-if="flagcheck == 2">เข้าสู่ระบบ</span>
+                                <span ng-if="flagcheck == 3">登錄</span>
+                            </a>
+                            <div ng-if="!loginstatus"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="li-seting-profile">
+                                <img data-toggle="modal" data-target="" ng-src="{{'/uploads/profile/' + Profile}}" width="35" height="35" id="imgprofile" title="{{loginname}}">
+                             
+                            </div>                            
+                            <ul ng-if="!loginstatus" class="dropdown-menu" id="profile-data-hover"  aria-labelledby="dropdownMenu1" style="">
+                                <i></i>
+                                <div class="masthead-picker-body">
+                                    <div class="masthead-picker-photo-wrapper">                                     
+                                        <img data-toggle="modal" data-target="#uploadprofile"  ng-src="{{'/uploads/profile/' + Profile}}" height="64" width="64" aria-hidden="true" alt="" data-ytimg="1"> 
+                                    </div>
+                                    <div class="masthead-picker-info">
+                                        <div class="masthead-picker-name" dir="ltr">{{userEmail}}</div>
+                                    </div>
+                                </div>
+                                <div class="masthead-picker-footer">
+                                    <button class="btn btn-default btn-xs pull-left" ng-click="profile()">
+                                        <span ng-if="flagcheck == 1">Profile</span>
+                                        <span ng-if="flagcheck == 2">ประวัติส่วนตัว</span>
+                                        <span ng-if="flagcheck == 3">輪廓</span>
+                                    </button>
+                                    <button ng-click="logout()" class="btn btn-default btn-xs pull-right">
+                                        <span ng-if="flagcheck == 1">Logout</span>
+                                        <span ng-if="flagcheck == 2">ออกจากระบบ</span>
+                                        <span ng-if="flagcheck == 3">登出</span>
+                                    </button>
+                                </div>
+                            </ul>
+                        </li>
+                        <li ng-if="loginstatus">
+                            <a  href="/register" ng-if="flagcheck == 1">Sign Up</a>
+                            <a  href="/register" ng-if="flagcheck == 2">สมัครสมาชิก</a>
+                            <a  href="/register" ng-if="flagcheck == 3">註冊</a>
+                        </li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>  
+    <nav class="menu" tabindex="0" ng-mouseleave="remove_submenu()" id="menu">          
+        <div class="smartphone-menu-trigger"> </div> 
+        <div class="avatar">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
+            <h2>John D.</h2>
+        </div>
+        <ul>
+            <li tabindex="0" ng-click="transfer()">Transports </li>
+            <li tabindex="0" ng-click="gotour()">Activities </li>
+            <li tabindex="0" ng-click="gohotel()">Hotels</li>
+            <li tabindex="0" ng-click="shopping()" >Shopping</li> 
+            <li tabindex="0" ng-click="restaurant()" >Restaurant</li>
+            <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="{{channelhead}}" style="">
+            <div class="container" >
+                <channel-breadcrumb parent-channel="currentChannel.parentChannel" channel-title="currentChannel.title" ng-style="">
+                    <div class="bread mt20">                            
+                        <a href="#" id="color-icon"><i ng-click="gohome()" class="fa fa-home" title="Home"></i></a>
+                        <span ng-if="flagcheck == 1">/ Booking Confirmation</span>
+                        <span ng-if="flagcheck == 2">/ ยืนยันการจอง</span>
+                        <span ng-if="flagcheck == 3">/ 预订确认通知</span>
+                    </div>
+                </channel-breadcrumb> 
+                    <h1 class="fs30 ellipsis">
+                        <span ng-if="flagcheck == 1">Booking Confirmation</span>
+                        <span ng-if="flagcheck == 2">ยืนยันการจอง</span>
+                        <span ng-if="flagcheck == 3">预订确认通知</span>
+                    </h1> 
+                        <ul></ul> 
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="fountainTextG3-form" ng-style="anmateprocess">
+            <div id="fountainTextG4">
+                <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+                <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+                <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+                <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+                <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+                <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+                <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+                <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+                <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+            </div>
+        </div>   
+        <div class="container" style="padding:0">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sec-02">
+                        
+                        <div class="cen0"></div>
+                        <div class="box1"><p class="pfont">1</p></div>
+                        <div class="cen1"></div>
+                        <div class="box2"><p class="pfont">2</p></div>
+                        <div class="cen2"></div>
+                        <div class="{{box3}}"><p class="pfont">3</p></div>
+                        <div class="cen3"></div>
+                        <div class="box4"><p class="pfont">4</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8" >                  
+                    <div class="col-lg-12" id="view-product-all-item">
+                        <div class="box-info-item">
+                            <div ng-repeat="product in bookinginfo  track by $index">
+                                <div class="toppic">
+                                    <p>
+                                        <span ng-if="flagcheck == 1">Product name: </span>
+                                        <span ng-if="flagcheck == 2">ชื่อผลิตภัณฑ์: </span>
+                                        <span ng-if="flagcheck == 3">产品名称: </span>
+                                    </p>
+                                    <span >
+                                            <span ng-if="flagcheck == 1">{{product[0].topic_en}}</span>
+                                            <span ng-if="flagcheck == 2">{{product[0].topic_th}}</span>
+                                            <span ng-if="flagcheck == 3">{{product[0].topic_cn}}</span>
+                                            <span style="color: #FF9800;" ng-if="product[0].type == 'Private' || product[0].type == 'Join'">(Transport)</span>                                  
+                                            <span style="color: #55caf5;" ng-if="product[0].type != 'Private' && product[0].type != 'Join'">({{product[0].type}})</span>
+                                    </span>
+                                </div>
+
+                                <div class="toppic"  ng-show="product[0].person != undefined">
+                                    <p>
+                                        <span ng-if="flagcheck == 1">Car type:</span>
+                                        <span ng-if="flagcheck == 2">ประเภทรถ:</span>
+                                        <span ng-if="flagcheck == 3">车型:</span>
+                                    </p>
+                                    <span ng-if="flagcheck == 1">{{product[0].car_topic_en}}(1-{{product[0].person}} person)</span>
+                                    <span ng-if="flagcheck == 2">{{product[0].car_topic_en}}(1-{{product[0].person}} คน)</span>
+                                    <span ng-if="flagcheck == 3">{{product[0].car_topic_en}}(1-{{product[0].person}} 人)</span>
+                                </div>
+                                <div class="toppic" ng-show="product[0].province_name != undefined">
+                                    <p>
+                                        <span ng-if="flagcheck == 1">Pick up from:</span>
+                                        <span ng-if="flagcheck == 2">สถานที่รับ:</span>
+                                        <span ng-if="flagcheck == 3">从拿起位置</span>
+                                    </p>
+                                    <span >{{product[0].from}}</span><span style="margin-left: 100px;"></span>
+                                </div>
+                                <div class="toppic" ng-show="product[0].province_name != undefined">
+                                    <p>
+                                        <span ng-if="flagcheck == 1">Pick up to:</span>
+                                        <span ng-if="flagcheck == 2">สถานที่ส่ง:</span>
+                                        <span ng-if="flagcheck == 3">拿起地方</span>
+                                    </p>
+                                    <span >{{product[0].to}}</span><span style="margin-left: 100px;"></span>
+                                </div>
+                                
+                                <div class="toppic"  ng-show="product[0].province_to != undefined">
+                                <p>To :</p>
+                                <span >{{product[0].province_name_to}}</span><span >({{product[0].province_to}})</span></div>
+                                
+                                                 
+                                <div class="toppic" >
+                                    <p>
+                                        <span ng-if="flagcheck == 1">On date:</span>
+                                        <span ng-if="flagcheck == 2">วันที่เดินทาง:</span>
+                                        <span ng-if="flagcheck == 3">时间到了:</span>
+                                    </p>
+                                    <span >{{product[0].departure |date:'dd/MM/yyyy'}}</span>
+                                </div>
+                                <div class="toppic" style="margin-bottom: 50px;">
+                                    <p>
+                                        <span ng-if="flagcheck == 1">Pick up Time:</span> 
+                                        <span ng-if="flagcheck == 2">เวลารับ:</span> 
+                                        <span ng-if="flagcheck == 3">时间:</span> 
+                                    </p>
+                                    <span >{{product[0].time}}</span>
+                                </div> 
+                                <div ng-if="product[1] != undefined">
+                                <div class="toppic"><p>Product: </p>
+                                    <span style="color: #FF9800;" ng-if="product[1].type == 'Private' || product[1].type == 'Join'">(Transport)</span></span>
+                                    <span style="color: #55caf5;" ng-if="product[1].type != 'Private' || product[1].type != 'Join'">({{product[0].type}})</span></span>
+                                    </span>
+                                </div>
+                                <div class="toppic" ng-show="product[1].person != undefined"><p>Service:</p>
+                                    <span >{{product[1].car_topic_en}}(1-{{product[0].person}} person)</span>
+                                </div>
+                                <div class="toppic" ng-show="product[1].province_name != undefined"><p>Pick up place:</p>
+                                    <span >{{product[1].topic_en}}</span><span style="margin-left: 100px;"></span>
+                                </div>
+                                
+                                <div class="toppic"  ng-show="product[1].province_to != undefined"><p>To :</p>
+                                    <span >{{product[1].province_name_to}}</span><span>({{product[1].province_to}})</span></div>
+                                <div class="toppic" >Pick up Time:<span >{{product[1].time}}</span></div> 
+                                                 
+                                <div class="toppic" style="margin-bottom: 50px;"><p>On date:</p>
+                                    <span >{{product[1].departure |date:'dd/MM/yyyy'}}</span>
+                                </div>
+                                </div>
+
+                            </div>
+                            <div class="orderBoxdetail" >
+                                <div class="col-lg-6" style="padding: 0">
+                                    <div class="section06-detail-line02-firstname">             
+                                        <div class="firstname ">
+                                            <span ng-if="flagcheck == 1">First Name :</span>
+                                            <span ng-if="flagcheck == 2">ชื่อ :</span>
+                                            <span ng-if="flagcheck == 3">名字 :</span>
+                                        </div>
+                                        <label class="" >{{fname}}</label>
+                                    </div>
+                                    <div class="section06-line02-lastname">
+                                        <div  class="lastname">
+                                            <span ng-if="flagcheck == 1">Last Name :</span>
+                                            <span ng-if="flagcheck == 2">นามสกุล :</span>
+                                            <span ng-if="flagcheck == 3">姓 :</span>
+                                        </div>                                
+                                        <label class="" ng-bind="lname">{{ lname }}</label>
+                                    </div>                         
+                                    <div class="section06-line02-email">     
+                                        <div class="email">
+                                            <span ng-if="flagcheck == 1">Other :</span>
+                                            <span ng-if="flagcheck == 2">อื่น ๆ :</span>
+                                            <span ng-if="flagcheck == 3">其他 :</span></div>         
+                                        <label class="" >{{ other }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="padding: 0">
+                                    <div class="section06-line02-phone">
+                                        <div class="phone">
+                                            <span ng-if="flagcheck == 1">Phone :</span>
+                                            <span ng-if="flagcheck == 2">โทรศัพท์ :</span>
+                                            <span ng-if="flagcheck == 3">电话 :</span></div>         
+                                        <label class="" >{{ phone }}</label>
+                                    </div>
+                                    <div class="section06-line02-email">     
+                                        <div class="email">
+                                            <span ng-if="flagcheck == 1">E-mail :</span>
+                                            <span ng-if="flagcheck == 2">อีเมล :</span>
+                                            <span ng-if="flagcheck == 3">电子邮件 :</span></div>         
+                                        <label class="" >{{ email }}</label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>  
+                    </div> 
+                    <div class="col-lg-12" >
+                        
+                        
+                            
+                                                    
+                    </div> 
+                    <div class="col-lg-12" style="padding: 0 ">
+                        <div class="{{boxfig}}">
+                            <input type="checkbox" name="chickenEgg" value="checked" ng-model="state" ng-click="Acceptance($event,state)">&nbsp;&nbsp;
+                            <sapn ng-if="flagcheck == 1">Acceptance of terms </sapn>
+                            <sapn ng-if="flagcheck == 2">ยอมรับข้อตกลง </sapn>
+                            <sapn ng-if="flagcheck == 3">接受条款 </sapn>                       
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" id="detail-price">
+                    <div class="box-list-summery">
+                        <div ng-repeat="x in bookinginfo track by $index">
+                                <div class="topic_ens">
+                                    <span ng-if="flagcheck == 1">{{x[0].topic_en}}</span>
+                                    <span ng-if="flagcheck == 2">{{x[0].topic_th}}</span>
+                                    <span ng-if="flagcheck == 3">{{x[0].topic_cn}}</span>
+                                </div>
+                                <div class="adult" ng-if="x[0].type == 'Private' || x[0].type == 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">cars:</span>
+                                        <span ng-if="flagcheck == 2">รถ:</span>
+                                        <span ng-if="flagcheck == 3">价格：</span>
+                                    </div>
+                                    <span style="color: #fb833f;">{{x[0].listcar}}</span><span>:</span>
+                                    <span style="color: #fb833f;float:right;">฿{{x[0].price | currency:"":0}}</span>
+                                </div>
+                                <div class="adult" ng-if="x[0].type == 'Private' || x[0].type == 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">price/cars:</span>
+                                        <span ng-if="flagcheck == 2">ราคา/คัน:</span>
+                                        <span ng-if="flagcheck == 3">汽车:</span>
+                                    </div>
+                                    
+                                    <span style="color: #fb833f;float:right;">฿{{x[0].cost_a_agent_all | currency:"":0}}</span>
+                                </div>
+                                
+                                <div class="adult"  ng-if="x[0].type != 'Private' && x[0].type != 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Adult:</span>
+                                        <span ng-if="flagcheck == 2">ผู้ใหญ่:</span>
+                                        <span ng-if="flagcheck == 3">成人:</span>
+                                    </div>
+                                    <span style="color: #fb833f;">{{x[0].adultshow}}</span><span>:</span>
+                                    <span style="color: #fb833f;float:right;">฿{{x[0].cost_a_agent_all | currency:"":0}}</span>
+                                    
+                                </div>
+                                <div class="adult" ng-if="x[0].type == 'Private' || x[0].type == 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Adult:</span>
+                                        <span ng-if="flagcheck == 2">ผู้ใหญ่:</span>
+                                        <span ng-if="flagcheck == 3">成人:</span>
+                                    </div>
+                                    <span style="color: #fb833f;">{{x[0].adultshow}}</span><span>:</span>
+                                    <span style="color: #fb833f;float:right;">-</span>
+                                </div>
+                                <div class="child" ng-if="x[0].type != 'Private' && x[0].type != 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Child:</span>
+                                        <span ng-if="flagcheck == 2">เด็ก:</span>
+                                        <span ng-if="flagcheck == 3">儿童:</span>
+                                    </div>
+                                        <span style="color: #fb833f;">{{x[0].childshow}}</span>
+
+                                        
+                                        <span style="color: #fb833f;float:right;">฿{{x[0].cost_b_agent_all | currency:"":0}}</span>                                    
+                                </div>
+
+                                 <div class="child" class="adult" ng-if="x[0].type == 'Private' || x[0].type == 'Join' ">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Child:</span>
+                                        <span ng-if="flagcheck == 2">เด็ก:</span>
+                                        <span ng-if="flagcheck == 3">儿童:</span>
+                                    </div>
+                                        <span style="color: #fb833f;">{{x[0].childshow}}</span>
+
+                                        
+                                        <span style="color: #fb833f;float:right;">-</span>                                    
+                                </div>
+                                <div class="pricec">
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Total</span>
+                                        <span ng-if="flagcheck == 2">รวม</span>
+                                        <span ng-if="flagcheck == 3">总</span>
+                                    </div>
+                                    <span style="color: #fb833f;">{{x[0].childshow+x[0].adultshow}}</span><span>:</span>
+                                    <span style="color: #fb833f; float:right;">฿{{x[0].price | currency:"":0}}</span>
+                                </div>
+
+                                <div class="" ng-show="x[1]!=null">
+                                    <span ng-if="flagcheck == 1">{{x[1].topic_en}}</span>
+                                    <span ng-if="flagcheck == 2">{{x[1].topic_th}}</span>
+                                    <span ng-if="flagcheck == 3">{{x[1].topic_cn}}</span>
+                                </div>
+                                <div class="" ng-show="x[1]!=null" >
+                                <div id="book-info">
+                                         <span ng-if="flagcheck == 1">Adult:</span>
+                                        <span ng-if="flagcheck == 2">ผู้ใหญ่:</span>
+                                        <span ng-if="flagcheck == 3">成人（人）:</span>
+                                    </div>
+                                    <span style="color: #fb833f;">{{x[1].adultshow}}</span>
+                                    <span>:</span>
+                                    <span style="color: #fb833f;float:right;">฿{{x[1].cost_a_agent_all | currency:"":0}}</span>
+                                </div>
+                                <div class="" ng-show="x[1]!=null" >
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Child:</span>
+                                        <span ng-if="flagcheck == 2">เด็ก:</span>
+                                        <span ng-if="flagcheck == 3">儿童:</span>
+                                    </div>
+                                        <span style="color: #fb833f;">{{x[1].childshow}}</span><span>:</span>
+                                        <span ng-if="x[1].type == 'Private' && x[1].type == 'Join' " style="color: #fb833f;float:right;">฿{{x[1].cost_b_agent_all | currency:"":0}}</span> 
+                                        <span style="color: #fb833f;float:right;">฿{{x[1].cost_b_agent_all | currency:"":0}}</span> 
+                                </div>
+                                <div class="" ng-show="x[1]!=null" >
+                                    <div id="book-info">
+                                        <span ng-if="flagcheck == 1">Total:</span>
+                                        <span ng-if="flagcheck == 2">รวม</span>
+                                        <span ng-if="flagcheck == 3">总</span>
+                                    </div>
+                                    <span style="color: #fb833f; float:right;">฿{{x[0].price | currency:"":0}}</span>
+                                </div>
+                            </div>
+                                <div class="summtotal">
+                                
+                                    <span ng-if="flagcheck == 1">Sum total :</span>
+                                    <span ng-if="flagcheck == 2">ราคารวมทั้งหมด:</span>
+                                    <span ng-if="flagcheck == 3">总和:</span>
+                               
+                                <span style="color: #fb833f;float: right;">฿{{sumtotal | currency:"":0}}</span> 
+                            </div> 
+                        <div class="box-book-pay"> 
+                            <div class="{{btnbooks}}" ng-click="addbook()" ng-model="state" ng-disabled="state">
+                                <span ng-if="flagcheck == 1">Book</span>
+                                <span ng-if="flagcheck == 2">จอง</span>
+                                <span ng-if="flagcheck == 3">书</span>
+                            </div>
+                          <!--<div class="btn-pay" ng-click="addinfopay()" ng-model="state" ng-disabled="state">Pay</div>-->
+                          <p>{{ondatess | date:"MM/dd/yyyy"}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="{{footer}}">    
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <ul class="fxw mt10 hidden-xs">
+                            <li>
+                                <div class="btn-group dropup lang-dropdown">
+                                    <div class="dropdown-toggle fxac " data-toggle="dropdown">
+                                          <i class="icon-globe fa fa-globe mr5"></i>
+                                           {{flag}}
+                                          <i class="icon-caret-up fa fa-caret-up user-caret ml5"></i>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li ng-click="language(1)"><img src="/images/en.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="en_US" value="en" >English</a></li>
+                                            <li ng-click="language(2)"><img src="/images/th.png" width="25" height="25"/><a href="" class="locale-link" update-locale="" locale="th_TH" value="th" >Thai</a></li>
+                                            <li ng-click="language(3)"><img src="/images/cn.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="zh_CN" value="cn" >中文(简体)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="gray-text copyright" ng-if="flagcheck == 1">  Copyright © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 2">  ลิขสิทธิ์ © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 3">  版權 © 2016 Go holiday, Inc.</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1" >Terms</span>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ข้อตกลงและเงื่อนไข</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">條款</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">Customer Service</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">บริการลูกค้า</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">客户服务</a>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">System Support</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ติดต่อ Admin</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">系统支持</a>
+                            </li>
+                        </ul>
+                        <div class="footer-right">
+                             <span id="time" my-current-time="format"></span>
+                            <ul>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" id="login-modal"> 
+            <button class="close" ng-click="close($event)" data-dismiss="modal" onclick="reset()">×</button>
+                <h2 class="box-heading">
+                    Login to your account!
+                </h2>
+                <div class="modal-body">
+                  <div class="box-left box-col fx"> 
+                    <h4>Login with social accounts</h4>
+                    <div facebook-signup="" action-type="signin" signin-box-class-name="js-signin-box" redirecturl="authfacebook" >
+                        <a ng-click="authenticate('facebook')" class="social-btn facebook-btn js-facebook-btn shadowed-btn fxac">
+                            <i class="icon-facebook social-icon fa fa-facebook"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Facebook
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                    </div>
+
+                    <div google-plus-signup="" action-type="signin" signin-box-class-name="js-signin-box" client-id="700206021005-fntgseouuq3ah1jtko8ejh2vckk8sbn6.apps.googleusercontent.com">
+                        <a href="" class="social-btn google-btn shadowed-btn fxac">
+                            <i class="icon-google-plus social-icon fa fa-google-plus"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Google+
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                        <form id="google-plus-login-form" method="post" action="/join/social-complete/google-plus/?display_type=popup&amp;locale=en_US&amp;response_type=json&amp;next=https%3A%2F%2Fwww.udemy.com%2F&amp;xref=" class="ng-pristine ng-valid">
+                            <input type="hidden" name="access_token" value="">
+                            <input type="hidden" name="code" value="">
+                        </form>
+                    </div>
+                    <p id="message" style="color: red;"></p>
+                    <div class="box-load">
+                        <div id="inTurnFadingTextG">
+                            <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">P</div>
+                            <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">r</div>
+                            <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">o</div>
+                            <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">c</div>
+                            <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">e</div>
+                            <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                            <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                        </div>
+                    </div>
+
+            </div> 
+            <div class="box-separator"></div>
+            <div class="box-right box-col fx">
+                <div class="usertracker-command" data-usertracker-type="seen-login-popup">
+                </div>
+                <h4>Login with your email</h4>
+                
+                  <form method="post"> 
+                        <div class="manage-fields-wrapper">
+                            <div id="tooltip-reference-email" class="tooltip-reference ">
+                                <input class="emailinput form-control" data-purpose="email" id="id_email" mailcheck="" maxlength="64" minlength="6" name="email" placeholder="E-mail" required="True" type="email" ng-model="username"  required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                            </div>
+                            <div id="tooltip-reference-password" class="tooltip-reference ">
+                                <input class=" form-control" data-purpose="password" id="id_password" maxlength="64" minlength="3" name="password" placeholder="Password" required="True" type="password" ng-model="password" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"> 
+                            </div>
+                        </div>
+                            <div class="form-actions">
+                                <div class="submit-row">
+                                    <input type="submit" name="submit" value="Login" class="btn {{btnprimary}} btn btn-success" id="submit-id-submit" data-purpose="do-login" ng-click="login()"> 
+                                        <span>or </span>
+                                        <a href="" class="cancel-link">Forgot Password</a>
+                                    </div>
+                            </div>
+                    </form>
+            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a  href="/register">create an account</a>
+                            ?</span>
+                        </div>
+                        
+                </div>    
+           
+        </div>
+    </div>
+    <div class="modal fade" id="uploadprofile" role="dialog">
+        <div class="modal-dialog">
+                          <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Upload Profile</h4>
+                </div>
+                <form method="post" action="/addProfile" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="cat" value="Gallery" />
+                        <input type="hidden" value="{{token}}" name="token"/>
+                        <input type="hidden" name="id" value="{{id}}" />
+                        <div class="form-group form-inline">
+                            <input class="img-tourpackage" type="file" name="pic" id="img-tourpackage" required/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">                                    
+                        <button type="submit"  class="btn btn-success btn-xs" >Save</button>
+                        <div type="button" class="btn btn-default btn-xs" data-dismiss="modal" onclick="reset()">Close</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div> 
+
+<style media="screen">
+    #book-info{
+        width: 75px;
+        margin-right: 10px;
+        display: inline-block;
+    }
+    
+    .adult{
+        margin-left: 35%;
+        color: #999;
+        display: block;
+
+    }
+    .child{
+        display: block;
+        color: #999;
+        margin-left: 35%;
+
+    }
+    .pricec{
+        color: #999;
+        margin-top: 20px;
+        margin-left: 35%;
+        margin-bottom: 20px;
+    }
+    .summtotal{
+        margin-left: 35%;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #999;
+    }
+    .box-list-summery{
+        /* border: solid 1px #ccc; */
+        /* top: 74px; */
+        padding: 2px 25px;
+        width: 100%;
+        position: relative;
+        margin-bottom: 50px;
+        
+    }
+    .box-book-pay{      
+        text-align: center;
+        position: relative;
+        width: 100%;
+        color: #999;
+        display: none;
+      
+    }
+    .pleasecheck{
+        position: relative;
+        font-size: 15px;
+        font-weight: 600;
+        margin-left: 12px;
+    }
+    .box-info-item{
+        margin-top: 76px;
+        margin-bottom: 50px;
+        padding: 5px 19px;
+        
+    }
+    .toppic p{
+        display: inline-block;
+    }
+    .toppic p span{ 
+
+        font-weight: 600;
+        color: #9E9E9E;
+        width: 120px;
+        display: inline-block;
+    }
+    .toppic span{
+        color: #333;
+        font-weight: 600;
+    }
+    .box-fig{
+        /* border: 1px solid #ddd; */      
+        width: 100%;
+
+
+    }
+
+    .section06-line02-firstname{
+     
+
+    }
+    .section06-line02-lastname{
+     
+    }
+    .section06-line02-title{
+     
+    }
+    .section06-line02-address{
+      
+    }
+    .section06-line02-result{
+
+     
+      
+    }
+    .firstname{
+        display: inline-block;
+        color: #9E9E9E;
+        font-weight: 600;
+    }
+    .lastname{
+        display: inline-block;
+        color: #9E9E9E;
+        font-weight: 600;
+    }
+    .phone{
+        display: inline-block;
+        color: #9E9E9E;
+        font-weight: 600;
+    }
+    .address{
+        display: inline-block;
+        color: #9E9E9E;
+        font-weight: 600;
+    }
+    .email{
+        display: inline-block;
+        color: #9E9E9E;
+        font-weight: 600;
+    }
+    .orderBoxdetail {
+        /*border-top: 1px #ddd solid;*/
+        
+        width: 100%;
+        padding: 20px 0;
+        border-radius: 4px;
+        position: relative;
+        margin-bottom: 30px;
+       
+        
+    }
+    .section06-detail-line02{
+      
+    }
+    #active input[type="checkbox"]:checked{
+        cursor: pointer;
+        /*-webkit-appearance:radio;*/
+        box-shadow: none;
+        background:rgb(252,252,252);
+    }
+    input[type='checkbox'] {
+        -webkit-appearance:none;
+        width:15px;
+        height:15px;
+        border:1px solid darkgray;
+        border-radius:5%;
+        outline:none;
+        cursor: pointer;
+        box-shadow:0 0 3px 0px gray inset;
+    }
+
+    input[type='checkbox']:hover {
+        box-shadow:0 0 5px 0px orange inset;
+    }
+
+    input[type='checkbox']:before {
+        content:'';
+        display:block;
+        width:60%;
+        height:60%;
+        margin: 20% auto;    
+        border-radius:5%;    
+    }
+    
+   
+    #price-info-box-right{
+        color: #fb833f;
+        float: right;
+    }
+    
+    
+    .pfont{
+        color: #FFF;
+        margin-top: 8px;
+        
+
+    }
+    .sec-02{
+        text-align: center;        
+        margin-top: 45px;
+        margin-bottom: 50px;
+    }
+    .box1{        
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-right: 6%;
+        border-radius: 100px;
+        background: #9E9E9E;
+        
+    }
+    .box2{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-right: 6%;
+        border-radius: 100px;
+        background: #9E9E9E;
+    
+    }
+    
+    .box4{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-radius: 100px;
+        background: #9E9E9E;
+    }
+
+    .cen1{
+        width: 64px;
+        border-bottom: dashed 2px #9E9E9E;
+        position: absolute;
+        margin-top: -17px;
+        margin-left: 37%;
+    }
+    .cen2{
+        width: 64px;
+        height: 1px;
+        border-bottom: dashed 2px #9E9E9E;
+        position: absolute;
+        margin-top: -17px;
+        margin-left: 46%;
+    }
+    .cen3{
+        width: 64px;
+        border-bottom: dashed 2px #9E9E9E;
+        position: absolute;
+        margin-top: -17px;
+        margin-left: 55%;
+    }
+    #view-product-all-item{
+        
+        margin-bottom: 30px;
+    }
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+ 
+    .pfont{
+        margin-left: 6px !important;
+    }
+    #detail-price{
+        padding: 0 21px;
+    }
+}
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) {
+    .box-info-item{
+        margin-top: 40px;
+    }
+    #detail-price{
+        padding: 0 21px;
+    } 
+    .sec-02 {
+        float: left;
+        width: 100%;
+        margin-top:20px;
+        margin-left: 10px;
+    }
+    .box1 {
+        float: left;
+        display: inline-block;
+        width: 20%;
+        height: 20%;
+        margin-right: 15px;
+        border-radius: 100px;
+        background: rgb(213, 240, 253);
+        border: 1px solid #d5f0fd;
+    }
+    .box2 {
+        float: left;
+        display: inline-block;
+        width: 20%;
+        height: 20%;
+        margin-right: 15px;
+        background: rgb(213, 240, 253);
+        border: 1px solid #cdeeea;
+    }
+    .box3 {
+        float: left;
+        display: inline-block;
+        width: 20%;
+        height: 20%;
+        margin-right: 15px;
+        border-radius: 100px;
+        background: rgb(13, 171, 249);
+        border: 1px solid #0dabf9;
+    }
+    .box4 {
+        float: left;
+        display: inline-block;
+        width: 20%;
+        height: 20%;
+        margin-right: 15px;
+        border-radius: 100px;
+        background: rgb(213, 240, 253);
+        border: 1px solid #d5f0fd;
+    }
+
+    .box5 {
+        position: absolute;
+        float: left;
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 40px;
+        border-radius: 100px;
+        background: #0dabf9;
+        border: 1px solid #30b8a7;
+        margin-top: 29px;
+        margin-left: 41%;
+    }
+    .box6 {
+        position: absolute;
+        float: left;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 40px;
+        border-radius: 100px;
+        background: #0dabf9;
+        border: 1px solid #0dabf9;
+        margin-left: 43%;
+        margin-top: 22px;
+    }
+    .pfont {
+        padding: 12px;
+        color: #FFF;
+        margin-left: 0;
+    }
+    .cen1 {
+        width: 13px;
+        height: 1.5px;
+        border-bottom: dashed 2px #0dabf9;
+        position: absolute;
+        margin-top: 32px;
+        float: right;
+        margin-left: 19%;
+    }
+    .cen2 {
+        width: 14px;
+        height: 1.5px;
+        border-bottom: dashed 2px #0dabf9;
+        position: absolute;
+        margin-top: 31px;
+        float: right;
+        margin-left: 41%;
+    }
+    .cen3 {
+        width: 14px;
+        height: 1.5px;
+        border-bottom: dashed 2px #0dabf9;
+        position: absolute;
+        margin-top: 31px;
+        float: right;
+        margin-left: 63%;
+    }
+}
+
+</style>  
+
+ 
+<script type="text/javascript">
+  var app = angular.module('myApp', ['ngCookies','ngRoute','ngSanitize']);
+app.controller('myCtrl', function($scope, $location, $http, $cookies,$sce ,$window,$filter,$interval ) {
+   angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+   $scope.anmateprocess = {'display': 'none'};
+   $scope.anmateprocessbody = {'display': 'none'};  
+    //$scope.product = new Array();
+
+   //$scope.cart = [];
+   var host = 2;
+     var ip = "";
+     if (host == 1) {
+          ip = "http://gh-travel.com";
+     }
+     else{
+          ip = "http://localhost:8080"
+     }
+     
+  if (typeof localStorage["data"] !== "undefined" && localStorage["data"] !== "undefined") {
+    $scope.datainfo = JSON.parse(localStorage["data"]);
+
+    console.log($scope.datainfo);
+    console.log($scope.datainfo.lname);
+    $scope.fname = $scope.datainfo.fname;
+    $scope.lname = $scope.datainfo.lname;
+    $scope.address = $scope.datainfo.address;
+    $scope.phone = $scope.datainfo.phone;
+    $scope.email = $scope.datainfo.email;
+    $scope.other = $scope.datainfo.other;
+    $scope.account = $scope.datainfo.account;
+
+  }
+  $scope.cart = [];
+  if (typeof localStorage["item"] !== "undefined" && localStorage["item"] !== "undefined") {
+      $scope.cart = JSON.parse(localStorage["item"]);
+      console.log($scope.cart);
+    }
+    $scope.carttransfer = [];
+    if (typeof localStorage["itemtransfer"] !== "undefined" && localStorage["itemtransfer"] !== "undefined") {
+      $scope.carttransfer = JSON.parse(localStorage["itemtransfer"]);
+      console.log($scope.carttransfer);
+      
+    }
+   $scope.sumtotal = 0;
+   $scope.bookinginfo = [];
+       if (typeof localStorage["itemSelect"] !== "undefined" && localStorage["itemSelect"] !== "undefined") {
+    $scope.bookinginfo = JSON.parse(localStorage["itemSelect"]);
+    console.log($scope.bookinginfo);
+
+   
+         if ($scope.cart.length > 0 && $scope.carttransfer.length <= 0) {
+             $scope.channelhead = 'channel-head2';
+              $scope.navbarbrand = 'navbar-brand2';
+              $scope.navbardefault = 'navbar-default2';
+              $scope.castnum = 'cast-num2';
+              $scope.box3 = 'box3-2';
+              $scope.dropdownmenu = 'dropdown-menu2';
+              $scope.selestournew = 'seles-tour-new2';
+              $scope.pay = 'pay2';
+              $scope.btnprimary = 'btn-primary2';
+              $scope.footer = 'footer2';
+              $scope.btnbooks = 'btn-books2';
+              $scope.boxfig = 'box-fig2'
+              
+          }
+          else{
+             $scope.channelhead = 'channel-head';
+            $scope.navbarbrand = 'navbar-brand';
+            $scope.navbardefault = 'navbar-default';
+            $scope.castnum = 'cast-num';
+            $scope.box3 = 'box3';
+            $scope.dropdownmenu = 'dropdown-menu';
+            $scope.selestournew = 'seles-tour-new';
+            $scope.pay = 'pay';
+            $scope.btnprimary = 'btn-primary';
+            $scope.footer = 'footer';
+            $scope.btnbooks = 'btn-books';
+            $scope.boxfig = 'box-fig'
+
+            
+
+
+            
+            
+          }
+         
+
+   
+    loadpage();
+    function loadpage(){
+      if($cookies.get('login'))
+      {
+        $scope.loginstatus = false;
+        $scope.token = $cookies.get('login');
+        $http({
+                method:'post',
+                url: "/getuserbyid",
+                data: $.param({id: $cookies.get('login')}),
+                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+                if (res[0].resource == "") {               
+                    $scope.Profile= "profile.png";
+                }
+                else{
+                    $scope.Profile = res[0].resource;
+                }
+                $scope.userEmail = res[0].email;
+                $scope.loginname = res[0].fname+" "+res[0].lname;
+            });
+      }
+      else
+      {
+        $scope.loginstatus = true;
+      }
+    }
+    $scope.profile = function(){
+        location.href="profile";
+    }
+    $scope.login = function(){
+       angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'block');
+
+      if($scope.username!=undefined&&$scope.password!=undefined)
+      {
+            $http({
+                method:'post',
+                url: "/login",
+                data: $.param({username: $scope.username,password: $scope.password}),
+                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(res){
+               angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'none');
+              if(res.status==0)
+              {
+                $cookies.put('login', res.username);
+                $window.location.reload();
+              }
+              else if(res.status==1)
+              {
+                angular.element(document.querySelector('#message')).html('Username is Invalid').css('color', 'red');
+              }
+              else if(res.status==2)
+              {
+                angular.element(document.querySelector('#message')).html('Password is Invalid').css('color', 'red');
+              }
+            })
+        }
+        }
+        $scope.logout = function(){
+          $cookies.remove("login");
+          $window.location.reload();
+        }
+    for (var i = 0; i < $scope.bookinginfo.length; i++)
+    {
+      console.log($scope.bookinginfo[i])
+      for (var j = 0; j < $scope.bookinginfo[i].length; j++)
+       {  
+          $scope.type = $scope.bookinginfo[i][j].type;
+          console.log($scope.type)
+         $scope.sumtotal += parseInt($scope.bookinginfo[i][j].price);
+         
+      }
+    }
+    
+
+  }
+  $scope.Acceptance =function(even, state){
+
+    if (state == true) {
+      $scope.state = true;
+
+     angular.element(document.querySelector(".box-book-pay")).css('display','block');
+      //console.log("work!!!!!")
+    }
+    else{
+      $scope.state = false;
+      angular.element(document.querySelector(".box-book-pay")).css('display','none');
+    }
+
+  }
+
+
+    $scope.clearcaer = function(){
+
+      localStorage.clear();
+
+    }
+
+    $scope.gohotel = function() {
+      location.href="hotels";
+    }
+
+    $scope.gohome = function(input){
+          location.href= ip;
+    }
+    $scope.cartBook = function(){
+      location.href="cart";
+
+    }
+    $scope.transfer = function(){
+      location.href="Transports";
+
+    }
+    $scope.gotour = function(){
+      location.href="tour";
+
+    }
+     $scope.restaurant = function(){
+        location.href="restaurant";
+
+    }
+    $scope.shopping = function(){
+        $window.open('shopping');
+
+    }
+
+    $scope.register = 0;
+    $scope.addbook = function() {
+    $scope.anmateprocessbody = {'display': 'block'};
+    localStorage.clear();
+      console.log($scope.fname);
+      console.log($scope.lname);
+      
+      console.log($scope.phone);
+      console.log($scope.email);
+     
+        console.log($scope.bookinginfo);
+        for(var i = 0 ; i < $scope.bookinginfo.length ; i++)
+        {
+          for(var j = 0 ; j < $scope.bookinginfo[i].length ; j++)
+          {
+            console.log($scope.bookinginfo[i][j].type);
+            $scope.province_to = $scope.bookinginfo[i][j].province_to;
+            $scope.adultshow = $scope.bookinginfo[i][j].adultshow;
+            $scope.childshow = $scope.bookinginfo[i][j].childshow;
+            $scope.cost_a_agent_all = $scope.bookinginfo[i][j].cost_a_agent_all;
+            $scope.cost_b_agent_all = $scope.bookinginfo[i][j].cost_b_agent_all;
+            $scope.amount = $scope.adultshow + $scope.childshow;
+
+            $scope.price = $scope.bookinginfo[i][j].price;
+            $scope.listcar = $scope.bookinginfo[i][j].listcar;
+            $scope.profrom = $scope.bookinginfo[i][j].from;
+            $scope.proto = $scope.bookinginfo[i][j].to;
+            $scope.idfrom = $scope.bookinginfo[i][j].idfrom;
+            $scope.idto = $scope.bookinginfo[i][j].idto;
+            $scope.idround = $scope.bookinginfo[i][j].idround;
+            console.log($scope.profrom)
+            console.log($scope.proto)
+            console.log($scope.idround)
+            console.log($scope.amount)
+            //if ($scope.cart[i][j].type == "Transfer") {
+            //  $scope.topic_en = $scope.cart[i][j].pro_topic_e;
+            //}
+            //else{
+              $scope.topic_en = $scope.bookinginfo[i][j].topic_en;
+            //}
+            
+            if ($scope.bookinginfo[i][j].type == "Private" && $scope.bookinginfo[i][j].type == "Join") {
+                $scope.type = "Transports";
+            }
+            else{
+                $scope.type = $scope.bookinginfo[i][j].type;
+            }
+            
+            $scope.departure = $scope.bookinginfo[i][j].departure;
+            $scope.departure = $filter('date')($scope.departure,'dd-MM-yyyy');
+            $scope.depetime = $scope.bookinginfo[i][j].time;
+            console.log($scope.depetime );
+            if ($scope.bookinginfo[i][j].type == "Private" && $scope.bookinginfo[i][j].type == "Join") {
+              $scope.id = $scope.bookinginfo[i][j].transfer_id;
+            }
+            else{
+              $scope.id = $scope.bookinginfo[i][j].id;
+            }
+            var file = new Array();
+            file = $.param ({
+              adultshow: $scope.adultshow,
+              childshow:$scope.childshow,
+              cost_a_agent_all:$scope.cost_a_agent_all,
+              cost_b_agent_all:$scope.cost_b_agent_all,
+              id:$scope.id,
+              price:$scope.price,
+              topic_en:$scope.topic_en,
+              type:$scope.type,
+              departure:$scope.departure,
+              fname : $scope.fname,
+              lname : $scope.lname,
+              address : $scope.address,
+              phone : $scope.phone,
+              email : $scope.email,
+              depetime : $scope.depetime,
+              province_to : $scope.province_to,
+              listcar : $scope.listcar,
+              from : $scope.profrom,
+              to : $scope.proto,
+              idfrom : $scope.idfrom,
+              idto : $scope.idto,
+              account : $scope.account
+
+            });
+            console.log(file);
+
+            console.log($scope.id)
+            console.log($scope.departure)
+            console.log($scope.idround)
+            if ($scope.type == "Private" || $scope.type == "Join") {
+                $http({
+                    method : 'post',
+                    data: file,
+                    url : "/api/AddBooking",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).success(function(res){
+                        if(res.status == "ok"){
+                        console.log("add booking success");
+                        $scope.bookid = res.bookid;
+                        $http({
+                            method:'post',
+                            url : '/api/SetData',
+                            data : $.param({
+                                adultshow: $scope.adultshow,
+                                childshow:$scope.childshow,
+                                cost_a_agent_all:$scope.cost_a_agent_all,
+                                cost_b_agent_all:$scope.cost_b_agent_all,
+                                id:$scope.id,
+                                price:$scope.price,
+                                product:$scope.topic_en,
+                                type:$scope.type,
+                                departure:$scope.departure,
+                                fname : $scope.fname,
+                                lname : $scope.lname,
+                                address : $scope.address,
+                                phone : $scope.phone,
+                                email : $scope.email,
+                                depetime : $scope.depetime,
+                                province_to : $scope.province_to,
+                                listcar : $scope.listcar,
+                                booking_id : $scope.bookid,
+                                from : $scope.profrom,
+                                to : $scope.proto,
+                                idfrom : $scope.idfrom,
+                                idto : $scope.idto,
+                                account : $scope.account
+
+                            }),
+                            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                            }).success(function(res){
+                                if(res.status == "ok"){
+                                console.log("send mail success")
+                                localStorage.setItem('idbooking',JSON.stringify($scope.bookid));
+                                 location.href="invoice";
+                            }
+                            });
+
+                    }
+                });
+            }
+            else{
+                console.log("else")
+                $http({
+                    method:'post',
+                    data: $.param({idproduct: $scope.id,ondate: $scope.departure,idround:$scope.idround}),
+                    url: "/getAllotmantByIdProduct",                
+                    headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).success(function(res){ 
+                        if(res.status == "ok"){
+                        console.log(res.data)
+                        $scope.ondatess = res.data[0].allday;
+                        $scope.allot = res.data[0].pro_allot;
+                        $scope.allotid = res.data[0].id;
+                        $scope.allotplus = res.data[0].pro_allot_plus;
+                        $scope.allotused = res.data[0].pro_used;
+                        $scope.allotbalance = res.data[0].pro_allot_balance;
+                        $scope.roundid = res.data[0].round_id; 
+                        console.log($scope.allotused)
+                        console.log($scope.amount)
+                        console.log($scope.allotbalance)
+                        $scope.used = $scope.allotused + $scope.amount;
+                        $scope.balance = $scope.allotbalance - $scope.amount;
+                        console.log("====================")
+                        console.log($scope.used)
+                        console.log($scope.balance)
+
+                        if ($scope.allotbalance>$scope.amount) {
+                            $http({
+                                    method:'post',
+                                    data: $.param({allotid: $scope.allotid,ondate: $scope.departure,allotused: $scope.used,allotbalance : $scope.balance}),
+                                    url: "/updateAllotmant",                
+                                    headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                                    }).success(function(res){ 
+                                        if(res.status == "ok"){
+                                            console.log("success")
+                                            $http({
+                                                method : 'post',
+                                                data: file,
+                                                url : "/api/AddBooking",
+                                                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                                                }).success(function(res){
+                                                  if(res.status == "ok"){
+                                                    console.log("add booking success");
+                                                    $scope.bookid = res.bookid;
+                                                    $http({
+                                                        method:'post',
+                                                        url : '/api/SetData',
+                                                        data : $.param({
+                                                            adultshow: $scope.adultshow,
+                                                            childshow:$scope.childshow,
+                                                            cost_a_agent_all:$scope.cost_a_agent_all,
+                                                            cost_b_agent_all:$scope.cost_b_agent_all,
+                                                            id:$scope.id,
+                                                            price:$scope.price,
+                                                            product:$scope.topic_en,
+                                                            type:$scope.type,
+                                                            departure:$scope.departure,
+                                                            fname : $scope.fname,
+                                                            lname : $scope.lname,
+                                                            address : $scope.address,
+                                                            phone : $scope.phone,
+                                                            email : $scope.email,
+                                                            depetime : $scope.depetime,
+                                                            province_to : $scope.province_to,
+                                                            listcar : $scope.listcar,
+                                                            booking_id : $scope.bookid,
+                                                            from : $scope.profrom,
+                                                            to : $scope.proto,
+                                                            idfrom : $scope.idfrom,
+                                                            idto : $scope.idto,
+                                                            account : $scope.account
+
+                                                        }),
+                                                        headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                                                        }).success(function(res){
+                                                          if(res.status == "ok"){
+                                                          console.log("send mail success")
+                                                          localStorage.setItem('idbooking',JSON.stringify($scope.bookid));
+                                                            location.href="invoice";
+                                                        }
+                                                        });
+
+                                              }
+                                            });
+
+                                    }
+                                                   
+                            });
+                        }
+                        else{
+                            $scope.plus = $scope.used -15;
+                            console.log($scope.plus)
+                                $http({
+                                    method : 'post',
+                                    data : $.param({
+                                        adultshow: $scope.adultshow,
+                                        childshow:$scope.childshow,
+                                        cost_a_agent_all:$scope.cost_a_agent_all,
+                                        cost_b_agent_all:$scope.cost_b_agent_all,
+                                        id:$scope.id,
+                                        price:$scope.price,
+                                        topic_en:$scope.topic_en,
+                                        type:$scope.type,
+                                        departure:$scope.departure,
+                                        fname : $scope.fname,
+                                        lname : $scope.lname,
+                                        address : $scope.address,
+                                        phone : $scope.phone,
+                                        email : $scope.email,
+                                        depetime : $scope.depetime,
+                                        province_to : $scope.province_to,
+                                        listcar : $scope.listcar,
+                                        from : $scope.profrom,
+                                        to : $scope.proto,
+                                        idfrom : $scope.idfrom,
+                                        idto : $scope.idto,
+                                        account : $scope.account
+                                    }),
+                                    url : "/api/AddBookingless",
+                                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                                }).success(function(res){
+                                    if(res.status == "ok"){
+                                        console.log("add booking success");
+                                        $scope.bookid2 = res.bookid;
+                                        $http({
+                                            method:'post',
+                                            url : '/api/SetData',
+                                            data : $.param({
+                                                adultshow: $scope.adultshow,
+                                                childshow:$scope.childshow,
+                                                cost_a_agent_all:$scope.cost_a_agent_all,
+                                                cost_b_agent_all:$scope.cost_b_agent_all,
+                                                id:$scope.id,
+                                                price:$scope.price,
+                                                product:$scope.topic_en,
+                                                type:$scope.type,
+                                                departure:$scope.departure,
+                                                fname : $scope.fname,
+                                                lname : $scope.lname,
+                                                address : $scope.address,
+                                                phone : $scope.phone,
+                                                email : $scope.email,
+                                                depetime : $scope.depetime,
+                                                province_to : $scope.province_to,
+                                                listcar : $scope.listcar,
+                                                booking_id : $scope.bookid,
+                                                from : $scope.profrom,
+                                                to : $scope.proto,
+                                                idfrom : $scope.idfrom,
+                                                idto : $scope.idto,
+                                                account : $scope.account
+
+                                            }),
+                                            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                                        }).success(function(res){
+                                            if(res.status == "ok"){
+                                                console.log("send mail success")
+                                                localStorage.setItem('idbooking',JSON.stringify($scope.bookid));
+                                                $http({
+                                                    method:'post',
+                                                    data: $.param({
+                                                        allotid: $scope.allotid,
+                                                        ondate: $scope.departure,
+                                                        allotused: $scope.used,
+                                                        allotbalance : $scope.balance,
+                                                        allotplus : $scope.plus
+                                                    }),
+                                                    url: "/updateAllotmantless",                
+                                                    headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                                                    }).success(function(res){ 
+                                                        if(res.status == "ok"){
+                                                           console.log("success")
+                                                           $http({
+                                                                method:'post',
+                                                                url : '/api/SetDatamailAllot',
+                                                                data : $.param({
+                                                                    allotid: $scope.allotid,
+                                                                    ondate: $scope.departure,
+                                                                    allotused: $scope.used,
+                                                                    allotbalance : $scope.balance,
+                                                                    allotplus : $scope.plus,
+                                                                    roundid : $scope.roundid,
+                                                                    time : $scope.depetime,
+                                                                    name : $scope.topic_en,
+                                                                    booking : $scope.bookid,
+                                                                    amount : $scope.amount,
+                                                                    idbooking : $scope.bookid2
+
+
+                                                                }),
+                                                                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                                                                }).success(function(res){
+                                                                    if(res.status == "ok"){
+                                                                        location.href="invoice";
+                                                                                   
+                                                                    }
+                                                                });
+                                                        }
+                                                                   
+                                                    });
+                                                
+                                            }
+                                        });
+
+                                    }
+                                });
+                                
+                            }
+                      
+                    }
+                                   
+            });
+
+            }
+
+
+            
+           /**/
+          }
+
+        }
+
+    }
+    $scope.addinfopay = function() {
+      //alert("work!!!")
+      location.href="credit#?register=" + JSON.stringify($scope.register);
+    }
+    $scope.nameselect = function() {
+      console.log($scope.name);
+
+    }
+    var language = $cookies.get('language');
+    if(language==undefined){
+      $cookies.put("language", 1);
+      $scope.flag = 'English';
+      $scope.flagcheck = 1;
+    }
+    else if(language==1){
+            $scope.flag = 'English';
+            $scope.flagcheck = 1;
+        }
+        else if(language==2){
+            $scope.flag = 'Thai';
+            $scope.flagcheck = 2;
+        }
+        else if(language==3){
+            $scope.flag = '中文(简体)';
+            $scope.flagcheck = 3;
+        }
+    $scope.language = function(x){
+
+            $scope.body = { 'display':'none'};
+            $scope.anmateprocessbody = { 'display':'block'};
+            var interval;
+            interval =  $interval(function() {
+
+            if(x==1){          
+                $cookies.remove("language");
+                $cookies.put("language", 1);
+                $scope.flag = 'English';
+                $scope.flagcheck = 1;
+            }
+            else if(x==2){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 2);
+                $scope.flag = 'Thai';
+                $scope.flagcheck = 2;
+              //event_change_month("th");
+            }
+            else if(x==3){
+              
+                $cookies.remove("language");
+                $cookies.put("language", 3);
+                $scope.flag = '中文(简体)';
+                $scope.flagcheck = 3;
+            }
+            $scope.body = { 'display':'block'};
+            $scope.anmateprocessbody = { 'display':'none'};
+            $interval.cancel(interval);
+        },1000 );
+    }
+
+
+
+});
+
+</script>
+</body>
+</html>

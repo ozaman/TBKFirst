@@ -1,0 +1,2443 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transports-page</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/transport.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/editor.css">-->
+    <link href="js/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/menu-res.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/default.date.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/ngDialog.css">
+    <link rel="stylesheet" href="./css/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="./css/ngDialog-theme-flat.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!--  <script src="/assets/editor/v2x0/application-4856922c0fa82feadc452fb3dcc72ba5.js"></script>-->
+    <script src="js/jquery-cookie.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/jquery.modal.min.js" type="text/javascript"></script>
+    <script src="js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+    <script src="js/owl.carousel.js" type="text/javascript"></script>
+    <script src="js/picker.js" type="text/javascript"></script>
+    <script src="js/picker.date.js" type="text/javascript"></script>
+    <script src="js/js-image-slider.js" type="text/javascript"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main-script.js" type="text/javascript"></script>
+    <script src="js/transfer-view_Jquery.js" type="text/javascript"></script>
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/transfer-view.js" type="text/javascript" ></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular-cookies.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/ngDialog.min.js"></script>
+  
+ 
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getItem()">
+    <div id="fountainTextG3-form" ng-style="anmateprocess">
+        <div id="fountainTextG4">
+            <div id="inTurnFadingTextG_1" class="inTurnFadingTextGbook">P</div>
+            <div id="inTurnFadingTextG_2" class="inTurnFadingTextGbook">r</div>
+            <div id="inTurnFadingTextG_3" class="inTurnFadingTextGbook">o</div>
+            <div id="inTurnFadingTextG_4" class="inTurnFadingTextGbook">c</div>
+            <div id="inTurnFadingTextG_5" class="inTurnFadingTextGbook">e</div>
+            <div id="inTurnFadingTextG_6" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_7" class="inTurnFadingTextGbook">s</div>
+            <div id="inTurnFadingTextG_8" class="inTurnFadingTextGbook">.</div>
+            <div id="inTurnFadingTextG_9" class="inTurnFadingTextGbook">.</div>
+        </div>
+    </div> 
+    <div class="contain-fluid" ng-style="body">
+        <header id="menu-web">        
+            <nav class="navbar navbar-default">              
+                <div class="navbar-header">
+                    <div>
+                        <button type="button" class="navbar-toggle " id="focus" ng-click="clickresMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <a class="navbar-brand" ng-click="gohome()">Go Holiday</a>
+                    </div>
+                    <div class="cart-menu" ng-click="cartBook()" id="none-menu">
+                        <img src="icon/cart27.png" id="cartitem" >
+                        <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                    </div>
+                    
+                </div>
+                <div class=" nav navbar-nav dropdown" id="navb-left">                      
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 1" >Browse <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 2" >เรียกดู <span class="caret"></span></p>
+                    <p class="dropdown-toggle" data-toggle="dropdown" ng-if="flagcheck == 3" >瀏覽 <span class="caret"></span></p>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">                          
+                        <li  ng-click="transfer()">
+                            <span ng-if="flagcheck == 1" >Transports</span>
+                            <span ng-if="flagcheck == 2" >การขนส่ง</span>
+                            <span ng-if="flagcheck == 3" >傳輸</span>
+                        </li>
+                        <li  ng-click="gotour()">
+                            <span ng-if="flagcheck == 1">Activities </span>
+                            <span ng-if="flagcheck == 2">กิจกรรม/ทัวร์ </span>
+                            <span ng-if="flagcheck == 3">活動 </span>
+                        </li>
+                        <li  ng-click="gohotel()">
+                            <span ng-if="flagcheck == 1">Hotels</span>
+                            <span ng-if="flagcheck == 2">โรงแรม</span>
+                            <span ng-if="flagcheck == 3">酒店</span>
+                        </li>
+                        <li  ng-click="shopping()" >
+                            <span ng-if="flagcheck == 1">Shopping</span>
+                            <span ng-if="flagcheck == 2">ช้อปปิ้ง</span>
+                            <span ng-if="flagcheck == 3">購物</span>
+                        </li> 
+                        <li  ng-click="restaurant()" >
+                            <span ng-if="flagcheck == 1">Restaurant</span>
+                            <span ng-if="flagcheck == 2">ร้านอาหาร</span>
+                            <span ng-if="flagcheck == 3">餐廳</span>
+                        </li>    
+                    </ul>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="" >
+                            <div class="cart-menu" ng-click="cartBook()" >
+                                <img src="icon/cart27.png" id="cartitem" >
+                                <span class="cast-num">{{cart.length + carttransfer.length}}</span>
+                            </div>
+                        </li>
+                        <li id="login-sucess">
+                            <a  ng-if="loginstatus" data-toggle="modal" data-target="#loginmodal" >
+                                <span ng-if="flagcheck == 1">Login</span>
+                                <span ng-if="flagcheck == 2">เข้าสู่ระบบ</span>
+                                <span ng-if="flagcheck == 3">登錄</span>
+                            </a>
+                            
+                            <div ng-if="!loginstatus"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="li-seting-profile">
+                                <img data-toggle="modal" data-target="" ng-src="{{'/uploads/profile/' + Profile}}" width="35" height="35" id="imgprofile" title="{{loginname}}">
+                             
+                            </div>                            
+                            <ul ng-if="!loginstatus" class="dropdown-menu" id="profile-data-hover"  aria-labelledby="dropdownMenu1" style="">
+                                <i></i>
+                                <div class="masthead-picker-body">
+                                    <div class="masthead-picker-photo-wrapper">                                     
+                                        <img data-toggle="modal" data-target="#uploadprofile"  ng-src="{{'/uploads/profile/' + Profile}}" height="64" width="64" aria-hidden="true" alt="" data-ytimg="1"> 
+                                    </div>
+                                    <div class="masthead-picker-info">
+                                        <div class="masthead-picker-name" dir="ltr">{{userEmail}}</div>
+                                    </div>
+                                </div>
+                                <div class="masthead-picker-footer">
+                                    <button class="btn btn-default btn-xs pull-left" ng-click="profile()">
+                                        <span ng-if="flagcheck == 1">Profile</span>
+                                        <span ng-if="flagcheck == 2">ประวัติส่วนตัว</span>
+                                        <span ng-if="flagcheck == 3">輪廓</span>
+                                    </button>
+                                    <button ng-click="logout()" class="btn btn-default btn-xs pull-right">
+                                        <span ng-if="flagcheck == 1">Logout</span>
+                                        <span ng-if="flagcheck == 2">ออกจากระบบ</span>
+                                        <span ng-if="flagcheck == 3">登出</span>
+                                    </button>
+                                </div>
+                            </ul>
+                        </li>
+                        <li ng-if="loginstatus">
+                            <a  href="/register" ng-if="flagcheck == 1">Sign Up</a>
+                            <a  href="/register" ng-if="flagcheck == 2">สมัครสมาชิก</a>
+                            <a  href="/register" ng-if="flagcheck == 3">註冊</a>
+                        </li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>  
+  
+      <nav class="menu" tabindex="0" ng-mouseleave="remove_submenu()" id="menu">          
+          <div class="smartphone-menu-trigger"> </div>            
+
+          <div class="avatar">
+              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
+              <h2>John D.</h2>
+          </div>
+          <ul>
+              <li tabindex="0" ng-click="transfer()">Transports </li>
+              <li tabindex="0" ng-click="gotour()">Activities </li>
+              <li tabindex="0" ng-click="gohotel()">Hotels</li>
+              <li tabindex="0" ng-click="shopping()" >Shopping</li> 
+              <li tabindex="0" ng-click="restaurant()" >Restaurant</li>
+              <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+          </ul>
+    </nav>
+    <section>
+            <div class="channel-head" style="">
+                <div class="container" >
+                    <channel-breadcrumb parent-channel="currentChannel.parentChannel" channel-title="currentChannel.title" ng-style="">
+                        <div class="bread mt20"> 
+                            
+                              <a href="#" id="color-icon"><i ng-click="gohome()" class="fa fa-home" title="Home"></i></a>
+                            </a>
+                             
+                              <span ng-if="flagcheck == 1">/ View Transports</span>
+                              <span ng-if="flagcheck == 2">/ ดูการขนส่ง</span>
+                              <span ng-if="flagcheck == 3">/ 查看交通服務</span>
+                         </div>
+                    </channel-breadcrumb> 
+                        <h1 class="ellipsis" >
+                            <span ng-if="flagcheck == 1">View Transports</span>
+                            <span ng-if="flagcheck == 2">ดูการขนส่ง</span>
+                            <span ng-if="flagcheck == 3">查看交通服務</span>
+                        </h1> 
+                            <ul></ul> 
+                      </div>
+                 </div>
+        </section>
+        <div class="box-list-cars" ng-style="list">You choose {{listcar}} cars</div>
+        
+        <section>
+            <div class="container" style="padding:0" >
+                <div class="row">
+                    <div class="col-lg-8 " >
+                        <div class="htl_info">
+                            <div ng-repeat="item in itemtransfer">                    
+                                <h1 class="name" >
+                                    <span ng-if="flagcheck == 1">{{item.topic_en}}</span>
+                                    <span ng-if="flagcheck == 2">{{item.topic_th}}</span>
+                                    <span ng-if="flagcheck == 3">{{item.topic_cn}}</span>
+                                </h1>                    
+                                <div class="icon_list"></div>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12" style="padding:0;">
+                                <div id="detail-sec01">
+                                    <div class="big-img">
+                                        <div id="sync1" class="owl-carousel">                                  
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                           
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                            
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="small-img">
+                                        <ul id="sync2" class="owl-carousel">
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                           
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                            
+                                            <div class="item"><img src="images/c1.png" ></div>
+                                            <div class="item"><img src="images/c2.png" ></div>
+                                            <div class="item"><img src="images/c3.png" ></div>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-12 " >
+                                        <div class="box-show-select-view" ng-show="view.length != 0">                                        
+                                            <div class="item-res col-lg-4" ng-repeat="a in view track by $index">
+                                                <div class="product-item-view " ng-click="select_item_view($index ,a)">
+                                                   <div class="item-thumbnail-view" >
+                                                     <img class="img-tiem-view" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/crop/' + a.image_crop +'.jpg'}}" err-src="images/cadillac.png">
+                                                   </div>
+                                                   <p class="item-name-viewss"><span ">{{a.topic_en}}</span></p>
+                                                   
+                                                   <p class="item-info-viewss">
+                                                       <span class="price-view"><span style="color: #FF9800;"><span class="price_info-view">฿</span>{{a.cost_a_agent_all | currency:"":0}}</span >
+                                                            
+                                                       </span>                                                       
+                                                   </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>           
+
+                    <div class="col-lg-4">
+                        <div class="box-rightitem" >
+                            <div class="row">
+                                <div class="col-lg-8" id="box-detail-price" >
+                                    <div ng-repeat="item in itemtransfer">
+                                        <div class="province">
+                                            <p style="">
+                                                <span ng-if="flagcheck == 1">From:</span>
+                                                <span ng-if="flagcheck == 2">จาก:</span>
+                                                <span ng-if="flagcheck == 3">從:</span>&nbsp;&nbsp;
+                                                <span ng-if="flagcheck == 1">{{item.province_name}}</span>
+                                                <span ng-if="flagcheck == 2">{{item.province_name_th}}</span>
+                                                <span ng-if="flagcheck == 3">{{item.province_name_cn}}</span>
+                                                </p>
+                                            <p style="">
+                                                <span ng-if="flagcheck == 1">To:</span>
+                                                <span ng-if="flagcheck == 2">ถึง:</span>
+                                                <span ng-if="flagcheck == 3">至:</span>&nbsp;&nbsp;
+                                                <span ng-if="flagcheck == 1">{{item.province_name_to}}</span>
+                                                <span ng-if="flagcheck == 2">{{item.province_name_to_th}}</span>
+                                                <span ng-if="flagcheck == 3">{{item.province_name_to_cn}}</span>
+                                            </p>
+                                        </div>
+                                        <p style="">
+                                            <span ng-if="flagcheck == 1">Type:</span>
+                                            <span ng-if="flagcheck == 2">ประเภทรถ:</span>
+                                            <span ng-if="flagcheck == 3">車型:</span>&nbsp;&nbsp;
+                                            <span ng-if="flagcheck == 1">{{item.car_topic_en}}</span><span ng-if="flagcheck == 1">{{item.pax}}</span>
+                                            <span ng-if="flagcheck == 2">{{item.car_topic_th}}</span><span ng-if="flagcheck == 2">{{item.pax_th}}</span>
+                                            <span ng-if="flagcheck == 3">{{item.car_topic_cn}}</span>&nbsp;&nbsp;<span ng-if="flagcheck == 3">{{item.pax_cn}}</span>
+                                        </p>
+                                        <p class="prices">
+                                            <span ng-if="flagcheck == 1">Price: </span>
+                                            <span ng-if="flagcheck == 2">ราคา: </span>
+                                            <span ng-if="flagcheck == 3">價格: </span>
+                                            <span style="color: #fb833f;">&nbsp;฿{{item.cost_a_agent_all | currency:"":0}}</span>
+                                        </p>
+                                        <p class="sumprice" ng-show="sumprice_adult_child != 0">
+                                            <span ng-if="flagcheck == 1">Total prices :</span>
+                                            <span ng-if="flagcheck == 2">ราคารวม :</span>
+                                            <span ng-if="flagcheck == 3">總價格 :</span> &nbsp; &nbsp;
+                                            <span id="numsumprice">฿{{sumprice_adult_child | currency:"":0}}</span>
+                                        </p>                
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-lg-12">
+                                <div class="box-list-cars" ng-style="list">You choose 
+                                    <span style="color: red">({{listcar}})</span> cars 
+                                    <span style="color:#000">1- {{person}} person</span>
+                                </div>
+                                <div class="show-time">
+                                    <div class="form-group form-inline" >
+                                        <p id="title-around">
+                                            <span ng-if="flagcheck == 1">Around time : </span>
+                                            <span ng-if="flagcheck == 2">ช่วงเวลา : </span>
+                                            <span ng-if="flagcheck == 3">大約時間 : </span> &nbsp; &nbsp;
+                                        </p>
+                                            <select class="form-control" ng-change="changenum(selectnum)" id="num" ng-model="selectnum" data-ng-options="i  for i in num">
+                                            <option value="">00</option>
+                                                
+                                                
+                                          </select>
+                                          <span>:</span>
+                                          <select class="form-control" ng-change="changenum2(selectnum2)" id="num2" ng-model="selectnum2" data-ng-options="i  for i in num2">
+                                           <option value="">00</option>
+                                                
+                                                
+                                          </select>
+                                        <p id="title-car">
+                                            <span ng-if="flagcheck == 1">Cars: </span>
+                                            <span ng-if="flagcheck == 2">รถกีคัน: </span>
+                                            <span ng-if="flagcheck == 3">多少輛車: </span>
+                                        </p>
+                                      
+                                        <select id="cars" ng-model="cars" ng-change="changevalue(cars.value)" data-ng-options="i as i.value for i in optioncar">
+                                          <option value="">{{listcar}}</option>            
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>    
+                           
+                          <div class="col-lg-12">
+                              <!--<p style="margin-bottom: -6px;">From : </p>-->
+                              <div class="form-group">
+                              <input ng-change="transportsearchFrom()"  class="form-control " id="searchtransportFrom" name="searchtransportFrom"  placeholder="from"  type="text" title="" ng-model="searchtransportFrom">
+                            </div>
+                            <div class="box-planceform" ng-style="planceformStyle">
+                                <ul ng-repeat="plance in transferplace_now | filter:searchtransportFrom">
+                                    <li ng-click="selecthotelFrom(plance)">{{plance.topic}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                              <input ng-change="transportsearchTo()" class="form-control " id="searchtransportTo"  placeholder="to"  type="text" ng-model="searchtransportTo" name="searchtransportTo">
+                            </div>
+                            <div class="box-planceto" ng-style="plancetoStyle">
+                                <ul ng-repeat="plance in transferplace_nowto | filter:searchtransportTo">
+                                    <li ng-click="selecthotelTo(plance)">{{plance.topic}}
+                                    </li>
+                                </ul>
+                            </div>
+                          </div>
+                          
+                              <div class="col-lg-12">
+                                    <div class="form-date">
+                                        <div class="form-title" >
+                                            <span ng-if="flagcheck == 1">date :</span>
+                                            <span ng-if="flagcheck == 2">วันที่ :</span>
+                                            <span ng-if="flagcheck == 3">日期 :</span>
+                                        </div>
+                                              <input class="booking-input" type="text" value="{{nowshow|date:'dd MM yyyy'}}" id="booking-date" ng-model="nowshow " required>
+                                              <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
+                                    </div>
+                                    <div class="form-person">
+                                        <div id="person-transfer">
+                                            <span ng-if="flagcheck == 1">Adult(s):</span>
+                                            <span ng-if="flagcheck == 2">ผู้ใหญ่(s):</span>
+                                            <span ng-if="flagcheck == 3">成人(s):</span>
+                                            <span style="padding:9%"></span>
+                                            <span ng-if="flagcheck == 1">Child(s):</span>
+                                            <span ng-if="flagcheck == 2">เด็ก(s):</span>
+                                            <span ng-if="flagcheck == 3">兒童(s):</span>
+                                        </div>
+                                              <select class="form-control" ng-change="changenumperson(selectnumperson)" id="numperson" ng-model="selectnumperson" data-ng-options="i  for i in numperson">
+                                                    <option value="">0</option>
+                                              </select>
+                                              <span style="padding-left: 3%;">/</span>
+                                              <select class="form-control" ng-change="changenumperson2(selectnumperson2)" id="numperson2" ng-model="selectnumperson2" data-ng-options="i  for i in numperson2">
+                                                    <option value="">0</option>
+                                              </select>
+                                    </div>
+                              </div>
+                              
+                          
+                          <div class="btn_submit col-lg-12">
+                                <div class="btn-book col-lg-5" ng-click="addCart()">
+                                    <span ng-if="flagcheck == 1">Book Now</span>
+                                    <span ng-if="flagcheck == 2">จอง</span>
+                                    <span ng-if="flagcheck == 3">現在預訂</span>
+                                </div>
+                                <div class="btn-costs col-lg-7" ng-click="addCart()">
+                                    <span ng-if="flagcheck == 1">Add to Shopping Cart</span>
+                                    <span ng-if="flagcheck == 2">เพิ่มในรถเข็น</span>
+                                    <span ng-if="flagcheck == 3">加入購物車</span>
+                                </div>
+
+                          </div>             
+                       </div>
+            	      </div>
+                </div>
+
+            </div>
+        </section>
+        <section>
+            <div class="col-lg-12" style="padding:0">
+                <div class="product_nav">                
+                <div class="container">
+                    <ul>
+                        <li class="cur">
+                            <i></i>
+                            <span class="ative-detail" ng-if="flagcheck == 1">Product Overview</span>
+                            <span class="ative-detail" ng-if="flagcheck == 2">รายละเอียดสินค้า</span>
+                            <span class="ative-detail" ng-if="flagcheck == 3">產品概述</span>
+                        </li>
+                      <li class="cur">
+                            <span ng-if="flagcheck == 1">Free</span>
+                            <span ng-if="flagcheck == 2">ฟรี</span>
+                            <span ng-if="flagcheck == 3">自由</span></li>
+                      <li class="cur">
+                            <span ng-if="flagcheck == 1">Play Introduction</span>
+                            <span ng-if="flagcheck == 2">เสนอแนะ</span>
+                            <span ng-if="flagcheck == 3">遊戲簡介</span>
+                      </li>
+                      
+                    </ul>
+                
+                    <div class="btn_orange" style="display:none" ng-click="addCart()">
+                        <span ng-if="flagcheck == 1">Book Now</span>
+                        <span ng-if="flagcheck == 2">จอง</span>
+                        <span ng-if="flagcheck == 3">現在預訂</span></div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" style="padding:0" >
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class=" box-detailss" style="display: none;">
+                            <span class="detail" ng-bind-html="returnhtml(detail_en)" ng-if="flagcheck == 1"></span>
+                            <span class="detail" ng-bind-html="returnhtml(detail_th)" ng-if="flagcheck == 2"></span>
+                            <span class="detail" ng-bind-html="returnhtml(detail_cn)" ng-if="flagcheck == 3"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="box-item-show">
+                            <div class="col-lg-12" ng-repeat="item in front | orderBy:random" id="item-font-section-transfer" ng-click="select_item($index ,item ,tour)">
+                                <div class="product-item-front " >
+                                    <div class="item-thumbnail-front" >
+                                        <img class="img-tiem-front" ng-src="{{'http://www.t-booking.com/pic/gallerydayicon/crop/' + item.image_crop +'.jpg'}}" err-src="images/cadillac.png">
+                                       
+                                    </div>
+                                    <div class="item-type-front">{{item.type}}</div>
+                                    <p class="item-name-front">
+                                        <span ng-if="flagcheck == 1">{{item.topic_en}}</span>
+                                        <span ng-if="flagcheck == 2">{{item.topic_th}}</span>
+                                        <span ng-if="flagcheck == 3">{{item.topic_cn}}</span>
+                                    </p>
+
+                                    <div class="product_r">
+                                        <span class="base_price"></span>
+                                            <span class="sala"><span class="pay_later">THB</span>{{item.cost_a_agent_all | currency:"":0}}</span>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>          
+        </section> 
+        <footer>    
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <ul class="fxw mt10 hidden-xs">
+                            <li>
+                                <div class="btn-group dropup lang-dropdown">
+                                    <div class="dropdown-toggle fxac " data-toggle="dropdown">
+                                          <i class="icon-globe fa fa-globe mr5"></i>
+                                           {{flag}}
+                                          <i class="icon-caret-up fa fa-caret-up user-caret ml5"></i>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li ng-click="language(1)"><img src="/images/en.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="en_US" value="en" >English</a></li>
+                                            <li ng-click="language(2)"><img src="/images/th.png" width="25" height="25"/><a href="" class="locale-link" update-locale="" locale="th_TH" value="th" >Thai</a></li>
+                                            <li ng-click="language(3)"><img src="/images/cn.png" width="22" height="22"/><a href="" class="locale-link" update-locale="" locale="zh_CN" value="cn" >中文(简体)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="gray-text copyright" ng-if="flagcheck == 1">  Copyright © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 2">  ลิขสิทธิ์ © 2016 Go holiday, Inc.</span>
+                                <span class="gray-text copyright" ng-if="flagcheck == 3">  版權 © 2016 Go holiday, Inc.</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1" >Terms</span>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ข้อตกลงและเงื่อนไข</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">條款</span>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">Customer Service</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">บริการลูกค้า</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">客户服务</a>
+                            </li>
+                            <li>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 1">System Support</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 2">ติดต่อ Admin</a>
+                                <a href="/terms/" class="gray-text" ng-if="flagcheck == 3">系统支持</a>
+                            </li>
+                        </ul>
+                        <div class="footer-right">
+                             <span id="time" my-current-time="format"></span>
+                            <ul>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="li-icon-font">
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+</div>
+<script type="text/ng-template" id="firstDialog">
+        <div class="ngdialog-message">
+            <p style="text-align: center;" ng-model="listcar">You choose {{listcar}} cars</p>        
+        </div>      
+    </script> 
+<div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" id="login-modal"> 
+            <button class="close" ng-click="close($event)" data-dismiss="modal" onclick="reset()">×</button>
+                <h2 class="box-heading">
+                    Login to your account!
+                </h2>
+                <div class="modal-body">
+                  <div class="box-left box-col fx"> 
+                    <h4>Login with social accounts</h4>
+                    <div facebook-signup="" action-type="signin" signin-box-class-name="js-signin-box" redirecturl="authfacebook" >
+                        <a ng-click="authenticate('facebook')" class="social-btn facebook-btn js-facebook-btn shadowed-btn fxac">
+                            <i class="icon-facebook social-icon fa fa-facebook"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Facebook
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                    </div>
+
+                    <div google-plus-signup="" action-type="signin" signin-box-class-name="js-signin-box" client-id="700206021005-fntgseouuq3ah1jtko8ejh2vckk8sbn6.apps.googleusercontent.com">
+                        <a href="" class="social-btn google-btn shadowed-btn fxac">
+                            <i class="icon-google-plus social-icon fa fa-google-plus"></i>
+                            <span class="btn-text">
+                                
+                                    Login with Google+
+                                
+                            </span>
+                            <span class="ajax-loader-tiny hidden"></span>
+                        </a>
+                        <form id="google-plus-login-form" method="post" action="/join/social-complete/google-plus/?display_type=popup&amp;locale=en_US&amp;response_type=json&amp;next=https%3A%2F%2Fwww.udemy.com%2F&amp;xref=" class="ng-pristine ng-valid">
+                            <input type="hidden" name="access_token" value="">
+                            <input type="hidden" name="code" value="">
+                        </form>
+                    </div>
+                    <p id="message" style="color: red;"></p>
+                    <div class="box-load">
+                        <div id="inTurnFadingTextG">
+                            <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">P</div>
+                            <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">r</div>
+                            <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">o</div>
+                            <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">c</div>
+                            <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">e</div>
+                            <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">s</div>
+                            <div id="inTurnFadingTextG_8" class="inTurnFadingTextG">.</div>
+                            <div id="inTurnFadingTextG_9" class="inTurnFadingTextG">.</div>
+                        </div>
+                    </div>
+
+            </div> 
+            <div class="box-separator"></div>
+            <div class="box-right box-col fx">
+                <div class="usertracker-command" data-usertracker-type="seen-login-popup">
+                </div>
+                <h4>Login with your email</h4>
+                
+                  <form method="post"> 
+                        <div class="manage-fields-wrapper">
+                            <div id="tooltip-reference-email" class="tooltip-reference ">
+                                <input class="emailinput form-control" data-purpose="email" id="id_email" mailcheck="" maxlength="64" minlength="6" name="email" placeholder="E-mail" required="True" type="email" ng-model="username"  required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                            </div>
+                            <div id="tooltip-reference-password" class="tooltip-reference ">
+                                <input class=" form-control" data-purpose="password" id="id_password" maxlength="64" minlength="3" name="password" placeholder="Password" required="True" type="password" ng-model="password" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"> 
+                            </div>
+                        </div>
+                            <div class="form-actions">
+                                <div class="submit-row">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-primary btn btn-success" id="submit-id-submit" data-purpose="do-login" ng-click="login()"> 
+                                        <span>or </span>
+                                        <a href="" class="cancel-link">Forgot Password</a>
+                                    </div>
+                            </div>
+                    </form>
+            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a  href="/register">create an account</a>
+                            ?</span>
+                        </div>
+                        
+                </div>    
+           
+        </div>
+    </div>
+  <div class="modal fade" id="uploadprofile" role="dialog">
+        <div class="modal-dialog">
+                        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload Profile</h4>
+                </div>
+                <form method="post" action="/addProfile" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="cat" value="Gallery" />
+                        <input type="hidden" value="{{token}}" name="token"/>
+                        <input type="hidden" name="id" value="{{id}}" />
+                        <div class="form-group form-inline">
+                            <input class="img-tourpackage" type="file" name="pic" id="img-tourpackage" required/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">                                    
+                       <button type="submit"  class="btn btn-success btn-xs" >Save</button>
+                       <div type="button" class="btn btn-default btn-xs" data-dismiss="modal" onclick="reset()">Close</div>
+                    </div>
+                </form>
+           </div>
+        </div>
+    </div>
+
+<style>
+body{
+    background-color: #FFF;
+}
+footer {
+    background: #333;
+    padding: 30px 0;
+    margin-top: 150px;
+    bottom: 0;
+    height: 152px;
+    border-bottom: 3px solid #ffcb00;
+    font-size: 13px;
+}
+.box-list-cars{
+    display: none;
+    padding-bottom: 23px;
+    /* background: #fff; */
+    /* top: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+    
+}
+.dropdown-menu li:hover{
+    background-color: #ffcb00;
+}
+.cast-num{
+    background: #FFCA28 !important;
+}
+
+.channel-head{
+    background-color: #ffce00;
+}
+/*.channel-head {
+    color: #000;
+}
+.channel-head .bread i{
+    color: #000;
+}*/
+.box-planceform{
+    overflow-y: scroll;
+    height: 190px;
+    background: #fff;
+    
+    padding: 10px 0;
+    border: 1px solid #3cbbac;
+    border-radius: 2px;
+    display: none;
+}
+.box-planceto{
+    overflow-y: scroll;
+    height: 190px;
+    background: #fff;
+    display: none;
+    padding: 10px 0;
+    border: 1px solid #3cbbac;
+    border-radius: 2px;
+}
+.form-control{
+    border: 1px solid #9E9E9E !important;
+}
+.navbar-default{
+    width: 100% !important;
+}
+#num{
+    border: 1px solid #9E9E9E;
+    padding: 0 5px !important;
+}
+#num2{
+    border: 1px solid #9E9E9E;
+    padding: 0 5px !important;
+}
+#numperson{
+   
+    border: 1px solid #9E9E9E !important;
+    padding: 0 5px !important;
+    width: 43%;
+    /* margin-left: 13%; */
+    margin-top: 11px;
+    display: inline-block;
+}
+
+#numperson2 {
+    border: 1px solid #9E9E9E !important;
+    padding: 0 5px !important;
+    width: 43%;
+    float: right;
+    /* margin-left: 13%; */
+    margin-top: 11px;
+    display: inline-block;
+}
+.item-res{
+  width: 33.3%;
+    display: inline-block;
+    padding: 0 5px;
+    
+}
+.product-item-view {
+    padding: 2px 2px;
+    height: 93px;
+    border: 1px solid #ffcb00;
+    margin-top: 9px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 7px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+.img-tiem-view{
+  width: 60px;
+}
+.item-name-viewss{
+        height: 16px;
+    /* text-align: center !important; */
+    margin-top: 10px;
+    line-height: 16px;
+    text-align: left;
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    padding: 0 5px;
+    /* width: 96%; */
+    /* position: absolute; */
+    margin-left: 34%;
+    margin-top: -38px;
+}
+.item-thumbnail-view{
+      margin-left: 2px;
+    /* margin-right: 4px; */
+    width: 30%;
+    height: 45%;
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    margin-top: 8px;
+}
+.item-type-view{
+  margin-top: 27px;
+    font-size: 12px;
+    margin-left: 3%;
+    background: rgba(0, 188, 212, 0.38);
+    width: 50px;
+    height: 16px;
+    border-radius: 3px;
+    margin-bottom: 0px;
+
+}
+.item-info-viewss{
+  font-size: 15px;
+    margin-top: 37px;
+    margin-left: 75%;
+}
+.btn_orange {
+   margin: 0 auto;
+    text-align: center;
+    border-radius: 3px;
+    /* box-shadow: 0px 2px 0px #17aa1c; */
+    color: #fff;
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
+    border: 1px solid #E68E00;
+    
+    /* background: -webkit-linear-gradient(#ebaf00, #f1a100); */
+    background: -o-linear-gradient(#ebaf00, #f1a100);
+    background: -moz-linear-gradient(#ebaf00, #f1a100);
+    /* background: linear-gradient(#17aa1c, #17aa1c); */
+    cursor: pointer;
+    float: right;
+    font-size: 17px;
+    margin-top: 5px;
+    padding: 4px 21px;
+    margin-right: 7px;
+}
+.btn_orange:hover{
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #FFCA28 0%, #FFEB3B 100%);
+    border: 1px solid #FFCA28;
+    
+}
+.product_nav ul{
+    display: inline-block;
+    margin-bottom: 0;
+}
+#box-detail-price{
+  float :right; 
+}
+#title-car{
+      margin-left: 6%;
+  display:inline-block;
+}
+#title-around{
+  display:inline-block;
+
+}
+#item-font-section-transfer{
+   padding: 0;
+}
+.box-item-show{
+  display: inline-block;
+  
+    width: 100%;
+    /*height: 500px;*/
+    
+    float: right;
+    padding: 0px;
+    margin-top: 10px;
+}
+.product_r {
+    position: absolute;
+    margin-left: 67% !important;
+    width: 123px;
+    margin-top: 55px;
+    overflow: hidden;
+    border: solid 2px #ff9800;
+    border-radius: 60px;
+    color: #fff;
+    height: 35px;
+    font-weight: 600;
+    line-height: 2.4;
+  }
+  .product_r .base_price {
+    color: #f60;
+    display: block;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+.pay_later{
+    position: relative; 
+    width: 45px;
+    height: 44px;
+    color: #fff;
+    float: right;
+    padding: 0 5px;
+    /* z-index: 100000000; */
+    background-color: #FF9800;
+}
+.sala{
+    /*display: block; */
+    color: #FF9800;
+    /* font-size: 20px; */
+    font-weight: 600;
+    /* margin-top: 30px; */
+    padding: 0 19px;
+    /* margin-bottom: 20px; */
+}
+.box-show-select-view{
+  /*border: 1px solid #ddd; */
+    height: 110px;
+    width: 100%;
+    margin-bottom: 20px; 
+    margin-right: 0px;
+    overflow: hidden;
+}
+#cars {
+    float: right; 
+    background: #fff;
+    border: 1px solid #9E9E9E !important;
+    border-radius: 3px;
+    padding: 7px 9px;
+    font-weight: 500;
+}
+input.time {
+    border: 1px solid rgba(29, 177, 159, 0.86) !important;
+    border-radius: 3px;
+    padding: 5px 43px;
+    padding-right: 0;
+    background-color: #FFF;
+}
+.over{
+  display: none;
+     position: relative;
+    margin-left: 41%;
+    color: #ff1f1f;
+    font-size: 23px;
+}
+.prices{
+    margin-top: 15px;
+    /* float: right; */
+    display: block;
+    margin-bottom: 24px;
+    
+    }
+   
+.box-rightitem{
+  position: relative;
+    width: 100%;
+    height: 560px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    margin-top: 82px;
+    background: #FFFDE7;
+    padding-top: 15px;
+}
+.box-label{
+      border: 1px solid #219ea5;
+    width: 100%;
+    display: inline-block;
+    height: 34px;
+    padding: 4px;
+    margin-top: 15px;
+    border-radius: 3px;
+    /* margin-left: 5.5%; */
+    background: #fff;
+    cursor: pointer;
+}
+#item-selest{
+  cursor: pointer !important;
+}
+li#item-selest:hover{
+    background-color: #2196F3 !important;
+    color: #FFF !important; 
+}
+.box-yougoto{
+    border: 3px solid #219ea5;
+    width: 100%;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 220px;
+    margin-top: -13px;
+    padding: 19px 24px;
+    /* margin-left: 5.5%; */
+    overflow-x: hidden;
+    
+}
+.box-yougofrom{
+    border: 3px solid #219ea5;
+    width: 100%;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 220px;
+    margin-top: -13px;
+    padding: 19px 24px;
+    /* margin-left: 5.5%; */
+    overflow-x: hidden;
+    
+}
+#modalevent{
+  display: none;
+}
+ #icondown {
+        color: rgba(29, 177, 159, 0.86);
+    position: absolute;
+    margin-left: 85%;
+    margin-top: -30px;
+    font-size: 22px;
+    z-index: 1;
+}
+}
+#item-selest{
+  cursor: pointer;
+
+}
+
+/** {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/
+.htl_pic_map .htl_pic {
+    float: left;
+    width: 100%;
+    height: 224px;
+    overflow: hidden;
+    background: #ccc;
+}
+#select-option{
+  width: 290px;
+    margin-left: 27px;
+    position: relative;
+}
+#select-option option{
+    width: 290px;
+    margin-left: 27px;
+    position: relative;
+}
+.name{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    margin: 0;
+    font: bold 17px/26px "microsoft yahei",simsun;
+    color: #212121;
+}
+      
+.htl_info{
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    padding: 27px 0;
+    /* background: #eee;*/
+}
+
+
+.booking-form-center{
+    width: 94.5%;
+    height: 83px;
+    margin-left: 3%;
+    margin-right: 2.5%;
+    margin-top: 0px;
+    float: left;
+}
+.form-date {
+    width: 60%;
+    /* height: 90px; */
+    float: left;
+    /* margin-left: 10px; */
+}
+.form-person {
+    width: 40%;
+    /* margin-left: -32px; */
+    height: 31px;
+    float: right;
+    /* margin-right: 10px; */
+}
+.form-title{
+    width: 100%;
+    height: 20px;
+   
+    float: left;
+    clear: both;
+    color: #555;
+    font-size: 14px;
+}
+.form-input{
+    /*width: 100%; */
+    /* height: 60px; */
+    float: left;
+    clear: both;
+    /* margin-left: 50px; */
+}
+.booking-input{
+    width: 85%;
+    border: 1px solid #9E9E9E !important;
+    height: 34px;
+    padding-left: 5px;
+    float: left;
+    /* background: url(../img/icon-calendar.png) no-repeat #fff; */
+    background-position: 92% 5px;
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #616161;
+    cursor: pointer !important;
+
+}
+.form-date i{
+    color: rgb(255, 223, 52);
+}
+.booking-select{
+        /* margin-left: 42px; */
+    width: 85%;
+    border: 1px solid rgba(29, 177, 159, 0.86) !important;
+    height: 34px;
+    padding: 8px;
+    background: #fff;
+    background-position: 95% 5px;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    float: right;
+    /* border: none; */
+    box-shadow: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: #30b8a7;
+}
+
+.booking-select-long{
+    width: 476px;
+    height:50px;
+    padding:10px;
+    padding-right:3px;
+    background:url(../img/icon-select.png) no-repeat #fff;
+    background-position:98% 10px;
+    border: 2px solid #7640f4;
+    color: #7640f4;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    float:left;
+    box-shadow:none;
+    border-radius:3px;
+    margin-top:10px;
+    font-size:20px;
+    text-align:center;
+}
+.booking-select-long-disabled{
+    border: 2px solid grey ;
+    color: grey ;
+    background-color:#DDD ;
+    cursor:not-allowed ;
+    background:none;
+}
+.btn-booking-inner{
+    width: 200px;
+    height: 35px;
+    margin-left: 42.5px;
+    float: left;
+    margin-top: 5px;
+}
+.btn-booking-inner-text{
+    width: 152px;
+    height: 35px;
+    float: left;
+    border-right: solid 1px rgba(82, 57, 23, 0.3);
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 0px 2px 0px rgba(218, 113, 0, 0.6);
+}
+.btn-booking-inner-icon{
+    width: 47px;
+    height: 35px;
+    float: right;
+}
+.btn-booking-fa-icon{
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    color: rgba(40, 29, 14, 0.8);
+}
+.btn-search-text{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 2px;
+    float: left;
+}
+
+.textadult {
+    /*margin-left: -13px;*/
+    margin-top: -2px;
+}
+.text-adult {
+    padding-top: 12px;
+}
+.circle-plus {
+    margin-top: -29px;
+    float: right;
+    height: 34px;
+    width: 26px;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+.circle-minus {
+    margin-top: -29px;
+    float: left;
+    height: 34px;
+    width: 24px;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    /* background: #ffc41f; */
+    cursor: pointer;
+}
+.text-minus {
+    padding-top: 6px;
+    font-size: 140%;
+}
+.circle-pluschild {
+    margin-top: -31px;
+    margin-left: 38px;
+    height: 34px;
+    width: 23px;
+    border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    background: #ffc41f;
+}
+.circle-minuschild {
+        margin-top: -34px;
+    margin-left: -11px;
+    height: 34px;
+    width: 26px;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    background: #ffc41f;
+}
+
+
+#calen {
+        position: absolute;
+    font-size: 20px;
+    top: 36px;
+    float: right;
+    right: 8px;
+    margin-right: 49%;
+    pointer-events: none;
+    color: rgba(29, 177, 159, 0.86);
+}
+#sliderFrame, #sliderFrame div {
+    box-sizing: content-box;
+}
+#sliderFrame 
+{
+    width:700px;
+    margin:0 auto; /*center-aligned*/
+}
+
+#slider, #slider .sliderInner {
+    width:700px;height:306px;/* Must be the same size as the slider images */
+    border-radius:3px;
+}
+
+#slider {
+    background-color:white;
+    position:relative;
+    margin:0 auto; /*center-aligned*/
+    transform: translate3d(0,0,0);
+    box-shadow: 0px 1px 5px #999999;
+}
+
+/* the link style (if an image is wrapped by a link) */
+#slider a.imgLink, #slider .video {
+    z-index:2;
+    cursor:pointer;
+    position:absolute;
+    top:0px;left:0px;border:0;padding:0;margin:0;
+    width:100%;height:100%;
+}
+#slider .video {
+    background:transparent url(video.png) no-repeat 50% 50%;
+}
+
+/* Caption styles */
+#slider .mc-caption {
+    position:absolute;
+    width:100%;
+    height:auto;
+    padding:10px 0;/* 10px will increase the height.*/
+    left:0px;
+    bottom:0px;top:auto;
+    overflow:hidden;
+    font: bold 14px/20px Arial;
+    color:#EEE;
+    text-align:center;
+    background:rgba(0,0,0,0.3);
+}
+#slider .mc-caption a {
+    color:#FB0;
+}
+#slider .mc-caption a:hover {
+    color:#DA0;
+}
+
+
+/* ------ built-in navigation bullets wrapper ------*/
+#slider .navBulletsWrapper  {
+    top:320px;
+    text-align:center;
+    background:none;
+    position:relative;
+    z-index:3;
+}
+
+/* each bullet */
+#slider .navBulletsWrapper div 
+{
+    width:11px; height:11px;
+    font-size:0;color:White;/*hide the index number in the bullet element*/
+    background:transparent url(bullet.png) no-repeat 0 0;
+    display:inline-block; *display:inline; zoom:1;
+    overflow:hidden;cursor:pointer;
+    margin:0 6px;/* set distance between each bullet*/
+}
+
+#slider .navBulletsWrapper .active {background-position:0 -11px;}
+
+
+/* --------- Others ------- */
+
+#slider img, #slider>b, #slider a>b {
+    position:absolute; border:none; display:none;
+}
+
+#slider .sliderInner {
+    overflow:hidden;
+    position:absolute; top:0; left:0;
+}
+
+#slider>a, #slider video, #slider audio {display:none;}
+#slider div {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+
+
+
+#detail-sec01{
+   margin-right: 1px;
+    margin-left: 2%;
+    width: 630px;
+    height: 380px;
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,0.12);
+    float: left;
+}
+
+
+.big-img{
+  width: 100% !important; 
+  height: 380px;
+
+  }
+  .big-img div div img{
+    height: 100%;
+  }
+  .small-img{
+    width: 140px !important;
+    /* margin-left: 65px !important; */
+    /* margin-top: 15px; */
+    display: inline-block !important;
+    
+
+  }
+  #sync1{
+    width: 630px;
+  }
+  #sync1 div img{
+    height: 380px;
+    width: 100% !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+     /* border-radius: 20px; */
+    text-align: center;
+    border-radius: 5px;
+
+  }
+  #sync2 div img{
+    height: 100%;
+  }
+    /* border-radius: 10px; */
+#sync2{
+      height: 380px;
+    overflow: hidden;
+    padding-left: 5px;
+
+}
+#sync2 li{
+  margin-bottom: 9px;
+
+}
+
+  
+  .owl-carousel{
+    display: inline-block;
+  }
+  .item{
+
+  }
+  #sync1 .item{
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;   
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center85
+}
+#sync2 .item {
+    /*background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;*/
+    
+    
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 3px;
+    
+}
+#sync2 .item img{  
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+
+}
+#syc1 .item img{
+  width: 100%;
+  height: 100%;
+}
+#syc2 .item{
+  width: 152px;
+}
+
+#sync2 .synced .item{
+   /*background: #0c83e7; */
+}
+.bt-left{
+  width:65px;
+  height:11.1%;
+  float:left;
+  background:url(../icon/arrow-left.png) no-repeat center #8164ff;
+  display: inline-block;
+  position: absolute;
+  color: #8164FF !important;
+      cursor: pointer;
+}
+.bt-left:hover{
+  background:url(../icon/btn-left.png) no-repeat center #34A5FF;
+}
+.bt-right{
+  width:65px;
+  height:11.1%;
+  float:right;
+  background:url(../icon/arrow-right.png) no-repeat center #8164ff;
+  display: inline-block !important;
+  position: absolute;
+  color: #8164FF !important;
+      cursor: pointer;
+    /*margin-top: -104px;*/
+    /* float: left; */
+    /*margin-left: 1000px;*/
+}
+.bt-right:hover{
+  background:url(../icon/btn-right.png) no-repeat center #34A5FF;
+}
+.bt-left img{
+  height: 101px !important;
+}
+.bt-right img{
+  height: 101px !important;
+
+}
+.owl-prev{
+  display: inline-block !important;
+  position: absolute !important;
+  width:65px !important;
+  
+  margin-top: -102px !important;
+  margin-left: -65px;
+  float: left;
+  padding: 38px 0  38px !important;
+  
+  
+
+}
+.owl-next{
+   display: inline-block !important;
+  position: absolute !important;
+  width:65px !important;
+  
+  margin-top: -102px !important;
+  margin-left: 935px;
+  padding: 38px 0 38px !important;
+  z-index: 100000 !important;
+}
+
+
+/* ----------------------SLIDE-------------------------- */
+#slider {
+  width:100%;
+  height: 90%;
+  float:left;
+  clear:both;
+  margin: 0 !important;
+}
+#slider {
+  margin: 0 !important;
+}
+
+#slider ul, #slider ul li, .big-photo {
+  width: 100%;
+  height: 100%;
+}
+.big-photo{
+  /*background:url(../img/photo/iStock_000063646293_XXXLarge.jpg) no-repeat center;*/
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.thumbnail-photo{
+  width:100%;
+  height:10%;
+  float:left;
+  clear:both;
+  overflow: hidden;
+}
+
+#carousel {
+  width:88% !important;
+  height:100% !important;
+  float:left;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#carousel ul{
+  width:100%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+
+#carousel ul li {
+    width:156.5px;
+    float:left;
+    list-style-type:none;
+}
+
+.list-thumbnail{
+  width:100%;
+  height:92px;
+  /*background-image:url(../img/photo/iStock_000063646293_XXXLarge.jpg);*/
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+  #time-select{
+              width: 90px;
+              display: inline-block;
+              margin-left: 70px;
+              position: relative;
+              margin-top: 368px;
+            }
+.text-time{
+     width: 150px;
+    display: inline-block;
+    margin-left: 15px;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.show-time {
+    width: 100%;
+    position: relative;
+}
+
+.all-time{
+  margin: 0;
+  background: #5ea0f4;
+    width: 69px;
+    padding: 1px 14px;
+    color: #fff;
+    border-radius: 3px;
+    margin-bottom: 4px;
+        cursor: pointer;
+        border: 1px solid #5ea0f4;
+        margin-right: 6px;
+}
+.all-time:hover{
+  background: #FFF;
+  color: #333;
+
+
+}
+.keyword-box-content{
+      position: relative;
+    width: 100px;
+    /* margin-top: 244px; */
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.btn_submit {
+  /* padding-left: 21px; */
+    /* float: right; */
+    /* width: 100%; */
+    /* margin-left: 5.5%; */
+    margin-top: 30px;
+    /* margin-bottom: 9px; */
+}
+.btn-book {
+      font-weight: 200;
+    width: 35%;
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #e58c00 0%, #ffb300 100%);
+    border: 1px solid #E68E00;
+    
+    color: #fff;
+    /* width: 117px; */
+    text-align: center;
+    /* height: 35px; */
+    
+    position: relative;
+    /* margin-left: 83.5%; */
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+
+    float: left;
+    font-size: 15px;
+    
+    padding: 6px 21px;
+}
+.btn-book:hover{
+     
+    background-image: -webkit-linear-gradient(91deg, #e58c00 0%, #ffb300 100%);
+    background-image: linear-gradient(-1deg, #FFCA28 0%, #FFEB3B 100%);
+    border: 1px solid #FFCA28;
+    /* box-shadow: 0px 2px 0px #17aa1c; */
+    
+}
+.btn-costs {
+    width: 60%;
+    border: 1px solid #ffdc32;
+    background: #fff;
+    border-radius: 3px;
+    padding: 6px 26px;
+    /* color: #17aa1c; */
+    font-size: 15px;
+    text-align: center;
+    outline: 0;
+    cursor: pointer;
+    float: right;
+}
+.sumprice{
+    position: relative !important;
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    
+    /* border: 1px dashed #45c3da; */
+    display: inline-block;
+    padding: 12px 0;
+    border-radius: 3px;
+    
+}
+#numsumprice{
+    color: #fb833f;
+    font-weight: 600;
+}
+.product_nav {
+    background: #757575; */
+    width: 100%;
+    /* border-top: 1px solid #e7e7e7; */
+    /* border-bottom: 1px solid #e7e7e7; */
+    /* box-shadow: 0 2px 2px #eee; */
+    color: #333;
+    /* height: 70px; */
+    background-color: #FFF6CC;
+    /* float: left; */
+}
+.product_nav .cur span{
+    line-height: 2;
+    padding: 10px 0;
+   /* border-bottom: 4px solid #ffce00; */
+}
+.product_nav .cur i{
+    position: absolute;
+    left: 16%;
+    /* margin-left: -8px; */
+    top: 35px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    /* line-height: 0; */
+    font-size: 0;
+    vertical-align: middle;
+    border-bottom: 8px solid #ffce00;
+    border-top: 0 none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+.ative-detail{
+    color: #ff9800;
+}
+.cur span {
+    line-height: 2;
+    padding: 10px 0;
+}
+.fl {
+    float: left;
+}
+ /*.product_nav ul li.cur, .product_nav ul li:hover {
+    color: #1295fe;
+}*/
+.product_nav ul li{
+   float: left;
+    /* width: 135px; */
+    border-right: 1px solid #e7e7e7;
+    /* text-align: center; */
+    /* height: 20px; */
+    padding: 0 21px;
+    margin-top: 5px;
+    /* padding-top: 6px; */
+    font-size: 15px;
+    cursor: pointer;
+    /* margin-top: 15px; */
+}
+li{
+    list-style: none;
+}
+.product_nav ul li:first-child{
+    padding-left:0px; 
+
+}
+.box-detailss{
+    display: none;
+      border-bottom: solid 1px #ccc;
+    position: relative;
+    border-right: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    padding: 25px 40px;
+    height: auto;
+    width: 100%;
+    /* margin-left: 65px; */
+    margin-top: 0px;
+    display: inline-block;
+    /* background-color: #f5f5f5; */
+}
+
+
+/*-----------------------*/
+.product-item-front:first-child {
+    margin-bottom: 10px;
+}
+.product-item-front {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+.product-item-front {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    float: left;
+    overflow: hidden;
+    transition: all .2s linear;
+    margin-bottom: 20px;
+    margin: 0;
+    /*border: 1px solid #e5e5e5;*/
+    top: 7px;
+    cursor: pointer;
+}
+.item-thumbnail-front{
+        position: relative;
+    display: inline-block;
+    float: left;
+    width: 200px;
+    height: 130px;
+    padding: 1%;
+    margin-bottom: 3px;
+    margin-left: 2%;
+    margin-top: 2%;
+    overflow: hidden;
+    /*background-color: #ddd;*/
+    cursor: pointer;
+    border-radius: 5px;
+}
+.item-thumbnail-front img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.item-name-front {
+  height: 16px;
+  text-align: center !important;
+  margin-top: 10px;
+  line-height: 16px;
+  text-align: left;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  padding: 0 5px;
+}
+.item-info-front {
+  position: relative;
+    height: 35px;
+    width: 145px;
+    text-align: center;
+    padding-left: 0;
+    float: right;
+    margin-top: 37px;
+    margin-right: -6px;
+}
+.price-front {
+    position: relative;
+
+    color: #0bb308;
+}
+.item-type-front {
+    position: absolute ;
+    display: block;
+    font-size: 11px;
+    padding: 1px 10px;
+    /* float: right; */
+    width: 80px;
+    background: rgba(0,0,0,.5);
+    color: #FFF;
+    margin-top: 15px;
+    margin-left: 3%;
+    z-index: 1;
+}
+.add-cart-front{
+      line-height: 0;
+    height: 30px;
+    border: 1px solid #31708f;
+    background: #31708f;
+    border-radius: 3px;
+    padding: 1px 33px;
+    color: #f5f5f5;
+    font-size: 15px;
+    /* text-align: center; */
+    /* outline: 0; */
+    cursor: pointer;
+    /* float: right; */
+    /* margin-right: -128px; */
+    margin-top: 77px;
+    width: 100px;
+    margin-left: 73%;
+}
+#person-transfer{
+      /*margin-left: 16%;*/
+    /* margin-right: -42px; */
+    display: block;
+    font-size: 13px;
+}
+#item-selest{
+  display: block;
+}
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+
+.product_nav{
+  display: none;
+}
+.small-img{
+    display: none !important;
+
+  }
+.box-detailss{
+  display: none;
+}
+ #sync1 {
+    width: 223px;
+    height: 170px;
+}
+#detail-sec01{
+    width: 223px;
+    height: 170px;
+    margin-right: 0 ;
+    margin-left: 25px ;
+}
+#sync1 div img {
+  width: 100% ;
+      height: 170px;
+}
+.big-img{
+  height: 170px;
+}
+#sync2 .item img {
+    width: 60px;
+  
+
+}
+#sync2 li {
+    margin-bottom: 3px;
+    width: 85px;
+}
+.small-img{
+  width: 100px !important;
+
+}
+#sync2{
+      height: 170px;
+      padding-left: 0px;
+}
+#sync1 .item {
+    width: 223px;
+}
+
+.add-cart-front{
+  line-height: 23px !important;
+  margin-left: 71%;
+}
+.box-rightitem{
+    margin-top: 0px;
+}
+
+  .item-thumbnail-front{
+        width: 100px;
+    height: 63px;
+  }
+  .item-info-front {
+    position: relative;
+    float: left;
+    /* text-align: center; */
+    /* padding-left: 0; */
+    /* float: right; */
+    margin-top: 65px;
+}
+.product_r{
+  margin-left: 47% !important;
+
+}
+.btn_submit{
+  margin-left: 0px;
+}
+.btn-costs{
+    width: 100%;
+    /* height: 30px; */
+    border: 1px solid #ffcb00;
+    background: #fff3e0;
+    border-radius: 3px;
+    padding: 6px 0;
+    color: #fe9f00;
+    font-size: 15px;
+    text-align: center;
+    outline: 0;
+    cursor: pointer;
+    float: left;
+
+}
+.btn-book{
+  width: 100%;
+  padding: 6px 0;
+    margin-bottom: 20px;
+}
+.box-item-show {
+    padding: 0 10px;
+}
+input.time {
+    border: 1px solid rgba(29, 177, 159, 0.86) !important;
+    border-radius: 3px;
+    padding: 5px 13px;
+    padding-right: 0;
+    width: 33%;
+}
+#title-car{
+  margin-left: 0px;
+}
+#icondown{
+  margin-left: 83%;
+}
+.item-type-front{
+    margin-top: 47px;
+    margin-left: 9px;
+    border-radius: 3px;
+}
+#sync1{
+  width: 300px;
+}
+#sync1 .item {
+    width: 300px ;
+}
+#sync1 div img {
+  width: 100% ;
+     
+}
+.box-show-select-view {
+    /* border: 1px solid #ddd; */
+    height: 165px !important;
+    margin-bottom: 0px !important;
+
+}
+.product-item-view {
+   
+    height: 130px !important;
+}
+.img-tiem-view {
+    width: 88px ;
+    margin-top: -6px ;
+}
+.item-name-view {
+    margin-left: -7% ;
+    margin-top: 3px ;
+    font-size: 11px ;
+    white-space: normal ;
+}
+.item-type-view {
+    position: absolute ;
+    margin-top: -86px ;
+    font-size: 11px ;
+    margin-left: 3% ;
+    color: #fff ;
+}
+.item-info-view {
+    font-size: 11px;
+    /* margin-top: 13px; */
+    margin-left: 2%;
+}
+}
+
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) 
+and (orientation : portrait) { 
+  .product_nav{
+  display: none;
+}
+.box-detailss{
+  display: none;
+}
+    #sync1 {
+    width:342px !important;
+}
+ #sync1 .item{
+  width: 345px !important;
+ }
+#detail-sec01{
+    width: 255px !important;
+    height: 192px;
+    margin-right: 0 !important;
+    margin-left: 25px !important;
+}
+#sync1 div img {
+  width: 100% !important;
+      height: 192px;
+}
+.big-img{
+  height: 192px !important;
+}
+#sync2 .item img {
+   width: 61px !important;
+  
+
+}
+#sync2 li {
+    margin-bottom: 3px;
+    width: 85px;
+}
+.small-img{
+  width: 100px !important;
+
+}
+#sync2{
+      margin-left: 6% !important;
+      height: 196px;
+}
+#sync1 .item {
+    width: 257px ;
+}
+
+.add-cart-front{
+  line-height: 23px !important;
+  margin-left: 71%;
+}
+.box-rightitem{
+    margin-top: 0px;
+}
+
+  .item-thumbnail-front{
+        width: 100px;
+    height: 80px !important;
+  }
+  .item-info-front {
+    position: relative;
+    float: left;
+    /* text-align: center; */
+    /* padding-left: 0; */
+    /* float: right; */
+    margin-top: 65px;
+}
+.product_r{
+  margin-left: 47% !important;
+
+}
+
+.box-item-show{
+  padding: 0 10px;
+}
+.item-type-front{
+      margin-top: 65px !important;
+    margin-left: 11px !important;
+    border-radius: 3px !important;
+}
+#sync1 .item {
+    width: 300px ;
+}
+#sync1 div img {
+  width: 100% ;
+     
+}
+.box-show-select-view {
+    /* border: 1px solid #ddd; */
+    height: 165px !important;
+    margin-bottom: 0px !important;
+
+}
+.product-item-view {
+   
+    height: 130px !important;
+}
+.img-tiem-view {
+    width: 88px ;
+    margin-top: -6px ;
+}
+.item-name-view {
+    margin-left: -7% ;
+    margin-top: 3px ;
+    font-size: 11px ;
+    white-space: normal ;
+}
+.item-type-view {
+    position: absolute ;
+    margin-top: -86px ;
+    font-size: 11px ;
+    margin-left: 3% ;
+    color: #fff ;
+}
+.item-info-view {
+    font-size: 11px;
+    /* margin-top: 13px; */
+    margin-left: 2%;
+}
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+.product_nav{
+  display: none;
+}
+.small-img{
+    display: none !important;
+
+  }
+.box-detailss{
+  display: none;
+}
+    #sync1 {
+    width: 355px !important;
+}
+#detail-sec01{
+    width: 272px;
+    height: 192px;
+    margin-right: 0 !important;
+    margin-left: 25px !important;
+}
+#sync1 .item {
+    width: 355px !important;
+}
+#sync1 div img {
+  width: 100% !important;
+      height: 192px;
+}
+.big-img{
+  height: 150px;
+}
+#sync2 .item img {
+    width: 70px;
+  
+
+}
+#sync2 li {
+    margin-bottom: 3px;
+    width: 85px;
+}
+.small-img{
+  width: 100px !important;
+
+}
+#sync2{
+      height: 196px;
+}
+
+
+.add-cart-front{
+  line-height: 23px !important;
+  margin-left: 71%;
+}
+.box-rightitem{
+    margin-top: 0px;
+}
+
+  .item-thumbnail-front{
+        width: 100px !important;
+    height: 80px !important;
+  }
+  .item-info-front {
+    position: relative;
+    float: left;
+    /* text-align: center; */
+    /* padding-left: 0; */
+    /* float: right; */
+    margin-top: 65px;
+}
+.product_r{
+  margin-left: 47% !important;
+
+}
+
+.box-item-show{
+  padding: 0 10px;
+}
+.item-type-front{
+      margin-top: 65px !important;
+    margin-left: 11px !important;
+    border-radius: 3px !important;
+}
+.box-show-select-view {
+    /* border: 1px solid #ddd; */
+    height: 165px !important;
+    margin-bottom: 0px !important;
+
+}
+.product-item-view {
+   
+    height: 130px !important;
+}
+.img-tiem-view {
+    width: 104px !important;
+    margin-top: -6px !important;
+}
+.item-name-view {
+    margin-left: -7% !important;
+    margin-top: 3px !important;
+    font-size: 11px !important;
+    white-space: normal !important;
+}
+.item-type-view {
+    position: absolute !important;
+    margin-top: -86px !important;
+    font-size: 11px !important;
+    margin-left: 3% !important;
+    color: #fff !important;
+}
+.item-info-view {
+    font-size: 11px;
+    /* margin-top: 13px; */
+    margin-left: 2%;
+}
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) and (orientation : portrait) {
+
+      #sync1 {
+    width: 574px;
+}
+#detail-sec01{
+    width: 575px;
+    height: 366px;
+    margin-right: 0 !important;
+    margin-left: 25px !important;
+}
+#sync1 div img {
+  width: 100% !important;
+      height: 366px;
+}
+.big-img{
+  height: 150px;
+}
+#sync2 .item img {
+        width: 130px;
+    margin-bottom: 5px;
+  
+
+}
+#sync2 li {
+    margin-bottom: 3px;
+    width: 85px;
+}
+.small-img{
+  width: 100px !important;
+
+}
+#sync2{
+      width: 152px;
+    height: 366px;
+    margin-left: 11px;
+}
+#sync1 .item {
+    width: 575px;
+}
+
+.add-cart-front{
+  line-height: 23px ;
+  margin-left: 71%;
+}
+.box-rightitem{
+    margin-top: 0px;
+}
+
+  .item-thumbnail-front{
+      width: 200px;
+    height: 140px;
+  }
+  .item-info-front {
+    position: relative;
+    float: left;
+    /* text-align: center; */
+    /* padding-left: 0; */
+    /* float: right; */
+    margin-top: 65px;
+}
+.product_r{
+  margin-left: 70% ;
+
+}
+
+.box-item-show{
+  padding: 0 10px;
+}
+.item-type-front{
+        margin-top: 128px;
+    margin-left: 22px;
+    border-radius: 3px;
+}
+.product-item-front{
+  height: 175px;
+}
+.btn_submit{
+      margin-top: 95px;
+}
+#title-car{
+  margin-left: 5%;
+}
+.box-label{
+  width: 50%;
+}
+.form-date{
+  width: 30%;
+}
+.form-person{
+  width: 18%;
+  margin-right: 50%;
+}
+.btn-book{
+  width: 18%;
+}
+.btn-costs {
+    width: 30%;
+    margin-right: 50%;
+}
+#box-detail-price{
+  margin-right: 10%;
+}
+.box-info{
+  margin-top: 62px;
+}
+
+}
+
+    </style>
+
+</html>
